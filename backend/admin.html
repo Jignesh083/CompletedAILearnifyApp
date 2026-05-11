@@ -1,0 +1,335 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Dashboard</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.socket.io/4.5.4/socket.io.min.js"></script>
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #0f172a, #1e293b);
+  color: white;
+}
+
+/* MAIN CONTAINER */
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+/* HEADER */
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+/* SECTION */
+.section {
+  margin-top: 30px;
+}
+
+/* STATS GRID */
+#stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+/* GRID */
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* CARD */
+.card {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  border-radius: 16px;
+  padding: 20px;
+  transition: 0.3s;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+/* FULL WIDTH CARD */
+.full {
+  grid-column: 1 / -1;
+}
+
+/* UPLOAD BOX */
+.upload-box {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(12px);
+  padding: 20px;
+  border-radius: 16px;
+}
+
+/* INPUT */
+input {
+  padding: 10px;
+  margin-top: 10px;
+  width: 100%;
+  border-radius: 8px;
+  border: none;
+  outline: none;
+}
+
+/* BUTTON */
+button {
+  padding: 12px;
+  width: 100%;
+  margin-top: 15px;
+  border-radius: 10px;
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  background: linear-gradient(45deg, #6366f1, #8b5cf6);
+  color: white;
+  transition: 0.3s;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+/* TABLE */
+table {
+  width: 100%;
+  margin-top: 10px;
+  border-collapse: collapse;
+  background: rgba(255,255,255,0.05);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+td, th {
+  padding: 12px;
+  text-align: center;
+}
+
+tr:hover {
+  background: rgba(255,255,255,0.08);
+}
+
+/* TOPICS */
+#topics p {
+  background: rgba(255,255,255,0.05);
+  padding: 10px;
+  border-radius: 8px;
+  margin: 5px 0;
+  transition: 0.3s;
+}
+
+#topics p:hover {
+  transform: translateX(5px);
+}
+
+/* CANVAS */
+canvas {
+  width: 100% !important;
+  max-height: 300px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🚀 Admin Dashboard</h1>
+
+<!-- STATS -->
+<div id="stats" class="section"></div>
+
+<!-- UPLOAD -->
+<div class="upload-box section">
+  <h2>📤 Upload Quiz</h2>
+
+  <input type="text" id="subjectName" placeholder="Enter Subject (e.g. DSA)"/>
+  <input type="text" id="topicName" placeholder="Enter Topic (e.g. Recursion)"/>
+  <input type="text" id="bundleKey" placeholder="Enter bundle_key"/>
+
+  <input type="file" id="fileInput" accept=".docx"/>
+
+  <button onclick="uploadFile()">Upload Quiz</button>
+
+  <p id="uploadStatus"></p>
+</div>
+
+<!-- GRID SECTION -->
+<div class="grid section">
+
+  <!-- GRAPH -->
+  <div class="card full">
+    <h2>Daily Active Users</h2>
+    <canvas id="usersChart"></canvas>
+  </div>
+
+  <!-- LEADERBOARD -->
+  <div class="card">
+    <h2>Leaderboard</h2>
+    <div id="leaderboard"></div>
+  </div>
+
+  <!-- TOPICS -->
+  <div class="card">
+    <h2>Weak Topics</h2>
+    <div id="topics"></div>
+  </div>
+
+</div>
+
+</div>
+
+<script>
+
+const BASE="https://ailearnify-i9qy.onrender.com";
+
+/* ===== UPLOAD ===== */
+async function uploadFile(){
+
+  const file = document.getElementById("fileInput").files[0];
+  const bundleKey = document.getElementById("bundleKey").value;
+  const subjectName = document.getElementById("subjectName").value;
+  const topicName = document.getElementById("topicName").value;
+
+  if(!file || !subjectName || !topicName){
+    alert("All fields required");
+    return;
+  }
+
+  document.getElementById("uploadStatus").innerHTML="Uploading... ⏳";
+
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("bundleKey", bundleKey);
+  formData.append("subjectName", subjectName);
+  formData.append("topicName", topicName);
+
+  try{
+    const res = await fetch(BASE + "/admin/upload-quiz",{
+      method:"POST",
+      body: formData
+    });
+
+    const data = await res.json();
+    document.getElementById("uploadStatus").innerText=data.message;
+
+  }catch(e){
+    document.getElementById("uploadStatus").innerText="Upload failed ❌";
+  }
+}
+  if(!file){
+    alert("Please select a file");
+    return;
+  }
+
+  document.getElementById("uploadStatus").innerHTML="Uploading... ⏳";
+
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("bundleKey", bundleKey);
+
+  try{
+    const res = await fetch(BASE + "/admin/upload-quiz",{
+      method:"POST",
+      body: formData
+    });
+
+    const data = await res.json();
+    document.getElementById("uploadStatus").innerText=data.message;
+
+  }catch(e){
+    document.getElementById("uploadStatus").innerText="Upload failed ❌";
+  }
+}
+
+/* ===== STATS ===== */
+async function loadStats(){
+
+ const res=await fetch(BASE+"/admin/stats");
+ const d=await res.json();
+
+ document.getElementById("stats").innerHTML=`
+   <div class="card">Users<br><b>${d.total_users}</b></div>
+   <div class="card">Attempts<br><b>${d.total_attempts}</b></div>
+   <div class="card">Avg Score<br><b>${d.avg_score}</b></div>
+ `;
+}
+loadStats();
+
+/* ===== GRAPH ===== */
+async function loadGraph(){
+
+ const res=await fetch(BASE+"/admin/daily-users");
+ const data=await res.json();
+
+ const labels=data.map(x=>x.day);
+ const values=data.map(x=>x.users);
+
+ new Chart(document.getElementById("usersChart"),{
+   type:"line",
+   data:{
+     labels:labels,
+     datasets:[{
+       label:"Active Users",
+       data:values,
+       borderColor:"#6366f1"
+     }]
+   },
+   options:{
+     animation:{ duration: 1500 }
+   }
+ });
+}
+loadGraph();
+
+/* ===== TOPICS ===== */
+async function loadTopics(){
+
+ const res=await fetch(BASE+"/admin/topic-accuracy");
+ const data=await res.json();
+
+ let html="";
+ data.forEach(t=>{
+   html += `<p>${t.topic_key} → ${t.accuracy}%</p>`;
+ });
+
+ document.getElementById("topics").innerHTML=html;
+}
+loadTopics();
+
+/* ===== SOCKET ===== */
+const socket = io(BASE);
+
+socket.on("leaderboard",(data)=>{
+
+ let html="<table><tr><th>Rank</th><th>Name</th><th>Score</th></tr>";
+
+ data.forEach((u,i)=>{
+   html += `<tr>
+     <td>${i+1}</td>
+     <td>${u.name}</td>
+     <td>${u.score}</td>
+   </tr>`;
+ });
+
+ html+="</table>";
+
+ document.getElementById("leaderboard").innerHTML=html;
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,1 @@
+export const API = "https://ailearnify-i9qy.onrender.com";

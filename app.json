@@ -1,0 +1,44 @@
+{
+  "expo": {
+    "name": "AI Learnify",
+    "slug": "ailearnify",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/AppIcon.png",
+    "scheme": "ai-learnify",
+    "userInterfaceStyle": "automatic",
+    "jsEngine": "hermes",
+    "newArchEnabled": true,
+    "ios": {
+      "supportsTablet": true
+    },
+    "android": {
+      "package": "com.aicoresystem.ailearnify",
+      "versionCode": 33,
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/AppIcon.png",
+        "backgroundColor": "#ffffff"
+      }
+    },
+    "plugins": [
+      "expo-router",
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/AppIcon.png",
+          "imageWidth": 200,
+          "resizeMode": "contain",
+          "backgroundColor": "#ffffff"
+        }
+      ],
+      "expo-video"
+    ],
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "daf4c9cd-71cd-419a-8b90-f564c6426d28"
+      }
+    },
+    "owner": "aicoresystem"
+  }
+}
