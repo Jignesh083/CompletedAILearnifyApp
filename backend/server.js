@@ -561,6 +561,14 @@ app.post("/admin/upload-quiz", upload.single("file"), async (req, res) => {
 });
 
 
+app.get("/ping", (req, res) => {
+  res.status(200).json({
+    success: true,
+    message: "Server Active",
+    time: new Date(),
+  });
+});
+
 app.use((err, req, res, next) => {
   console.error("GLOBAL ERROR:", err);
 

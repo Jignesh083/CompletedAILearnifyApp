@@ -229,30 +229,6 @@ async function uploadFile(){
     document.getElementById("uploadStatus").innerText="Upload failed ❌";
   }
 }
-  if(!file){
-    alert("Please select a file");
-    return;
-  }
-
-  document.getElementById("uploadStatus").innerHTML="Uploading... ⏳";
-
-  const formData = new FormData();
-  formData.append("file", file);
-  formData.append("bundleKey", bundleKey);
-
-  try{
-    const res = await fetch(BASE + "/admin/upload-quiz",{
-      method:"POST",
-      body: formData
-    });
-
-    const data = await res.json();
-    document.getElementById("uploadStatus").innerText=data.message;
-
-  }catch(e){
-    document.getElementById("uploadStatus").innerText="Upload failed ❌";
-  }
-}
 
 /* ===== STATS ===== */
 async function loadStats(){
