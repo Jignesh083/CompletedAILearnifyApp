@@ -13,7 +13,7 @@ import {
 import { getQuizByTopic } from '../../services/questionRepository';
 
 // 🔥 CHANGE AFTER DEPLOY
-const API = "https://ailearnify-i9qy.onrender.com";
+const API = "https://ailearnifyapp.onrender.com";
 
 /* ================= SHUFFLE ================= */
 

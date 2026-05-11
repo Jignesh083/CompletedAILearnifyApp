@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { ActivityIndicator, FlatList, StyleSheet, Text, View } from "react-native";
 
 // 🔥 CHANGE AFTER DEPLOY
-const API = "https://ailearnify-i9qy.onrender.com";
+const API = "https://ailearnifyapp.onrender.com";
 // ✅ TYPE DEFINE
 type LeaderboardItem = {
   user_id: number;

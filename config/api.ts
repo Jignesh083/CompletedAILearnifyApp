@@ -1,1 +1,1 @@
-export const API = "https://ailearnify-i9qy.onrender.com";
+export const API = "https://ailearnifyapp.onrender.com";
