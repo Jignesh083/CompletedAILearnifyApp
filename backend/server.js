@@ -433,7 +433,7 @@ app.post("/payment/verify", async (req, res) => {
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
+server.listen(PORT, () => {
   console.log("Server running on port " + PORT);
 });
 
@@ -515,7 +515,7 @@ app.post("/admin/upload-quiz", upload.single("file"), async (req, res) => {
 
       const topicKey = generateTopicKey(t.topicName);
 
-      let topic = await db.query(
+      let topic = await pool.query(
         "SELECT id FROM topics WHERE topic_key = $1",
         [topicKey]
       );
@@ -523,7 +523,7 @@ app.post("/admin/upload-quiz", upload.single("file"), async (req, res) => {
       let topicId;
 
       if (!topic.rows.length) {
-        const newTopic = await db.query(
+        const newTopic = await pool.query(
           "INSERT INTO topics (topic_key, bundle_key) VALUES ($1,$2) RETURNING id",
           [topicKey, bundleKey]
         );
@@ -536,7 +536,7 @@ app.post("/admin/upload-quiz", upload.single("file"), async (req, res) => {
 
       for (const q of questions) {
 
-        const qRes = await db.query(
+        const qRes = await pool.query(
           "INSERT INTO questions (question, topic_id) VALUES ($1,$2) RETURNING id",
           [q.question, topicId]
         );
@@ -544,7 +544,7 @@ app.post("/admin/upload-quiz", upload.single("file"), async (req, res) => {
         const qId = qRes.rows[0].id;
 
         for (const opt of q.options) {
-          await db.query(
+          await pool.query(
             "INSERT INTO options (question_id, option_text, is_correct, explanation) VALUES ($1,$2,$3,$4)",
             [qId, opt.text, opt.isCorrect, q.explanation]
           );
