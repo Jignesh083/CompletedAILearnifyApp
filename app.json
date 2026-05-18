@@ -2,7 +2,7 @@
   "expo": {
     "name": "AI Learnify",
     "slug": "ailearnify",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "orientation": "portrait",
     "icon": "./assets/AppIcon.png",
     "scheme": "ai-learnify",
@@ -13,8 +13,8 @@
       "supportsTablet": true
     },
     "android": {
-      "package": "com.aicoresystem.ailearnify",
-      "versionCode": 33,
+      "package": "com.jignesh83.aicoresystem",
+      "versionCode": 34,
       "adaptiveIcon": {
         "foregroundImage": "./assets/AppIcon.png",
         "backgroundColor": "#ffffff"
