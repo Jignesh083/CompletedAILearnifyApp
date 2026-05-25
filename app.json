@@ -1,6 +1,6 @@
 {
   "expo": {
-    "name": "AI Learnify",
+    "name": "AILearnify",
     "slug": "ailearnify",
     "version": "1.0.1",
     "orientation": "portrait",
@@ -14,7 +14,7 @@
     },
     "android": {
       "package": "com.jignesh83.aicoresystem",
-      "versionCode": 34,
+      "versionCode": 38,
       "adaptiveIcon": {
         "foregroundImage": "./assets/AppIcon.png",
         "backgroundColor": "#ffffff"

@@ -4,7 +4,7 @@ import RazorpayCheckout from "react-native-razorpay";
 import { supabase } from "../supabase";
 
 // 🔥 CHANGE AFTER DEPLOY
-const API = "https://ailearnifyapp.onrender.com";
+const API = "https://ailearnifyapp-tbrt.onrender.com";
 
 export default function Purchase(){
 

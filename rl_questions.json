@@ -1,0 +1,7055 @@
+{
+  "topics": [
+    {
+      "topic_key": "introduction_basics_rl",
+      "questions": [
+        {
+          "question": "Main objective of Reinforcement Learning?",
+          "options": [
+            "To minimize dataset size",
+            "To classify labeled data",
+            "To compress information",
+            "To maximize cumulative reward"
+          ],
+          "answer": 3
+        },
+        {
+          "question": "Component that interacts with environment and learns?",
+          "options": [
+            "Dataset",
+            "Compiler",
+            "Agent",
+            "Network"
+          ],
+          "answer": 2
+        },
+        {
+          "question": "Environment in RL means?",
+          "options": [
+            "Programming language",
+            "Training dataset",
+            "External interacting system",
+            "Neural architecture"
+          ],
+          "answer": 2
+        },
+        {
+          "question": "Current situation observed by agent?",
+          "options": [
+            "Reward",
+            "Action",
+            "Policy",
+            "State"
+          ],
+          "answer": 3
+        },
+        {
+          "question": "Action in RL means?",
+          "options": [
+            "Reward value",
+            "Dataset",
+            "Agent decision affecting environment",
+            "Fixed algorithm"
+          ],
+          "answer": 2
+        },
+        {
+          "question": "Strategy mapping states to actions?",
+          "options": [
+            "Dataset",
+            "Transition",
+            "Policy",
+            "Reward"
+          ],
+          "answer": 2
+        },
+        {
+          "question": "Feedback signal for action quality?",
+          "options": [
+            "Parameter",
+            "Reward",
+            "Gradient",
+            "Dataset"
+          ],
+          "answer": 1
+        },
+        {
+          "question": "Foundation mechanism of RL?",
+          "options": [
+            "Static rules",
+            "Trial and error",
+            "Labelled learning",
+            "Compression"
+          ],
+          "answer": 1
+        },
+        {
+          "question": "RL differs from supervised learning because?",
+          "options": [
+            "Uses only labels",
+            "Needs no environment",
+            "Learns via reward interaction",
+            "Cannot use algorithms"
+          ],
+          "answer": 2
+        },
+        {
+          "question": "Component determining next state after action?",
+          "options": [
+            "Transition mechanism",
+            "Dataset distribution",
+            "Sorting algorithm",
+            "NN architecture"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Sequence until terminal state?",
+          "options": [
+            "Gradient",
+            "Episode",
+            "Compiler",
+            "Dataset"
+          ],
+          "answer": 1
+        },
+        {
+          "question": "Parameter controlling future reward importance?",
+          "options": [
+            "State index",
+            "Discount factor",
+            "Policy weight",
+            "Dataset size"
+          ],
+          "answer": 1
+        },
+        {
+          "question": "Symbol for discount factor?",
+          "options": [
+            "Alpha",
+            "Beta",
+            "Gamma",
+            "Lambda"
+          ],
+          "answer": 2
+        },
+        {
+          "question": "Exploration means?",
+          "options": [
+            "Removing rewards",
+            "Sorting datasets",
+            "Trying new actions",
+            "Compressing data"
+          ],
+          "answer": 2
+        },
+        {
+          "question": "Exploitation means?",
+          "options": [
+            "Sampling",
+            "Choosing known high reward actions",
+            "Clustering",
+            "Exploration"
+          ],
+          "answer": 1
+        },
+        {
+          "question": "Important RL balance?",
+          "options": [
+            "Exploration–Exploitation",
+            "Speed–Compression",
+            "Sort–Search",
+            "Data–Memory"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Field studying learning agents?",
+          "options": [
+            "Reinforcement Learning",
+            "Supervised Learning",
+            "Unsupervised Learning",
+            "Data Mining"
+          ],
+          "answer": 0
+        },
+        {
+          "question": "Real world RL application?",
+          "options": [
+            "Text editing",
+            "Database queries",
+            "File compression",
+            "Robotics"
+          ],
+          "answer": 3
+        },
+        {
+          "question": "Why RL suits sequential decisions?",
+          "options": [
+            "Remove states",
+            "Learn via feedback interaction",
+            "Sort faster",
+            "Compress data"
+          ],
+          "answer": 1
+        },
+        {
+          "question": "Overall RL process?",
+          "options": [
+            "Dataset sorting",
+            "Single action always",
+            "Static rule",
+            "Agent improves policy via rewards"
+          ],
+          "answer": 3
+        }
+      ]
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+  "topics": [
+    {
+      "topic_key": "reinforcement_learning_framework",
+      "questions": [
+        {
+          "question": "Component responsible for decision making in RL?",
+          "options": ["Dataset", "Network", "Agent", "Compiler"],
+          "answer": 2
+        },
+        {
+          "question": "Environment represents?",
+          "options": ["Programming language", "External system interacting with agent", "Training labels", "Neural model"],
+          "answer": 1
+        },
+        {
+          "question": "Observation of environment at time t?",
+          "options": ["Reward", "Policy", "State", "Gradient"],
+          "answer": 2
+        },
+        {
+          "question": "Action taken by agent results in?",
+          "options": ["Dataset change", "Next state and reward", "Compiler update", "Algorithm removal"],
+          "answer": 1
+        },
+        {
+          "question": "Signal evaluating quality of action?",
+          "options": ["Sorting value", "Compression metric", "Reward", "Dataset index"],
+          "answer": 2
+        },
+        {
+          "question": "Policy is?",
+          "options": ["Strategy mapping state to action", "Sorting algorithm", "Dataset", "Compression rule"],
+          "answer": 0
+        },
+        {
+          "question": "Function defining probability of moving to next state?",
+          "options": ["Reward function", "Transition function", "Dataset function", "Sorting function"],
+          "answer": 1
+        },
+        {
+          "question": "Agent goal in RL framework?",
+          "options": ["Remove states", "Compress rewards", "Maximize cumulative reward", "Sort actions"],
+          "answer": 2
+        },
+        {
+          "question": "Total accumulated reward called?",
+          "options": ["Return", "Dataset", "Parameter", "Compiler"],
+          "answer": 0
+        },
+        {
+          "question": "Parameter reducing importance of future reward?",
+          "options": ["Learning rate", "Discount factor", "Dataset size", "State count"],
+          "answer": 1
+        },
+        {
+          "question": "Interaction sequence ending in terminal state?",
+          "options": ["Gradient", "Episode", "Dataset", "Policy"],
+          "answer": 1
+        },
+        {
+          "question": "Function estimating expected return from state?",
+          "options": ["Sorting function", "Compression function", "Value function", "Dataset function"],
+          "answer": 2
+        },
+        {
+          "question": "Function estimating value of action in state?",
+          "options": ["Transition function", "Action-value function", "Dataset function", "Compiler function"],
+          "answer": 1
+        },
+        {
+          "question": "Probability distribution governing state change?",
+          "options": ["Transition probability", "Sorting probability", "Compression probability", "Dataset probability"],
+          "answer": 0
+        },
+        {
+          "question": "Algorithm improving policy using experience?",
+          "options": ["Sorting engine", "Learning algorithm", "Compression tool", "Dataset loader"],
+          "answer": 1
+        },
+        {
+          "question": "Trade-off between trying new and best known actions?",
+          "options": ["Memory trade-off", "Sorting trade-off", "Exploration-exploitation", "Compression trade-off"],
+          "answer": 2
+        },
+        {
+          "question": "Rule defining how agent updates knowledge?",
+          "options": ["Learning rule", "Sorting rule", "Compression rule", "Dataset rule"],
+          "answer": 0
+        },
+        {
+          "question": "Policy decides?",
+          "options": ["Reward value", "Dataset size", "Which action to take", "State removal"],
+          "answer": 2
+        },
+        {
+          "question": "Learning through repeated environment interaction?",
+          "options": ["Static learning", "Trial-and-error learning", "Sorting learning", "Compression learning"],
+          "answer": 1
+        },
+        {
+          "question": "Best description of RL framework?",
+          "options": ["Dataset processing", "Sorting mechanism", "Agent interacting and improving policy", "Static rule system"],
+          "answer": 2
+        }
+      ]
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+  "topic_key": "markov_decision_process",
+  "questions": [
+    {
+      "question": "MDP stands for?",
+      "options": [
+        "Maximum Data Processing",
+        "Markov Decision Process",
+        "Memory Driven Policy",
+        "Model Driven Prediction"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Core property of MDP?",
+      "options": [
+        "Future depends only on current state",
+        "Future depends on full history",
+        "Future depends on dataset",
+        "Future depends only on reward"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Set representing all possible situations?",
+      "options": [
+        "Action space",
+        "State space",
+        "Reward space",
+        "Dataset space"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Function defining probability of next state?",
+      "options": [
+        "Reward function",
+        "Transition function",
+        "Loss function",
+        "Sorting function"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Reward function represents?",
+      "options": [
+        "Probability of action",
+        "Immediate feedback signal",
+        "Dataset size",
+        "Sorting rule"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Tuple defining an MDP?",
+      "options": [
+        "(S, A, P, R, γ)",
+        "(D, N, L, C)",
+        "(Q, W, E, R)",
+        "(X, Y, Z)"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "γ in MDP denotes?",
+      "options": [
+        "Learning rate",
+        "Discount factor",
+        "Dataset size",
+        "Action count"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Policy in MDP maps?",
+      "options": [
+        "Reward to dataset",
+        "State to action",
+        "Action to reward",
+        "Dataset to compression"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Optimal policy maximizes?",
+      "options": [
+        "Immediate reward only",
+        "Dataset efficiency",
+        "Expected cumulative reward",
+        "Sorting accuracy"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Value function represents?",
+      "options": [
+        "Dataset length",
+        "Expected return from state",
+        "Compression ratio",
+        "Sorting index"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Action-value function denotes?",
+      "options": [
+        "Value of action in state",
+        "Dataset value",
+        "Sorting metric",
+        "Compiler metric"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Terminal state means?",
+      "options": [
+        "State removed",
+        "Episode ends",
+        "Dataset ends",
+        "Reward removed"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Deterministic transition means?",
+      "options": [
+        "Next state fixed",
+        "Random dataset",
+        "Sorted action",
+        "Compressed reward"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Stochastic transition means?",
+      "options": [
+        "Fixed next state",
+        "Random probability-based transition",
+        "Dataset transition",
+        "Sorting transition"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Return Gt represents?",
+      "options": [
+        "Immediate reward only",
+        "Discounted sum of future rewards",
+        "Dataset sum",
+        "Sorting cost"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Bellman equation relates?",
+      "options": [
+        "Current value with future values",
+        "Dataset size with reward",
+        "Sorting order",
+        "Compression ratio"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Model-based RL requires?",
+      "options": [
+        "Unknown transition",
+        "Known transition and reward model",
+        "Only dataset",
+        "Only neural network"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Model-free RL means?",
+      "options": [
+        "No dataset",
+        "No reward",
+        "No explicit environment model",
+        "No action"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "State transition probability notation?",
+      "options": [
+        "P(s'|s,a)",
+        "Q(s,a)",
+        "V(s)",
+        "D(s)"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Goal of solving MDP?",
+      "options": [
+        "Sort states",
+        "Remove actions",
+        "Find optimal policy",
+        "Compress rewards"
+      ],
+      "answer": 2
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+  "topic_key": "dynamic_programming_overview",
+  "questions": [
+    {
+      "question": "Dynamic Programming in RL is mainly used for?",
+      "options": [
+        "Sorting datasets",
+        "Finding optimal policies in MDP",
+        "Compressing rewards",
+        "Removing states"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "DP methods require?",
+      "options": [
+        "Unknown model",
+        "Known environment model",
+        "Only neural network",
+        "Only dataset"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "DP is based on which principle?",
+      "options": [
+        "Sorting principle",
+        "Compression principle",
+        "Principle of Optimality",
+        "Dataset principle"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Bellman equation is used to?",
+      "options": [
+        "Sort states",
+        "Relate current and future value",
+        "Remove rewards",
+        "Compress dataset"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Policy Evaluation computes?",
+      "options": [
+        "Optimal dataset",
+        "Value function of given policy",
+        "Sorting order",
+        "Compression ratio"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Policy Improvement step does?",
+      "options": [
+        "Random action selection",
+        "Choose better actions greedily",
+        "Remove states",
+        "Sort rewards"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Algorithm combining evaluation and improvement?",
+      "options": [
+        "Policy Iteration",
+        "Merge Sort",
+        "Binary Search",
+        "Linear Regression"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Algorithm updating values directly with max operator?",
+      "options": [
+        "Dataset iteration",
+        "Value Iteration",
+        "Sorting iteration",
+        "Compression iteration"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "DP updates rely on?",
+      "options": [
+        "Dataset recursion",
+        "Bellman recursion",
+        "Sorting recursion",
+        "Compression recursion"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "DP update across all states simultaneously?",
+      "options": [
+        "Asynchronous update",
+        "Synchronous update",
+        "Dataset update",
+        "Sorting update"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Discount factor in DP controls?",
+      "options": [
+        "Dataset size",
+        "Future reward importance",
+        "Sorting order",
+        "State count"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Symbol commonly used for discount factor?",
+      "options": [
+        "α",
+        "β",
+        "γ",
+        "λ"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "DP can solve large problems by?",
+      "options": [
+        "Removing states",
+        "Breaking into subproblems",
+        "Sorting actions",
+        "Compressing rewards"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Optimal value function helps derive?",
+      "options": [
+        "Dataset",
+        "Optimal policy",
+        "Sorting rule",
+        "Compression rule"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "DP limitation?",
+      "options": [
+        "Needs complete model",
+        "Needs sorting",
+        "Needs compression",
+        "Needs clustering"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Bellman Optimality Equation used in?",
+      "options": [
+        "Value Iteration",
+        "Binary Search",
+        "Dataset sorting",
+        "Compression learning"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "DP assumes environment?",
+      "options": [
+        "Partially known",
+        "Fully known",
+        "Unknown",
+        "Random dataset"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "DP improves policy until?",
+      "options": [
+        "Dataset ends",
+        "Policy becomes stable",
+        "Sorting ends",
+        "Reward removed"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Recursive nature of DP comes from?",
+      "options": [
+        "Bellman relation",
+        "Sorting relation",
+        "Compression relation",
+        "Dataset relation"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Main role of DP in RL?",
+      "options": [
+        "Dataset compression",
+        "Systematic optimal policy computation",
+        "Sorting mechanism",
+        "State removal"
+      ],
+      "answer": 1
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+  "topic_key": "planning_in_mdp",
+  "questions": [
+    {
+      "question": "Planning in RL means?",
+      "options": [
+        "Sorting datasets",
+        "Learning only from rewards",
+        "Using model to simulate outcomes",
+        "Removing actions"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Planning requires?",
+      "options": [
+        "Unknown model",
+        "Known environment model",
+        "Only dataset",
+        "Only policy"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Environment model includes?",
+      "options": [
+        "Sorting function",
+        "Transition and reward function",
+        "Dataset function",
+        "Compression rule"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Planning computes?",
+      "options": [
+        "Optimal value functions",
+        "Dataset size",
+        "Sorting order",
+        "Compression ratio"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Planning approach using environment model?",
+      "options": [
+        "Model-free",
+        "Model-based",
+        "Dataset-based",
+        "Sorting-based"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "DP methods are used for?",
+      "options": [
+        "Planning in known models",
+        "Sorting states",
+        "Compressing rewards",
+        "Removing policies"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Value Iteration in planning uses?",
+      "options": [
+        "Bellman optimality equation",
+        "Sorting equation",
+        "Compression equation",
+        "Dataset equation"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Policy Iteration alternates between?",
+      "options": [
+        "Sorting and searching",
+        "Evaluation and improvement",
+        "Compression and decompression",
+        "Dataset loading"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Planning breaks problems using?",
+      "options": [
+        "Dataset principle",
+        "Sorting principle",
+        "Principle of Optimality",
+        "Compression principle"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "State transition probability defines?",
+      "options": [
+        "Sorting order",
+        "Next state likelihood",
+        "Dataset length",
+        "Reward removal"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Planning evaluates?",
+      "options": [
+        "Random dataset",
+        "Policy performance",
+        "Sorting algorithm",
+        "Compression model"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Model-based planning advantage?",
+      "options": [
+        "No rewards needed",
+        "Simulation before real action",
+        "Sorting speed",
+        "Dataset compression"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Planning algorithm goal?",
+      "options": [
+        "Remove states",
+        "Compute optimal actions",
+        "Sort rewards",
+        "Compress policies"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Discount factor in planning controls?",
+      "options": [
+        "Dataset size",
+        "Future reward importance",
+        "Sorting index",
+        "State removal"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Bellman equation foundation for?",
+      "options": [
+        "Planning algorithms",
+        "Sorting algorithms",
+        "Compression algorithms",
+        "Dataset algorithms"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Planning uses simulation to?",
+      "options": [
+        "Remove rewards",
+        "Predict action outcomes",
+        "Sort actions",
+        "Compress states"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Planning limitation?",
+      "options": [
+        "Needs full model knowledge",
+        "Needs sorting",
+        "Needs clustering",
+        "Needs compression"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Model-based RL combines?",
+      "options": [
+        "Planning and learning",
+        "Sorting and compression",
+        "Dataset and clustering",
+        "Search and encryption"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Robot navigation example shows?",
+      "options": [
+        "Sorting application",
+        "Planning application",
+        "Compression application",
+        "Dataset application"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Main role of planning in MDP?",
+      "options": [
+        "Sort environment states",
+        "Compute policies before acting",
+        "Remove reward function",
+        "Compress datasets"
+      ],
+      "answer": 1
+    }
+  ]
+}
+
+
+
+
+
+
+
+{
+  "topic_key": "principle_of_optimality",
+  "questions": [
+    {
+      "question": "Principle of Optimality introduced by?",
+      "options": [
+        "Alan Turing",
+        "Richard Bellman",
+        "Andrew Ng",
+        "Geoffrey Hinton"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Principle states optimal policy contains?",
+      "options": [
+        "Random actions",
+        "Optimal sub-policies",
+        "Sorted rewards",
+        "Compressed states"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Optimal solution property?",
+      "options": [
+        "Depends on dataset",
+        "Depends on sorting",
+        "Subproblems are also optimal",
+        "Removes rewards"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "DP relies heavily on?",
+      "options": [
+        "Sorting principle",
+        "Compression principle",
+        "Principle of Optimality",
+        "Dataset principle"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Bellman Optimality Equation derived from?",
+      "options": [
+        "Gradient descent",
+        "Principle of Optimality",
+        "Dataset fitting",
+        "Sorting rule"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Optimal value depends on?",
+      "options": [
+        "Best future actions",
+        "Dataset size",
+        "Sorting index",
+        "Compression level"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Value Iteration applies?",
+      "options": [
+        "Sorting theorem",
+        "Optimality principle",
+        "Compression theorem",
+        "Dataset theorem"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Optimal solution built using?",
+      "options": [
+        "Removing states",
+        "Breaking into optimal subproblems",
+        "Sorting actions",
+        "Compressing rewards"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Markov Property ensures?",
+      "options": [
+        "Future independent of past given present",
+        "Sorting independence",
+        "Dataset removal",
+        "Compression independence"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Policy Iteration uses optimality for?",
+      "options": [
+        "Sorting policies",
+        "Improving actions greedily",
+        "Removing rewards",
+        "Compressing datasets"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Optimal action defined as?",
+      "options": [
+        "Lowest reward action",
+        "Random action",
+        "Action giving highest expected return",
+        "Sorted action"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Recursive computation enabled by?",
+      "options": [
+        "Dataset recursion",
+        "Sorting recursion",
+        "Optimal substructure",
+        "Compression recursion"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Optimal policy ensures?",
+      "options": [
+        "Dataset minimization",
+        "Sorting efficiency",
+        "Best performance from any state",
+        "Reward removal"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Sequential decision problems benefit from?",
+      "options": [
+        "Sorting methods",
+        "Optimality principle",
+        "Compression methods",
+        "Dataset indexing"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Bellman optimality selects?",
+      "options": [
+        "Average action value",
+        "Maximum expected return",
+        "Dataset count",
+        "Sorting order"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Optimal subpolicy property means?",
+      "options": [
+        "Subpolicy also optimal",
+        "Subpolicy random",
+        "Subpolicy sorted",
+        "Subpolicy compressed"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Q-Learning applies optimality by?",
+      "options": [
+        "Using max action value",
+        "Sorting Q-values",
+        "Compressing rewards",
+        "Removing actions"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Large MDP solved efficiently because?",
+      "options": [
+        "States removed",
+        "Subproblems manageable",
+        "Rewards compressed",
+        "Datasets sorted"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Optimal decision depends on?",
+      "options": [
+        "Dataset history",
+        "Current state only",
+        "Sorting index",
+        "Compression ratio"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Main role of Principle of Optimality?",
+      "options": [
+        "Sorting mechanism",
+        "Ensures all future decisions optimal",
+        "Dataset compression",
+        "Reward removal"
+      ],
+      "answer": 1
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+{
+  "topic_key": "iterative_policy_evaluation",
+  "questions": [
+    {
+      "question": "Main objective of Iterative Policy Evaluation?",
+      "options": [
+        "Find optimal dataset",
+        "Compute value of a fixed policy",
+        "Sort environment states",
+        "Remove rewards"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Framework using iterative policy evaluation?",
+      "options": [
+        "Dynamic Programming",
+        "Sorting algorithms",
+        "Compression methods",
+        "Encryption methods"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Equation repeatedly applied?",
+      "options": [
+        "Bellman Expectation Equation",
+        "Sorting equation",
+        "Compression equation",
+        "Dataset equation"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Update requires?",
+      "options": [
+        "Dataset size",
+        "Transition probabilities and rewards",
+        "Sorting order",
+        "Compression ratio"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Parameter controlling future reward importance?",
+      "options": [
+        "Learning rate",
+        "Discount factor",
+        "Dataset counter",
+        "State removal factor"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Symbol used for discount factor?",
+      "options": [
+        "α",
+        "β",
+        "γ",
+        "λ"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Evaluation stops when?",
+      "options": [
+        "Dataset sorted",
+        "Rewards disappear",
+        "Value change becomes very small",
+        "States removed"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Updating all states simultaneously called?",
+      "options": [
+        "Asynchronous update",
+        "Synchronous update",
+        "Dataset update",
+        "Sorting update"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Repeated Bellman updates lead to?",
+      "options": [
+        "Sorting convergence",
+        "Compression convergence",
+        "Stable value estimates",
+        "Dataset removal"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Type of policy evaluated?",
+      "options": [
+        "Random dataset policy",
+        "Fixed policy",
+        "Sorted policy",
+        "Compressed policy"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Next step after policy evaluation?",
+      "options": [
+        "Policy Improvement",
+        "Dataset improvement",
+        "Sorting improvement",
+        "Compression improvement"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Algorithm alternating evaluation and improvement?",
+      "options": [
+        "Policy Iteration",
+        "Binary Search",
+        "Merge Sort",
+        "Linear Regression"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Which value function updated?",
+      "options": [
+        "Dataset function",
+        "Compression function",
+        "State-value function",
+        "Sorting function"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Property allowing dependence only on current state?",
+      "options": [
+        "Sorting Property",
+        "Dataset Property",
+        "Markov Property",
+        "Compression Property"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Method updating expected rewards under policy?",
+      "options": [
+        "Iterative Policy Evaluation",
+        "Binary Search",
+        "Sorting Method",
+        "Compression Method"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Component required to compute future expected values?",
+      "options": [
+        "Dataset size",
+        "Transition probabilities",
+        "Sorting rule",
+        "Compression rule"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Value under policy represents?",
+      "options": [
+        "Immediate reward only",
+        "Expected cumulative reward",
+        "Dataset index",
+        "Sorting cost"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Approach requiring complete model?",
+      "options": [
+        "Model-free RL",
+        "Model-based RL",
+        "Dataset-based RL",
+        "Sorting-based RL"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Bellman recursion ensures?",
+      "options": [
+        "Sorting dependency",
+        "Compression dependency",
+        "Dependence on successor state values",
+        "Dataset removal"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Main role of Iterative Policy Evaluation?",
+      "options": [
+        "Sort states",
+        "Compress rewards",
+        "Estimate expected returns for fixed policy",
+        "Remove actions"
+      ],
+      "answer": 2
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+{
+  "topic_key": "policy_iteration",
+  "questions": [
+    {
+      "question": "Policy Iteration main goal?",
+      "options": [
+        "Sort datasets",
+        "Compress rewards",
+        "Find optimal policy",
+        "Remove states"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Two main steps in Policy Iteration?",
+      "options": [
+        "Sorting and searching",
+        "Evaluation and Improvement",
+        "Compression and removal",
+        "Dataset loading"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Framework using Policy Iteration?",
+      "options": [
+        "Dynamic Programming",
+        "Clustering",
+        "Sorting",
+        "Encryption"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Policy Evaluation computes?",
+      "options": [
+        "Optimal dataset",
+        "Value function of current policy",
+        "Sorting order",
+        "Compression ratio"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Policy Improvement step does?",
+      "options": [
+        "Choose greedy better actions",
+        "Remove rewards",
+        "Sort states",
+        "Compress policies"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Equation used in evaluation?",
+      "options": [
+        "Bellman Expectation Equation",
+        "Sorting Equation",
+        "Compression Equation",
+        "Dataset Equation"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Convergence ensured by?",
+      "options": [
+        "Sorting theorem",
+        "Dataset theorem",
+        "Policy Improvement theorem",
+        "Compression theorem"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Policy Iteration based on?",
+      "options": [
+        "Decision Trees",
+        "Markov Decision Process",
+        "Sorting Graph",
+        "Compression Model"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Discount factor controls?",
+      "options": [
+        "Future reward importance",
+        "Dataset size",
+        "Sorting index",
+        "State removal"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Symbol for discount factor?",
+      "options": [
+        "λ",
+        "β",
+        "γ",
+        "α"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Termination condition?",
+      "options": [
+        "Dataset ends",
+        "Policy stops changing",
+        "Sorting ends",
+        "Rewards removed"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Greedy policy improvement selects?",
+      "options": [
+        "Random action",
+        "Lowest reward",
+        "Highest action-value",
+        "Sorted action"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Value function computed in evaluation?",
+      "options": [
+        "Action-value only",
+        "State-value function",
+        "Dataset function",
+        "Compression function"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Repeated evaluation + improvement called?",
+      "options": [
+        "Policy Iteration",
+        "Binary Search",
+        "Merge Sort",
+        "Linear Regression"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Policy stability means?",
+      "options": [
+        "Dataset stable",
+        "Sorting stable",
+        "Policy no longer changes",
+        "Rewards removed"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Advantage over Value Iteration?",
+      "options": [
+        "May converge in fewer iterations",
+        "Removes states",
+        "Compresses rewards",
+        "Sorts policies"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Expected reward computation needs?",
+      "options": [
+        "Transition probabilities",
+        "Dataset size",
+        "Sorting rule",
+        "Compression rule"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Policy Iteration belongs to?",
+      "options": [
+        "Model-free RL",
+        "Model-based RL",
+        "Dataset RL",
+        "Sorting RL"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Breaks complex problems using?",
+      "options": [
+        "Sorting principle",
+        "Compression principle",
+        "Principle of Optimality",
+        "Dataset principle"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Main role of Policy Iteration?",
+      "options": [
+        "Sort environment",
+        "Compress datasets",
+        "Repeatedly evaluate and improve policy",
+        "Remove rewards"
+      ],
+      "answer": 2
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+{
+  "topic_key": "value_iteration",
+  "questions": [
+    {
+      "question": "Main objective of Value Iteration?",
+      "options": [
+        "Sort datasets",
+        "Compute optimal value function",
+        "Compress rewards",
+        "Remove states"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Value Iteration repeatedly applies?",
+      "options": [
+        "Bellman Optimality Equation",
+        "Sorting Equation",
+        "Compression Equation",
+        "Dataset Equation"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Framework using Value Iteration?",
+      "options": [
+        "Dynamic Programming",
+        "Sorting Algorithms",
+        "Clustering Methods",
+        "Encryption Methods"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "State value updated using?",
+      "options": [
+        "Average action value",
+        "Maximum expected value",
+        "Dataset size",
+        "Sorting order"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Mathematical model for Value Iteration?",
+      "options": [
+        "Decision Tree",
+        "Markov Decision Process",
+        "Linear Model",
+        "Clustering Model"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Discount factor controls?",
+      "options": [
+        "Dataset size",
+        "Future reward importance",
+        "Sorting index",
+        "State removal"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Symbol used for discount factor?",
+      "options": [
+        "α",
+        "β",
+        "γ",
+        "λ"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Algorithm stops when?",
+      "options": [
+        "Rewards disappear",
+        "Values change very little",
+        "Dataset sorted",
+        "States removed"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Recursive relationship satisfied by optimal value?",
+      "options": [
+        "Sorting relation",
+        "Bellman Optimality Principle",
+        "Compression relation",
+        "Dataset relation"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Convergence property ensures?",
+      "options": [
+        "Dataset stability",
+        "Sorting stability",
+        "Optimal value reached",
+        "Reward removal"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Function computed first?",
+      "options": [
+        "Optimal state-value function",
+        "Dataset function",
+        "Compression function",
+        "Sorting function"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Optimal policy derived by?",
+      "options": [
+        "Sorting states",
+        "Choosing action with max expected value",
+        "Compressing rewards",
+        "Removing actions"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Advantage over Policy Iteration?",
+      "options": [
+        "Combines evaluation and improvement",
+        "Removes states",
+        "Compresses datasets",
+        "Sorts policies"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Updates based on?",
+      "options": [
+        "Minimum reward",
+        "Maximum action-value estimate",
+        "Dataset average",
+        "Sorting cost"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Requires knowledge of?",
+      "options": [
+        "Transition probabilities and rewards",
+        "Dataset size",
+        "Sorting rule",
+        "Compression rule"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Breaks decision problems using?",
+      "options": [
+        "Sorting principle",
+        "Dataset principle",
+        "Principle of Optimality",
+        "Compression principle"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Update uses expected reward plus?",
+      "options": [
+        "Sorted value",
+        "Discounted successor value",
+        "Dataset value",
+        "Compression value"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Belongs to which RL approach?",
+      "options": [
+        "Model-based RL",
+        "Model-free RL",
+        "Dataset RL",
+        "Sorting RL"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Stable optimal value ensured by?",
+      "options": [
+        "Sorting convergence",
+        "Dataset convergence",
+        "Value convergence",
+        "Compression convergence"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Main role of Value Iteration?",
+      "options": [
+        "Sort environment states",
+        "Compress datasets",
+        "Repeatedly update state values to optimal",
+        "Remove rewards"
+      ],
+      "answer": 2
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+{
+  "topic_key": "monte_carlo_overview",
+  "questions": [
+    {
+      "question": "Monte Carlo methods learn from?",
+      "options": [
+        "Complete episodes",
+        "Sorted datasets",
+        "Compressed rewards",
+        "Removed states"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Monte Carlo differs from DP because?",
+      "options": [
+        "Needs full model",
+        "Does not require environment model",
+        "Sorts policies",
+        "Compresses values"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Monte Carlo estimates value using?",
+      "options": [
+        "Bellman recursion only",
+        "Average of returns",
+        "Dataset size",
+        "Sorting order"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Updates typically occur?",
+      "options": [
+        "After each step",
+        "Before episode",
+        "After full episode",
+        "After dataset sort"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Return represents?",
+      "options": [
+        "Immediate reward only",
+        "Total accumulated reward till end",
+        "Dataset sum",
+        "Sorting cost"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Monte Carlo suitable for?",
+      "options": [
+        "Infinite tasks only",
+        "Episodic tasks",
+        "Sorting tasks",
+        "Compression tasks"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Two main MC prediction types?",
+      "options": [
+        "First-Visit and Every-Visit",
+        "Sorting and Searching",
+        "Compression and Removal",
+        "Dataset and Clustering"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "First-Visit MC updates when?",
+      "options": [
+        "Every occurrence",
+        "Only first occurrence",
+        "Last occurrence",
+        "Before start"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Every-Visit MC updates using?",
+      "options": [
+        "Only first return",
+        "All occurrences return",
+        "Dataset value",
+        "Sorted reward"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Monte Carlo Control improves?",
+      "options": [
+        "Dataset order",
+        "Policy using action-value estimates",
+        "Sorting accuracy",
+        "Compression rate"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Convergence ensured by?",
+      "options": [
+        "Sorting theorem",
+        "Law of Large Numbers",
+        "Dataset theorem",
+        "Compression theorem"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Exploring Starts ensures?",
+      "options": [
+        "Dataset sorting",
+        "All actions explored",
+        "Rewards removed",
+        "States compressed"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Common policy improvement strategy?",
+      "options": [
+        "Greedy dataset",
+        "ε-greedy policy",
+        "Sorting policy",
+        "Compression policy"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Advantage over DP?",
+      "options": [
+        "Needs transition probabilities",
+        "Model-free learning",
+        "Sorts faster",
+        "Compresses values"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Limitation of MC?",
+      "options": [
+        "Needs full episode termination",
+        "Needs dataset",
+        "Needs sorting",
+        "Needs compression"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "MC prediction estimates?",
+      "options": [
+        "Dataset function",
+        "State-value function",
+        "Compression function",
+        "Sorting function"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Policy improvement via MC uses?",
+      "options": [
+        "Dataset improvement",
+        "Action-value estimates",
+        "Sorting improvement",
+        "Compression improvement"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Monte Carlo belongs to?",
+      "options": [
+        "Model-based RL",
+        "Model-free RL",
+        "Dataset RL",
+        "Sorting RL"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "MC estimates returns by?",
+      "options": [
+        "Solving Bellman equations directly",
+        "Sampling episodes",
+        "Sorting rewards",
+        "Compressing states"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Main role of Monte Carlo methods?",
+      "options": [
+        "Sort environment states",
+        "Compress datasets",
+        "Estimate value functions from sampled returns",
+        "Remove reward function"
+      ],
+      "answer": 2
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+  "topic_key": "monte_carlo_control",
+  "questions": [
+    {
+      "question": "Main objective of Monte Carlo Control?",
+      "options": [
+        "Sort datasets",
+        "Compress rewards",
+        "Find optimal policy using sampled returns",
+        "Remove states"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Monte Carlo Control improves policy using?",
+      "options": [
+        "State-value function",
+        "Action-value estimates",
+        "Dataset function",
+        "Sorting function"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Convergence ensured by?",
+      "options": [
+        "Policy improvement principle",
+        "Sorting theorem",
+        "Compression theorem",
+        "Dataset theorem"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Exploration strategy commonly used?",
+      "options": [
+        "Greedy removal",
+        "ε-greedy policy",
+        "Sorting policy",
+        "Compression policy"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Exploring Starts ensures?",
+      "options": [
+        "Dataset sorted",
+        "Each state-action tried",
+        "Rewards removed",
+        "States compressed"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Action-value updates based on?",
+      "options": [
+        "Sorting returns",
+        "Averaged sampled returns",
+        "Dataset size",
+        "Compression level"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Monte Carlo Control belongs to?",
+      "options": [
+        "Model-based RL",
+        "Model-free RL",
+        "Dataset RL",
+        "Sorting RL"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Value updates occur?",
+      "options": [
+        "Before episode",
+        "After each step",
+        "After episode ends",
+        "During sorting"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Function estimated directly?",
+      "options": [
+        "State transition function",
+        "Action-value function",
+        "Dataset function",
+        "Compression function"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Policy improves by?",
+      "options": [
+        "Removing rewards",
+        "Greedy action selection",
+        "Sorting datasets",
+        "Compressing values"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Key property enabling model-free learning?",
+      "options": [
+        "Environment model known",
+        "Transition matrix stored",
+        "Learning from sampled experience",
+        "Sorting rewards"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Exploration maintained by?",
+      "options": [
+        "ε-greedy strategy",
+        "Dataset duplication",
+        "Sorting actions",
+        "Compression buffer"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Return represents?",
+      "options": [
+        "Immediate reward",
+        "Total future reward till episode end",
+        "Dataset size",
+        "Sorting order"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Required environment type?",
+      "options": [
+        "Infinite non-terminating",
+        "Static dataset",
+        "Episodic environment",
+        "Sorting environment"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Algorithm family used?",
+      "options": [
+        "Monte Carlo Methods",
+        "Sorting Algorithms",
+        "Compression Algorithms",
+        "Search Algorithms"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Exploration ensures?",
+      "options": [
+        "Zero probability actions",
+        "Non-zero probability for all actions",
+        "Dataset removal",
+        "Sorting improvement"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Greedy action means?",
+      "options": [
+        "Random action",
+        "Action with highest estimated return",
+        "Sorted action",
+        "Compressed action"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Limitation of MC Control?",
+      "options": [
+        "Needs dataset",
+        "Needs episode completion",
+        "Needs sorting",
+        "Needs compression"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Policy improves through?",
+      "options": [
+        "Sampling experience repeatedly",
+        "Dataset sorting",
+        "Compression learning",
+        "State removal"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Main role of MC Control?",
+      "options": [
+        "Sort environment states",
+        "Compress datasets",
+        "Learn optimal policy from sampled episodes",
+        "Remove reward signal"
+      ],
+      "answer": 2
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+  "topic_key": "on_policy_off_policy_learning",
+  "questions": [
+    {
+      "question": "On-policy learning means?",
+      "options": [
+        "Learning from different policy",
+        "Learning and evaluating same policy",
+        "Sorting datasets",
+        "Removing rewards"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Off-policy learning means?",
+      "options": [
+        "Learning optimal policy while following another",
+        "Learning only datasets",
+        "Sorting policies",
+        "Compressing values"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Example of off-policy algorithm?",
+      "options": [
+        "SARSA",
+        "Monte Carlo prediction",
+        "Q-Learning",
+        "Linear regression"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Example of on-policy algorithm?",
+      "options": [
+        "Q-Learning",
+        "SARSA",
+        "Value Iteration",
+        "K-Means"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Policy used to generate behavior in off-policy?",
+      "options": [
+        "Target policy",
+        "Behavior policy",
+        "Optimal policy",
+        "Dataset policy"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Policy being evaluated in off-policy?",
+      "options": [
+        "Behavior policy",
+        "Sorting policy",
+        "Target policy",
+        "Compression policy"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Technique enabling off-policy learning?",
+      "options": [
+        "Importance sampling",
+        "Dataset sampling",
+        "Sorting sampling",
+        "Compression sampling"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Advantage of off-policy learning?",
+      "options": [
+        "Cannot explore",
+        "Needs no reward",
+        "Learn optimal while exploring",
+        "Sorts faster"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Exploration vs exploitation trade-off means?",
+      "options": [
+        "Dataset trade-off",
+        "Balancing new vs known actions",
+        "Sorting trade-off",
+        "Compression trade-off"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "On-policy update uses?",
+      "options": [
+        "Different policy",
+        "Same action policy",
+        "Dataset policy",
+        "Sorting policy"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Algorithm updating value using action actually taken?",
+      "options": [
+        "SARSA",
+        "Q-Learning",
+        "Policy Iteration",
+        "Value Iteration"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Algorithm using max future value regardless of behavior?",
+      "options": [
+        "SARSA",
+        "Monte Carlo",
+        "Q-Learning",
+        "Binary search"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Off-policy learning allows?",
+      "options": [
+        "Learning optimal with random exploration",
+        "Removing rewards",
+        "Sorting datasets",
+        "Compressing states"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Approach improving same executing policy?",
+      "options": [
+        "On-policy learning",
+        "Off-policy learning",
+        "Dataset learning",
+        "Compression learning"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Example scenario of off-policy?",
+      "options": [
+        "Learning optimal while exploring",
+        "Learning fixed dataset",
+        "Sorting environment",
+        "Compressing reward"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Key challenge in off-policy?",
+      "options": [
+        "Weighting experiences correctly",
+        "Removing states",
+        "Sorting failure",
+        "Compression failure"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "On-policy improvement depends on?",
+      "options": [
+        "Different policy",
+        "Same policy experience",
+        "Dataset removal",
+        "Sorting update"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Learning approach reusing past policy data?",
+      "options": [
+        "On-policy learning",
+        "Off-policy learning",
+        "Sorting learning",
+        "Compression learning"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Flexible exploration allowed in?",
+      "options": [
+        "Off-policy learning",
+        "On-policy learning",
+        "Dataset learning",
+        "Sorting learning"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Main difference between on vs off-policy?",
+      "options": [
+        "Both remove rewards",
+        "Both sort states",
+        "On-policy same policy, off-policy different",
+        "Both compress datasets"
+      ],
+      "answer": 2
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+{
+  "topic_key": "importance_sampling",
+  "questions": [
+    {
+      "question": "Main purpose of importance sampling?",
+      "options": [
+        "Correct policy distribution mismatch",
+        "Sort datasets",
+        "Compress rewards",
+        "Remove states"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Importance sampling mainly used in?",
+      "options": [
+        "On-policy learning",
+        "Off-policy learning",
+        "Supervised learning",
+        "Clustering"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Importance sampling ratio is?",
+      "options": [
+        "Reward/state ratio",
+        "Dataset/memory ratio",
+        "Target probability divided by behavior probability",
+        "Sorting probability ratio"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Importance sampling needed when?",
+      "options": [
+        "Same policy learning",
+        "Learning target policy while following different policy",
+        "Sorting datasets",
+        "Removing rewards"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Adjusted quantity in off-policy MC?",
+      "options": [
+        "Returns",
+        "Dataset size",
+        "State count",
+        "Sorting order"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Ensures unbiased estimation?",
+      "options": [
+        "Probability ratio weighting",
+        "Dataset correction",
+        "Sorting correction",
+        "Compression correction"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Two main types of importance sampling?",
+      "options": [
+        "Ordinary and Weighted",
+        "Sorting and Dataset",
+        "Binary and Linear",
+        "Compression and Greedy"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Which reduces variance?",
+      "options": [
+        "Ordinary importance sampling",
+        "Weighted importance sampling",
+        "Dataset sampling",
+        "Sorting sampling"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Policy generating data?",
+      "options": [
+        "Target policy",
+        "Behavior policy",
+        "Optimal policy",
+        "Dataset policy"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Policy being evaluated?",
+      "options": [
+        "Behavior policy",
+        "Sorting policy",
+        "Target policy",
+        "Compression policy"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Limitation when behavior probability small?",
+      "options": [
+        "High variance",
+        "Dataset duplication",
+        "Sorting failure",
+        "Compression failure"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Common use in RL?",
+      "options": [
+        "Value iteration",
+        "Off-policy Monte Carlo",
+        "Policy iteration",
+        "Linear regression"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Key property of importance sampling?",
+      "options": [
+        "Probability reweighting",
+        "Dataset weighting",
+        "Sorting weighting",
+        "Compression weighting"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Corrects mismatch between?",
+      "options": [
+        "Dataset sizes",
+        "Sorting orders",
+        "Action probability distributions",
+        "Compression ratios"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Approach reusing exploratory data?",
+      "options": [
+        "On-policy",
+        "Off-policy",
+        "Sorting learning",
+        "Compression learning"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Algorithm family using importance sampling?",
+      "options": [
+        "Monte Carlo off-policy",
+        "Sorting algorithms",
+        "Clustering algorithms",
+        "Encryption algorithms"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Challenge when policies differ greatly?",
+      "options": [
+        "Large variance",
+        "Dataset removal",
+        "Sorting removal",
+        "Compression removal"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Multiplied with returns?",
+      "options": [
+        "Dataset ratio",
+        "Importance sampling ratio",
+        "Sorting ratio",
+        "Compression ratio"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Technique estimating state-action returns?",
+      "options": [
+        "Binary search estimation",
+        "Off-policy MC estimation",
+        "Merge sort estimation",
+        "Regression estimation"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Main role of importance sampling?",
+      "options": [
+        "Sort states",
+        "Compress rewards",
+        "Learn target policy from behavior data",
+        "Remove actions"
+      ],
+      "answer": 2
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+  "topic_key": "incremental_monte_carlo_methods",
+  "questions": [
+    {
+      "question": "Main advantage of incremental MC?",
+      "options": [
+        "Stores all returns",
+        "Updates using incremental averages",
+        "Sorts datasets",
+        "Removes rewards"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Statistical technique used?",
+      "options": [
+        "Incremental mean update",
+        "Sorting algorithm",
+        "Compression method",
+        "Dataset duplication"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Common update formula?",
+      "options": [
+        "V(s)=G/n",
+        "V(s)=R+γV(s')",
+        "V(s)←V(s)+α[G−V(s)]",
+        "Q(s,a)=R+G"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "G represents?",
+      "options": [
+        "Dataset size",
+        "Return from episode",
+        "Sorting order",
+        "State count"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Parameter controlling step size?",
+      "options": [
+        "Learning rate α",
+        "Discount factor γ",
+        "Dataset size",
+        "State index"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Advantage in large problems?",
+      "options": [
+        "High memory usage",
+        "Reduced memory requirement",
+        "Sorting faster",
+        "Compression removal"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Incremental MC belongs to?",
+      "options": [
+        "Model-based RL",
+        "Model-free RL",
+        "Dataset RL",
+        "Sorting RL"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Value updates occur?",
+      "options": [
+        "Before episode",
+        "After episode completion",
+        "After dataset sorting",
+        "During compression"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Commonly estimated function?",
+      "options": [
+        "Dataset function",
+        "Compression function",
+        "State-value function",
+        "Sorting function"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Convergence ensured by?",
+      "options": [
+        "Sorting theorem",
+        "Law of Large Numbers",
+        "Dataset theorem",
+        "Compression theorem"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Return represents?",
+      "options": [
+        "Immediate reward",
+        "Cumulative reward till episode end",
+        "Dataset value",
+        "Sorting cost"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Continuous update learning method?",
+      "options": [
+        "Binary search prediction",
+        "Incremental Monte Carlo prediction",
+        "Sorting prediction",
+        "Compression prediction"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Concept enabling gradual improvement?",
+      "options": [
+        "Incremental learning",
+        "Dataset learning",
+        "Sorting learning",
+        "Compression learning"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Parameter affecting speed of learning?",
+      "options": [
+        "Learning rate α",
+        "Discount factor γ",
+        "State count",
+        "Dataset size"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Traditional MC limitation solved?",
+      "options": [
+        "Need to store all returns",
+        "Need sorting",
+        "Need compression",
+        "Need dataset removal"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Update adjusts estimate toward?",
+      "options": [
+        "Dataset size",
+        "Observed return",
+        "Sorting order",
+        "Compression ratio"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Difference-based update method?",
+      "options": [
+        "Incremental MC update",
+        "Binary search update",
+        "Sorting update",
+        "Compression update"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Stable estimates ensured by?",
+      "options": [
+        "Dataset convergence",
+        "Sorting convergence",
+        "Convergence property",
+        "Compression convergence"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Algorithm family using incremental updates?",
+      "options": [
+        "Monte Carlo methods",
+        "Sorting algorithms",
+        "Clustering algorithms",
+        "Encryption algorithms"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Main role of incremental MC?",
+      "options": [
+        "Sort environment states",
+        "Compress rewards",
+        "Update value estimates incrementally",
+        "Remove actions"
+      ],
+      "answer": 2
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+  "topic_key": "td_zero",
+  "questions": [
+    {
+      "question": "TD(0) learning updates values?",
+      "options": [
+        "After full episode",
+        "After every step using bootstrapping",
+        "After dataset sorting",
+        "After compression"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "TD(0) belongs to?",
+      "options": [
+        "Model-based RL",
+        "Model-free RL",
+        "Supervised learning",
+        "Clustering"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Bootstrapping means?",
+      "options": [
+        "Using next state estimated value",
+        "Sorting datasets",
+        "Compressing rewards",
+        "Removing states"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Common TD(0) update equation?",
+      "options": [
+        "V(s)=G",
+        "V(s)=R/n",
+        "V(s)←V(s)+α[R+γV(s')−V(s)]",
+        "Q(s,a)=R+G"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "α represents?",
+      "options": [
+        "Discount factor",
+        "Learning rate",
+        "Dataset size",
+        "State index"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "γ represents?",
+      "options": [
+        "Learning rate",
+        "Dataset size",
+        "Discount factor",
+        "State counter"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Temporal difference error is?",
+      "options": [
+        "Dataset difference",
+        "Sorting error",
+        "R+γV(s')−V(s)",
+        "Compression error"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "TD combines which methods?",
+      "options": [
+        "Monte Carlo and Dynamic Programming",
+        "Sorting and Searching",
+        "Compression and Encryption",
+        "Dataset and Clustering"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Advantage over Monte Carlo?",
+      "options": [
+        "Needs full episode",
+        "Updates before episode ends",
+        "Sorts faster",
+        "Compresses data"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "MC limitation solved?",
+      "options": [
+        "Dataset duplication",
+        "Waiting for episode completion",
+        "Sorting delay",
+        "Compression delay"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Function estimated in TD(0)?",
+      "options": [
+        "Dataset function",
+        "Compression function",
+        "State-value function",
+        "Sorting function"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "TD algorithm using action-values?",
+      "options": [
+        "SARSA",
+        "Linear regression",
+        "Merge sort",
+        "Binary search"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Updates after each transition property?",
+      "options": [
+        "Offline learning",
+        "Online learning",
+        "Dataset learning",
+        "Sorting learning"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Convergence ensured by?",
+      "options": [
+        "Sorting theorem",
+        "Compression theorem",
+        "Convergence property",
+        "Dataset theorem"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "Uses reward plus?",
+      "options": [
+        "Dataset value",
+        "Estimated next state value",
+        "Sorting order",
+        "Compression ratio"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Learning from raw experience?",
+      "options": [
+        "Model-free learning",
+        "Dataset learning",
+        "Sorting learning",
+        "Compression learning"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Future reward estimation without final return?",
+      "options": [
+        "Bootstrapping",
+        "Dataset averaging",
+        "Sorting averaging",
+        "Compression averaging"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Continuous learning during interaction?",
+      "options": [
+        "Online incremental learning",
+        "Dataset learning",
+        "Sorting learning",
+        "Compression learning"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Value update based on?",
+      "options": [
+        "Temporal difference error",
+        "Dataset error",
+        "Sorting error",
+        "Compression error"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Main role of TD(0)?",
+      "options": [
+        "Sort environment states",
+        "Compress datasets",
+        "Incrementally update value estimates each step",
+        "Remove actions"
+      ],
+      "answer": 2
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+  "topic_key": "td_one",
+  "questions": [
+    {
+      "question": "TD(1) is special case when?",
+      "options": [
+        "γ = 0",
+        "λ = 1",
+        "α = 0",
+        "k = 1"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "TD(1) learning resembles?",
+      "options": [
+        "Monte Carlo methods",
+        "Dynamic Programming",
+        "Sorting algorithms",
+        "Clustering"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "λ controls?",
+      "options": [
+        "Dataset size",
+        "Balance between MC and TD",
+        "Sorting order",
+        "Compression level"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "When λ=1 update uses?",
+      "options": [
+        "Immediate reward only",
+        "Full episode return",
+        "Dataset average",
+        "Sorted reward"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "TD(1) updates using?",
+      "options": [
+        "Complete return estimation",
+        "Dataset estimation",
+        "Sorting estimation",
+        "Compression estimation"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Similarity with MC because?",
+      "options": [
+        "Updates depend on total return",
+        "Updates before rewards",
+        "States removed",
+        "Rewards compressed"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Environment type required?",
+      "options": [
+        "Infinite tasks",
+        "Static datasets",
+        "Episodic tasks",
+        "Sorting tasks"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "TD(1) belongs to?",
+      "options": [
+        "Model-based RL",
+        "Model-free RL",
+        "Supervised learning",
+        "Clustering"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Future reward info comes from?",
+      "options": [
+        "Return estimation",
+        "Dataset estimation",
+        "Sorting estimation",
+        "Compression estimation"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Updates occur when?",
+      "options": [
+        "After full episode return observed",
+        "After each step",
+        "Before episode",
+        "After sorting"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Advantage over TD(0)?",
+      "options": [
+        "Uses complete episode info",
+        "Removes rewards",
+        "Sorts states",
+        "Compresses datasets"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Limitation of TD(1)?",
+      "options": [
+        "Needs episode completion",
+        "Needs dataset",
+        "Needs sorting",
+        "Needs compression"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Function estimated?",
+      "options": [
+        "Dataset function",
+        "State-value function",
+        "Compression function",
+        "Sorting function"
+      ],
+      "answer": 1
+    },
+    {
+      "question": "Convergence ensured by?",
+      "options": [
+        "Dataset theorem",
+        "Sorting theorem",
+        "Convergence property",
+        "Compression theorem"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "TD(0), TD(λ), TD(1) belong to?",
+      "options": [
+        "Temporal Difference methods",
+        "Sorting algorithms",
+        "Clustering algorithms",
+        "Encryption algorithms"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Future reward importance controlled by?",
+      "options": [
+        "Discount factor γ",
+        "Learning rate α",
+        "Dataset size",
+        "State index"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Gradual improvement property?",
+      "options": [
+        "Incremental learning",
+        "Dataset learning",
+        "Sorting learning",
+        "Compression learning"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "TD(1) combines MC and TD via?",
+      "options": [
+        "Eligibility trace parameter λ",
+        "Dataset parameter",
+        "Sorting parameter",
+        "Compression parameter"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Uses full sequence reward info?",
+      "options": [
+        "Full-return update",
+        "Dataset update",
+        "Sorting update",
+        "Compression update"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Main role of TD(1)?",
+      "options": [
+        "Sort environment states",
+        "Compress datasets",
+        "Update values using full episode return",
+        "Remove actions"
+      ],
+      "answer": 2
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+{
+  "topic_key": "td_lambda",
+  "questions": [
+    {
+      "question": "Main purpose of TD(λ)?",
+      "options": [
+        "Combine bootstrapping and full return learning",
+        "Sort datasets",
+        "Compress rewards",
+        "Remove states"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Parameter controlling TD–MC balance?",
+      "options": [
+        "α",
+        "γ",
+        "λ",
+        "β"
+      ],
+      "answer": 2
+    },
+    {
+      "question": "When λ=0 TD(λ) behaves like?",
+      "options": [
+        "TD(0)",
+        "Monte Carlo",
+        "Policy Iteration",
+        "Value Iteration"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "When λ=1 TD(λ) behaves like?",
+      "options": [
+        "Monte Carlo",
+        "Dynamic Programming",
+        "Binary Search",
+        "Linear Regression"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Tracks frequency and recency of visits?",
+      "options": [
+        "Eligibility trace",
+        "Dataset trace",
+        "Sorting trace",
+        "Compression trace"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Allows credit assignment to multiple states?",
+      "options": [
+        "Eligibility traces",
+        "Dataset tracing",
+        "Sorting tracing",
+        "Compression tracing"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "TD(λ) belongs to?",
+      "options": [
+        "Model-free RL",
+        "Model-based RL",
+        "Supervised learning",
+        "Unsupervised learning"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Reward info propagated backward using?",
+      "options": [
+        "Eligibility traces",
+        "Dataset propagation",
+        "Sorting propagation",
+        "Compression propagation"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Advantage over TD(0)?",
+      "options": [
+        "Updates multiple states simultaneously",
+        "Removes rewards",
+        "Sorts states",
+        "Compresses datasets"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "As λ increases TD becomes?",
+      "options": [
+        "More Monte Carlo-like",
+        "More sorting-like",
+        "More compression-like",
+        "More dataset-like"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Common TD update equation uses?",
+      "options": [
+        "V(s)←V(s)+α[R+γV(s')−V(s)]",
+        "V(s)=G/n",
+        "V(s)=R+G",
+        "Q(s,a)=R"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Future reward importance controlled by?",
+      "options": [
+        "Discount factor γ",
+        "Learning rate α",
+        "Dataset size",
+        "State index"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Correct value estimates ensured by?",
+      "options": [
+        "Convergence property",
+        "Dataset convergence",
+        "Sorting convergence",
+        "Compression convergence"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Learning directly from experience?",
+      "options": [
+        "Model-free learning",
+        "Dataset learning",
+        "Sorting learning",
+        "Compression learning"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Trace decay controlled by?",
+      "options": [
+        "λ and γ",
+        "Dataset size",
+        "Sorting speed",
+        "Compression rate"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Allows update every step while using future info?",
+      "options": [
+        "TD(λ)",
+        "Binary search",
+        "Merge sort",
+        "Linear regression"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Credit assigned based on recency using?",
+      "options": [
+        "Eligibility trace weighting",
+        "Dataset weighting",
+        "Sorting weighting",
+        "Compression weighting"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Interpolates between TD and MC using?",
+      "options": [
+        "Adjustable λ",
+        "Dataset parameter",
+        "Sorting parameter",
+        "Compression parameter"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "TD(0), TD(λ), TD(1) belong to?",
+      "options": [
+        "Temporal Difference methods",
+        "Sorting algorithms",
+        "Clustering algorithms",
+        "Encryption algorithms"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Main role of TD(λ)?",
+      "options": [
+        "Combine TD and Monte Carlo learning",
+        "Sort environment states",
+        "Compress datasets",
+        "Remove actions"
+      ],
+      "answer": 0
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+{
+  "topic_key": "k_step_estimators",
+  "questions": [
+    {
+      "question": "Primary purpose of k-step estimators?",
+      "options": [
+        "Combine short-term rewards with bootstrapped estimates",
+        "Sort datasets",
+        "Compress rewards",
+        "Remove states"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "k-step return represents?",
+      "options": [
+        "Sum of rewards over k steps plus discounted next value",
+        "Dataset size over k steps",
+        "Sorting order",
+        "Compression ratio"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Algorithms commonly using k-step estimators?",
+      "options": [
+        "n-step TD methods",
+        "Sorting algorithms",
+        "Clustering algorithms",
+        "Encryption algorithms"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "When k=1 estimator becomes?",
+      "options": [
+        "TD(0)",
+        "Monte Carlo",
+        "Policy Iteration",
+        "Value Iteration"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "When k approaches infinity estimator becomes?",
+      "options": [
+        "Monte Carlo methods",
+        "Dynamic Programming",
+        "Binary Search",
+        "Linear Regression"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Combines TD and MC advantage using?",
+      "options": [
+        "Bootstrapping after k steps",
+        "Dataset sampling",
+        "Sorting sampling",
+        "Compression sampling"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "k-step estimators belong to?",
+      "options": [
+        "Model-free RL",
+        "Model-based RL",
+        "Supervised learning",
+        "Unsupervised learning"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Future rewards discounted using?",
+      "options": [
+        "Discount factor γ",
+        "Learning rate α",
+        "Dataset size",
+        "State counter"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Uses actual rewards and estimated future values?",
+      "options": [
+        "Bootstrapping",
+        "Dataset updating",
+        "Sorting updating",
+        "Compression updating"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Correct value function reached due to?",
+      "options": [
+        "Convergence property",
+        "Dataset property",
+        "Sorting property",
+        "Compression property"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Method using k-step returns for state-value updates?",
+      "options": [
+        "n-step TD prediction",
+        "Binary search prediction",
+        "Sorting prediction",
+        "Compression prediction"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Uses rewards from multiple future steps?",
+      "options": [
+        "Multi-step return estimation",
+        "Dataset estimation",
+        "Sorting estimation",
+        "Compression estimation"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Generalizes TD(0) using?",
+      "options": [
+        "n-step TD methods",
+        "Sorting algorithms",
+        "Clustering algorithms",
+        "Encryption algorithms"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Balances bias and variance using?",
+      "options": [
+        "Adjustable step size k",
+        "Dataset parameter",
+        "Sorting parameter",
+        "Compression parameter"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Propagates reward over several steps using?",
+      "options": [
+        "Multi-step reward propagation",
+        "Dataset propagation",
+        "Sorting propagation",
+        "Compression propagation"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Updates after fixed number of future rewards?",
+      "options": [
+        "k-step TD learning",
+        "Binary search learning",
+        "Merge sort learning",
+        "Linear regression learning"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Includes rewards before bootstrapping using?",
+      "options": [
+        "k-step return estimation",
+        "Dataset return estimation",
+        "Sorting return estimation",
+        "Compression return estimation"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Increasing k leads to?",
+      "options": [
+        "Reduced bias and more reliance on real rewards",
+        "Dataset compression",
+        "Sorting optimization",
+        "State removal"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Smaller k relies more on?",
+      "options": [
+        "Bootstrapped future values",
+        "Dataset behavior",
+        "Sorting behavior",
+        "Compression behavior"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Role of k-step estimators?",
+      "options": [
+        "Combine rewards over k steps with bootstrapped values",
+        "Sort states",
+        "Compress datasets",
+        "Remove actions"
+      ],
+      "answer": 0
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+  "topic_key": "unified_view_dynamic_programming",
+  "questions": [
+    {
+      "question": "Primary purpose of unified view of DP?",
+      "options": [
+        "Show all DP algorithms use Bellman updates",
+        "Sort states",
+        "Compress rewards",
+        "Remove actions"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Mathematical basis of unified DP view?",
+      "options": [
+        "Bellman equations",
+        "Linear regression",
+        "Sorting equations",
+        "Compression equations"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Framework used for DP methods?",
+      "options": [
+        "Markov Decision Process",
+        "Decision Tree",
+        "Linear Model",
+        "Clustering Model"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Algorithm alternating evaluation and improvement?",
+      "options": [
+        "Policy Iteration",
+        "Binary Search",
+        "Merge Sort",
+        "Linear Regression"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Algorithm updating value directly via optimality?",
+      "options": [
+        "Value Iteration",
+        "Sorting Iteration",
+        "Compression Iteration",
+        "Dataset Iteration"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Concept enabling subproblem decomposition?",
+      "options": [
+        "Principle of Optimality",
+        "Dataset principle",
+        "Sorting principle",
+        "Compression principle"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Step computing value of given policy?",
+      "options": [
+        "Policy Evaluation",
+        "Dataset Evaluation",
+        "Sorting Evaluation",
+        "Compression Evaluation"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Step selecting better actions?",
+      "options": [
+        "Policy Improvement",
+        "Dataset Improvement",
+        "Sorting Improvement",
+        "Compression Improvement"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Repeated value updates until stable?",
+      "options": [
+        "Iterative updates",
+        "Dataset updates",
+        "Sorting updates",
+        "Compression updates"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Parameter discounting future rewards?",
+      "options": [
+        "Discount factor",
+        "Dataset size",
+        "State counter",
+        "Memory size"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Symbol for discount factor?",
+      "options": [
+        "γ",
+        "α",
+        "β",
+        "λ"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Optimal policy obtained from?",
+      "options": [
+        "Policy extraction",
+        "Dataset extraction",
+        "Sorting extraction",
+        "Compression extraction"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Bellman updates converge due to?",
+      "options": [
+        "Convergence property",
+        "Dataset property",
+        "Sorting property",
+        "Compression property"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Method evaluating policy via expectation equation?",
+      "options": [
+        "Policy Evaluation",
+        "Binary Search",
+        "Merge Sort",
+        "Linear Regression"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Method greedily updating policy?",
+      "options": [
+        "Policy Improvement",
+        "Dataset Improvement",
+        "Sorting Improvement",
+        "Compression Improvement"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "DP requires complete model called?",
+      "options": [
+        "Model-based planning",
+        "Dataset planning",
+        "Sorting planning",
+        "Compression planning"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Updating all states simultaneously?",
+      "options": [
+        "Synchronous DP update",
+        "Dataset update",
+        "Sorting update",
+        "Compression update"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Recursive optimal value computation uses?",
+      "options": [
+        "Bellman recursion",
+        "Dataset recursion",
+        "Sorting recursion",
+        "Compression recursion"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Unified DP advantage?",
+      "options": [
+        "Explains relation among DP algorithms",
+        "Sort states",
+        "Compress datasets",
+        "Remove rewards"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Summary of unified DP view?",
+      "options": [
+        "Policy evaluation, improvement, value iteration interconnected",
+        "Sort states",
+        "Compress datasets",
+        "Remove actions"
+      ],
+      "answer": 0
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+  "topic_key": "td_evaluation_methods",
+  "questions": [
+    {
+      "question": "Main objective of TD evaluation?",
+      "options": [
+        "Estimate policy value function incrementally",
+        "Sort states",
+        "Compress rewards",
+        "Remove actions"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "TD evaluation belongs to?",
+      "options": [
+        "Model-free RL",
+        "Model-based RL",
+        "Supervised learning",
+        "Clustering"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Common TD evaluation update equation?",
+      "options": [
+        "V(s)←V(s)+α[R+γV(s')−V(s)]",
+        "V(s)=G/n",
+        "V(s)=Q(s,a)",
+        "V(s)=R+G"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Temporal difference error expression?",
+      "options": [
+        "R+γV(s')−V(s)",
+        "Dataset size",
+        "Sorting order",
+        "Compression ratio"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Step size parameter?",
+      "options": [
+        "Learning rate α",
+        "Discount factor γ",
+        "Dataset size",
+        "State index"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Future reward importance controlled by?",
+      "options": [
+        "Discount factor γ",
+        "Learning rate α",
+        "Dataset size",
+        "Memory capacity"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Update before episode ends due to?",
+      "options": [
+        "Bootstrapping",
+        "Dataset sampling",
+        "Sorting process",
+        "Compression process"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "TD combines?",
+      "options": [
+        "Monte Carlo and Dynamic Programming",
+        "Sorting and Searching",
+        "Compression and Encryption",
+        "Dataset and Clustering"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Advantage over Monte Carlo?",
+      "options": [
+        "Update after each step",
+        "Remove rewards",
+        "Sort states",
+        "Compress datasets"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Commonly estimated value function?",
+      "options": [
+        "State-value function",
+        "Dataset function",
+        "Sorting function",
+        "Compression function"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Gradual improvement ensured by?",
+      "options": [
+        "Incremental learning",
+        "Dataset learning",
+        "Sorting learning",
+        "Compression learning"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Correct value ensured by?",
+      "options": [
+        "Convergence property",
+        "Dataset property",
+        "Sorting property",
+        "Compression property"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Updates after each transition?",
+      "options": [
+        "TD evaluation",
+        "Binary search",
+        "Sorting method",
+        "Compression method"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Uses observed reward plus?",
+      "options": [
+        "Estimated future value",
+        "Dataset value",
+        "Sorting order",
+        "Compression ratio"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "TD algorithm using action-values?",
+      "options": [
+        "SARSA",
+        "Linear Regression",
+        "Merge Sort",
+        "Binary Search"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Continuous learning during interaction?",
+      "options": [
+        "Online learning",
+        "Dataset learning",
+        "Sorting learning",
+        "Compression learning"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Future value reliance instead of full return?",
+      "options": [
+        "Bootstrapping",
+        "Dataset averaging",
+        "Sorting averaging",
+        "Compression averaging"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Advantage over DP?",
+      "options": [
+        "No environment model needed",
+        "Remove rewards",
+        "Sort states",
+        "Compress datasets"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Algorithm family including TD(0), TD(λ), TD(1)?",
+      "options": [
+        "Temporal Difference methods",
+        "Sorting algorithms",
+        "Clustering algorithms",
+        "Encryption algorithms"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Summary of TD evaluation role?",
+      "options": [
+        "Incrementally estimate value via prediction error",
+        "Sort states",
+        "Compress datasets",
+        "Remove actions"
+      ],
+      "answer": 0
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+{
+  "topic_key": "td_control_sarsa",
+  "questions": [
+    {
+      "question": "SARSA acronym ka full form kya hai?",
+      "options": [
+        "State Action Reward State Action",
+        "State Average Reward State Action",
+        "State Action Reward Search Action",
+        "State Action Ratio State Action"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "SARSA kis type ka RL algorithm hai?",
+      "options": [
+        "On-policy TD control",
+        "Off-policy control",
+        "Supervised learning",
+        "Unsupervised learning"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "SARSA kaun sa function update karta hai?",
+      "options": [
+        "Action-value function Q(s,a)",
+        "State distribution",
+        "Dataset function",
+        "Compression function"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "SARSA update rule me next action ka kya role hai?",
+      "options": [
+        "Policy ke according selected action ka use hota hai",
+        "Random action use hota hai",
+        "Max action always use hota hai",
+        "No action use hota hai"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "SARSA update equation me α kya represent karta hai?",
+      "options": [
+        "Learning rate",
+        "Discount factor",
+        "Dataset size",
+        "State count"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "SARSA me γ ka kya role hai?",
+      "options": [
+        "Future rewards ko discount karna",
+        "Learning speed control",
+        "Exploration control",
+        "Dataset sampling"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "SARSA ka update kis cheez par based hota hai?",
+      "options": [
+        "Actual action taken by current policy",
+        "Best possible action",
+        "Random dataset",
+        "Sorted rewards"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "SARSA me exploration ke liye commonly kya use hota hai?",
+      "options": [
+        "Epsilon-greedy policy",
+        "Greedy only",
+        "Binary search",
+        "Compression rule"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "SARSA kis RL approach me aata hai?",
+      "options": [
+        "Model-free RL",
+        "Model-based RL",
+        "Supervised RL",
+        "Rule-based RL"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "SARSA ka major advantage kya hai?",
+      "options": [
+        "Exploration strategy ke according safe policy learning",
+        "Reward removal",
+        "State sorting",
+        "Dataset compression"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "SARSA me learning kab hoti hai?",
+      "options": [
+        "Har step par TD update se",
+        "Episode end par",
+        "Training end par",
+        "Dataset load par"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "SARSA kis concept ka use karta hai?",
+      "options": [
+        "Bootstrapping",
+        "Sorting",
+        "Clustering",
+        "Encryption"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "SARSA ka convergence kis par depend karta hai?",
+      "options": [
+        "Sufficient exploration",
+        "Dataset sorting",
+        "Compression rate",
+        "State removal"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "SARSA ko kaun se algorithm se compare kiya jata hai?",
+      "options": [
+        "Q-learning",
+        "K-means",
+        "Merge sort",
+        "Linear regression"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "SARSA ka update kis error par based hota hai?",
+      "options": [
+        "Temporal difference error",
+        "Dataset error",
+        "Sorting error",
+        "Compression error"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "SARSA kis trade-off ko handle karta hai?",
+      "options": [
+        "Exploration vs Exploitation",
+        "Sorting vs Searching",
+        "Compression vs Storage",
+        "Dataset vs Model"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "SARSA me action selection kis par depend karta hai?",
+      "options": [
+        "Current policy",
+        "Optimal policy only",
+        "Dataset order",
+        "Reward removal"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "SARSA ka update kis cheez ka estimate improve karta hai?",
+      "options": [
+        "Action-value estimate",
+        "Dataset size",
+        "Sorting order",
+        "Compression ratio"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "SARSA kis family ka algorithm hai?",
+      "options": [
+        "Temporal Difference control methods",
+        "Sorting algorithms",
+        "Clustering algorithms",
+        "Encryption algorithms"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "SARSA ka main goal kya hai?",
+      "options": [
+        "Policy improve karna using TD updates",
+        "States remove karna",
+        "Rewards compress karna",
+        "Datasets sort karna"
+      ],
+      "answer": 0
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+{
+  "topic_key": "q_learning",
+  "questions": [
+    {
+      "question": "Q-learning ka primary goal kya hai?",
+      "options": [
+        "Optimal action-value function learn karna",
+        "Dataset sort karna",
+        "Rewards compress karna",
+        "States remove karna"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Q-learning kis type ka RL algorithm hai?",
+      "options": [
+        "Off-policy TD control",
+        "On-policy control",
+        "Supervised learning",
+        "Unsupervised learning"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Q-learning kis function ko update karta hai?",
+      "options": [
+        "Action-value function Q(s,a)",
+        "State distribution",
+        "Dataset function",
+        "Compression function"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Q-learning update rule me kis value ka use hota hai?",
+      "options": [
+        "Maximum next-state action value",
+        "Actual next action value",
+        "Random dataset value",
+        "Sorted reward"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Q-learning update equation me α kya represent karta hai?",
+      "options": [
+        "Learning rate",
+        "Discount factor",
+        "Dataset size",
+        "State index"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Q-learning me γ ka role kya hai?",
+      "options": [
+        "Future rewards ko discount karna",
+        "Learning speed control",
+        "Exploration control",
+        "Dataset sampling"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Q-learning ka major feature kya hai?",
+      "options": [
+        "Optimal policy learn karta hai behavior policy se independent",
+        "Rewards remove karta hai",
+        "States sort karta hai",
+        "Datasets compress karta hai"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Q-learning me exploration ke liye commonly kya use hota hai?",
+      "options": [
+        "Epsilon-greedy policy",
+        "Greedy only",
+        "Binary search",
+        "Compression rule"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Q-learning kis RL approach me aata hai?",
+      "options": [
+        "Model-free RL",
+        "Model-based RL",
+        "Rule-based RL",
+        "Supervised RL"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Q-learning ka update kis concept par based hai?",
+      "options": [
+        "Bootstrapping",
+        "Sorting",
+        "Clustering",
+        "Encryption"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Q-learning update kab hota hai?",
+      "options": [
+        "Har interaction step par",
+        "Episode end par",
+        "Training end par",
+        "Dataset load par"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Q-learning me action selection kis principle par hota hai?",
+      "options": [
+        "Greedy action selection",
+        "Dataset selection",
+        "Sorting rule",
+        "Compression rule"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Q-learning kis trade-off ko manage karta hai?",
+      "options": [
+        "Exploration vs Exploitation",
+        "Sorting vs Searching",
+        "Compression vs Storage",
+        "Dataset vs Model"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Q-learning convergence kis par depend karta hai?",
+      "options": [
+        "Sufficient exploration",
+        "Dataset sorting",
+        "Compression rate",
+        "State removal"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Q-learning kis algorithm family me aata hai?",
+      "options": [
+        "Temporal Difference control methods",
+        "Sorting algorithms",
+        "Clustering algorithms",
+        "Encryption algorithms"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Q-learning ka main advantage SARSA par kya hai?",
+      "options": [
+        "Optimal policy directly learn karta hai",
+        "Rewards remove karta hai",
+        "States sort karta hai",
+        "Datasets compress karta hai"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Q-learning me value update kis error par based hota hai?",
+      "options": [
+        "Temporal difference error",
+        "Dataset error",
+        "Sorting error",
+        "Compression error"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Q-learning kis cheez ka estimate improve karta hai?",
+      "options": [
+        "Q-value estimate",
+        "Dataset size",
+        "Sorting order",
+        "Compression ratio"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Q-learning kis cheez ki requirement nahi rakhta?",
+      "options": [
+        "Environment model",
+        "State transitions",
+        "Reward signals",
+        "Exploration policy"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Q-learning ka final objective kya hai?",
+      "options": [
+        "Best action selection for maximum long-term reward",
+        "States remove karna",
+        "Rewards compress karna",
+        "Datasets sort karna"
+      ],
+      "answer": 0
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+{
+  "topic_key": "q_learning_variants",
+  "questions": [
+    {
+      "question": "Q-learning variants ka main objective kya hai?",
+      "options": [
+        "Learning stability aur performance improve karna",
+        "Datasets sort karna",
+        "Rewards compress karna",
+        "States remove karna"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Kaunsa variant overestimation bias reduce karta hai?",
+      "options": [
+        "Double Q-Learning",
+        "Linear Q-Learning",
+        "Static Q-Learning",
+        "Binary Q-Learning"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Standard Q-learning ka major problem kya hai?",
+      "options": [
+        "Action-value overestimation",
+        "Dataset duplication",
+        "Sorting error",
+        "Compression error"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Kaunsa variant neural networks use karta hai?",
+      "options": [
+        "Deep Q-Network",
+        "Random Q-learning",
+        "Static Q-learning",
+        "Binary Q-learning"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "DQN training stable banane ke liye kya use hota hai?",
+      "options": [
+        "Experience replay",
+        "Dataset sorting",
+        "Reward removal",
+        "State compression"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Experience replay buffer ka main role kya hai?",
+      "options": [
+        "Past experiences store karna",
+        "States remove karna",
+        "Rewards sort karna",
+        "Datasets compress karna"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "DQN me target network ka use kyu hota hai?",
+      "options": [
+        "Stable target Q-values compute karne ke liye",
+        "Dataset sampling",
+        "Sorting values",
+        "Compression control"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Kaunsa variant Double Q-learning aur DQN combine karta hai?",
+      "options": [
+        "Double DQN",
+        "Static DQN",
+        "Linear DQN",
+        "Binary DQN"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Double DQN me networks ka kya role hota hai?",
+      "options": [
+        "Ek action select karta hai, dusra value evaluate karta hai",
+        "Dono dataset sort karte hain",
+        "Rewards compress karte hain",
+        "States remove karte hain"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Kaunsa variant value aur advantage functions separate karta hai?",
+      "options": [
+        "Dueling DQN",
+        "Random DQN",
+        "Binary DQN",
+        "Static DQN"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Dueling DQN ka advantage kya hai?",
+      "options": [
+        "Better state value estimation",
+        "Reward removal",
+        "Dataset sorting",
+        "Compression efficiency"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Kaunsa variant multiple improvements combine karta hai?",
+      "options": [
+        "Rainbow DQN",
+        "Static DQN",
+        "Linear DQN",
+        "Binary DQN"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Prioritized replay ka main idea kya hai?",
+      "options": [
+        "Important experiences ko zyada sample karna",
+        "Dataset remove karna",
+        "States sort karna",
+        "Rewards compress karna"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Function approximation ka role kya hai variants me?",
+      "options": [
+        "Large state spaces handle karna",
+        "Datasets remove karna",
+        "Rewards sort karna",
+        "States compress karna"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Double Q-learning variance kaise reduce karta hai?",
+      "options": [
+        "Do independent estimators use karke",
+        "Dataset compression se",
+        "Sorting mechanism se",
+        "Reward removal se"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Experience replay ka ek major advantage kya hai?",
+      "options": [
+        "Sample efficiency improve karna",
+        "States remove karna",
+        "Rewards sort karna",
+        "Datasets compress karna"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Deep Q-learning me neural networks ka use kyu hota hai?",
+      "options": [
+        "Q-values approximate karne ke liye",
+        "Datasets remove karne ke liye",
+        "States sort karne ke liye",
+        "Rewards compress karne ke liye"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Variants ka main benefit kya hai?",
+      "options": [
+        "Learning instability reduce karna",
+        "Dataset duplication",
+        "Sorting error",
+        "Compression failure"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Deep RL games me success kis wajah se mila?",
+      "options": [
+        "DQN architecture improvements",
+        "Dataset sorting",
+        "Reward removal",
+        "State compression"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Q-learning variants ka overall purpose kya hai?",
+      "options": [
+        "Better performance aur scalability",
+        "States remove karna",
+        "Rewards compress karna",
+        "Datasets sort karna"
+      ],
+      "answer": 0
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+  "topic_key": "function_approximation_overview",
+  "questions": [
+    {
+      "question": "Function approximation ka primary goal kya hai?",
+      "options": [
+        "Har state ke liye separate value store ki jagah parameterized function use karna",
+        "Datasets sort karna",
+        "Rewards compress karna",
+        "States remove karna"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Function approximation kab use hoti hai?",
+      "options": [
+        "Jab state space bahut large ya continuous ho",
+        "Jab dataset small ho",
+        "Jab sorting problem ho",
+        "Jab compression task ho"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Modern RL me kaunsa common function approximator hai?",
+      "options": [
+        "Neural networks",
+        "Merge sort",
+        "Binary trees",
+        "Compression models"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Parameterized mathematical functions se value represent karna kya kehlata hai?",
+      "options": [
+        "Function approximation",
+        "Dataset representation",
+        "Sorting representation",
+        "Compression representation"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Kaunsi value functions approximate ki ja sakti hain?",
+      "options": [
+        "State-value aur action-value functions",
+        "Dataset functions",
+        "Sorting functions",
+        "Compression functions"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Function approximator parameters update karne ke liye kya use hota hai?",
+      "options": [
+        "Gradient descent",
+        "Binary search",
+        "Merge sort",
+        "Linear scan"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Large environments me Q-values approximate karne ke liye kaunsa algorithm use hota hai?",
+      "options": [
+        "Deep Q-Network",
+        "Binary search",
+        "Sorting algorithm",
+        "Compression algorithm"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Tabular methods ke comparison me function approximation ka advantage kya hai?",
+      "options": [
+        "Similar states par generalization",
+        "Rewards removal",
+        "State sorting",
+        "Dataset compression"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Function approximation ka ek limitation kya hai?",
+      "options": [
+        "Learning instability ya divergence",
+        "Dataset duplication",
+        "Sorting failure",
+        "Compression failure"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Prediction error ke basis par parameter update kya kehlata hai?",
+      "options": [
+        "Gradient-based optimization",
+        "Dataset optimization",
+        "Sorting optimization",
+        "Compression optimization"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Multiple states ke patterns learn karna kis capability se possible hai?",
+      "options": [
+        "Generalization capability",
+        "Dataset capability",
+        "Sorting capability",
+        "Compression capability"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Simple RL problems me kaunsa approximator use hota hai?",
+      "options": [
+        "Linear function approximation",
+        "Binary approximation",
+        "Sorting approximation",
+        "Compression approximation"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Prediction errors use karke parameters update karna kya kehlata hai?",
+      "options": [
+        "Gradient descent learning",
+        "Dataset descent",
+        "Sorting descent",
+        "Compression descent"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Temporal Difference learning ke saath function approximation ka use kaun karta hai?",
+      "options": [
+        "Deep Q-learning",
+        "Binary search",
+        "Sorting learning",
+        "Compression learning"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Complex value functions approximate karne ka approach kya hai?",
+      "options": [
+        "Deep Reinforcement Learning",
+        "Dataset RL",
+        "Sorting RL",
+        "Compression RL"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Continuous states me unseen states ke liye value estimate karna kya advantage hai?",
+      "options": [
+        "Generalization",
+        "Reward removal",
+        "Dataset sorting",
+        "State compression"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Prediction aur target value ke difference ko minimize karna kis concept ka part hai?",
+      "options": [
+        "Loss function optimization",
+        "Dataset optimization",
+        "Sorting optimization",
+        "Compression optimization"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Poorly trained approximator se kya problem hoti hai?",
+      "options": [
+        "Learning divergence",
+        "Dataset duplication",
+        "Sorting failure",
+        "Compression failure"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Neural networks value aur policy dono approximate kar sakte hain kis approach me?",
+      "options": [
+        "Deep Reinforcement Learning",
+        "Dataset learning",
+        "Sorting learning",
+        "Compression learning"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Function approximation ka overall role kya hai?",
+      "options": [
+        "Large ya continuous state spaces handle karna",
+        "States remove karna",
+        "Rewards compress karna",
+        "Datasets sort karna"
+      ],
+      "answer": 0
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+{
+  "topic_key": "gradient_descent",
+  "questions": [
+    {
+      "question": "Gradient descent ka primary objective kya hai?",
+      "options": [
+        "Loss function minimize karna",
+        "Dataset sort karna",
+        "Rewards compress karna",
+        "States remove karna"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Gradient descent me direction kaise decide hoti hai?",
+      "options": [
+        "Loss function ke gradient se",
+        "Dataset size se",
+        "Sorting order se",
+        "Compression ratio se"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Update step ka size kaun control karta hai?",
+      "options": [
+        "Learning rate",
+        "Discount factor",
+        "Dataset count",
+        "State index"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Learning rate bahut zyada ho to kya problem hoti hai?",
+      "options": [
+        "Overshooting aur convergence failure",
+        "Rewards removal",
+        "State sorting",
+        "Dataset compression"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Learning rate bahut chhoti ho to kya hota hai?",
+      "options": [
+        "Learning slow ho jati hai",
+        "Rewards disappear",
+        "Datasets auto sort hote hain",
+        "States remove hote hain"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Pure dataset use karne wala gradient descent ka type?",
+      "options": [
+        "Batch Gradient Descent",
+        "Stochastic Gradient Descent",
+        "Mini-batch Gradient Descent",
+        "Random Gradient Descent"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Single example use karne wala gradient descent ka type?",
+      "options": [
+        "Stochastic Gradient Descent",
+        "Batch Gradient Descent",
+        "Mini-batch Gradient Descent",
+        "Linear Gradient Descent"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Small subset use karne wala gradient descent ka type?",
+      "options": [
+        "Mini-batch Gradient Descent",
+        "Batch Gradient Descent",
+        "Binary Gradient Descent",
+        "Static Gradient Descent"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "RL me neural networks train karne ke liye gradient descent ka use kis approach me hota hai?",
+      "options": [
+        "Deep Reinforcement Learning",
+        "Dataset learning",
+        "Sorting learning",
+        "Compression learning"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Prediction aur actual value ke difference ko kya kehte hain?",
+      "options": [
+        "Loss function",
+        "Dataset function",
+        "Sorting function",
+        "Compression function"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Deep Q-Network training me gradient descent ka kya role hai?",
+      "options": [
+        "Network parameters optimize karna",
+        "States remove karna",
+        "Rewards sort karna",
+        "Datasets compress karna"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Neural networks me gradients compute karne ki technique kya hai?",
+      "options": [
+        "Backpropagation",
+        "Dataset propagation",
+        "Sorting propagation",
+        "Compression propagation"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Gradient descent ka iterative nature kya ensure karta hai?",
+      "options": [
+        "Prediction error gradually reduce hota hai",
+        "Dataset duplication",
+        "Sorting failure",
+        "Compression failure"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Complex models optimize karne ka main advantage kya hai?",
+      "options": [
+        "Neural network parameters optimize kar sakta hai",
+        "Rewards remove karta hai",
+        "States sort karta hai",
+        "Datasets compress karta hai"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Gradient descent kis direction me move karta hai?",
+      "options": [
+        "Negative gradient direction",
+        "Dataset direction",
+        "Sorting direction",
+        "Compression direction"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Local minimum me fasne se kya problem hoti hai?",
+      "options": [
+        "Suboptimal parameters",
+        "Dataset duplication",
+        "Sorting error",
+        "Compression error"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Repeated parameter updates ko kya kehte hain?",
+      "options": [
+        "Iterative optimization",
+        "Dataset optimization",
+        "Sorting optimization",
+        "Compression optimization"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Gradient descent ka core goal kya hai?",
+      "options": [
+        "Error minimization",
+        "Dataset minimization",
+        "Sorting minimization",
+        "Compression minimization"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Deep neural networks training kis RL approach ka part hai?",
+      "options": [
+        "Deep Reinforcement Learning",
+        "Dataset learning",
+        "Sorting learning",
+        "Compression learning"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Gradient descent ka overall role kya hai?",
+      "options": [
+        "Model parameters optimize karna using gradients",
+        "States remove karna",
+        "Rewards compress karna",
+        "Datasets sort karna"
+      ],
+      "answer": 0
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+  "topic_key": "gradient_mc_and_semi_gradient_td0",
+  "questions": [
+    {
+      "question": "Gradient Monte Carlo ka main objective kya hai?",
+      "options": [
+        "Full return use karke parameters update karna",
+        "Datasets sort karna",
+        "Rewards compress karna",
+        "States remove karna"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Gradient MC me parameter update kis technique se hota hai?",
+      "options": [
+        "Gradient descent",
+        "Binary search",
+        "Sorting method",
+        "Compression method"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Gradient MC target value kaise compute karta hai?",
+      "options": [
+        "Episode ke full return se",
+        "Dataset size se",
+        "Sorting order se",
+        "Compression ratio se"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Gradient MC kis RL category me aata hai?",
+      "options": [
+        "Model-free RL",
+        "Model-based RL",
+        "Supervised learning",
+        "Rule-based learning"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Gradient MC ka limitation kya hai?",
+      "options": [
+        "Updates sirf episode end par hote hain",
+        "Rewards remove hote hain",
+        "States sort hote hain",
+        "Datasets compress hote hain"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Prediction aur return ke difference par parameter update kaunsa algorithm karta hai?",
+      "options": [
+        "Gradient Monte Carlo",
+        "Binary search",
+        "Merge sort",
+        "Linear regression"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Semi-Gradient TD(0) future rewards estimate karne ke liye kya use karta hai?",
+      "options": [
+        "Next state predicted value",
+        "Dataset sampling",
+        "Sorting process",
+        "Compression process"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Semi-Gradient TD(0) parameter update kab karta hai?",
+      "options": [
+        "Har step par",
+        "Episode end par",
+        "Training end par",
+        "Dataset load par"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Semi-Gradient TD(0) update equation kis concept par based hai?",
+      "options": [
+        "Bootstrapping",
+        "Sorting",
+        "Clustering",
+        "Encryption"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Gradient-based update me α ka role kya hai?",
+      "options": [
+        "Learning rate control karna",
+        "Discount factor control",
+        "Dataset size control",
+        "State count control"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Semi-Gradient TD ka advantage Gradient MC par kya hai?",
+      "options": [
+        "Faster updates due to stepwise learning",
+        "Rewards removal",
+        "State sorting",
+        "Dataset compression"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Semi-Gradient TD ka limitation kya ho sakta hai?",
+      "options": [
+        "Learning instability",
+        "Dataset duplication",
+        "Sorting failure",
+        "Compression failure"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Full return learning ka use kaunsa method karta hai?",
+      "options": [
+        "Gradient Monte Carlo",
+        "Semi-Gradient TD",
+        "Binary search",
+        "Sorting algorithm"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Bootstrapped estimate ka use kaunsa method karta hai?",
+      "options": [
+        "Semi-Gradient TD(0)",
+        "Gradient MC",
+        "Merge sort",
+        "Compression algorithm"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Gradient-based RL ka main goal kya hai?",
+      "options": [
+        "Prediction error minimize karna",
+        "Datasets remove karna",
+        "Rewards sort karna",
+        "States compress karna"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Parameter gradient kis cheez ka derivative hota hai?",
+      "options": [
+        "Value function approximation ka",
+        "Dataset size ka",
+        "Sorting order ka",
+        "Compression ratio ka"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Large state spaces handle karne ke liye kya use hota hai?",
+      "options": [
+        "Function approximation",
+        "Dataset compression",
+        "Sorting trees",
+        "Reward removal"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Bootstrapped target estimation ka kya matlab hai?",
+      "options": [
+        "Predicted future value ka use",
+        "Dataset averaging",
+        "Sorting averaging",
+        "Compression averaging"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Gradient MC aur Semi-Gradient TD kis family me aate hain?",
+      "options": [
+        "Gradient-based RL algorithms",
+        "Sorting algorithms",
+        "Clustering algorithms",
+        "Encryption algorithms"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Gradient MC aur Semi-Gradient TD ka main difference kya hai?",
+      "options": [
+        "Ek full return use karta hai, dusra bootstrapped estimate",
+        "Dono rewards remove karte hain",
+        "Dono states sort karte hain",
+        "Dono datasets compress karte hain"
+      ],
+      "answer": 0
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+{
+  "topic_key": "eligibility_trace_function_approximation",
+  "questions": [
+    {
+      "question": "Eligibility traces ka main purpose kya hai?",
+      "options": [
+        "Recently visited states ko credit assign karna",
+        "Datasets sort karna",
+        "Rewards compress karna",
+        "States remove karna"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Eligibility traces commonly kis algorithm ke sath use hote hain?",
+      "options": [
+        "TD(lambda)",
+        "Binary search",
+        "Merge sort",
+        "Linear regression"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Eligibility traces ki duration kis parameter se control hoti hai?",
+      "options": [
+        "Lambda",
+        "Alpha",
+        "Gamma",
+        "Beta"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Eligibility traces time ke sath kya hoti hain?",
+      "options": [
+        "Gradually decay",
+        "Increase",
+        "Constant rehti hain",
+        "Remove ho jati hain"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Eligibility traces kis mechanism ka example hain?",
+      "options": [
+        "Credit assignment",
+        "Dataset assignment",
+        "Sorting assignment",
+        "Compression assignment"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Eligibility traces kis RL category me aate hain?",
+      "options": [
+        "Model-free RL",
+        "Model-based RL",
+        "Supervised learning",
+        "Unsupervised learning"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Eligibility traces kya store karte hain?",
+      "options": [
+        "State visit history information",
+        "Dataset size",
+        "Sorting order",
+        "Compression ratio"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Accumulating traces ka matlab kya hai?",
+      "options": [
+        "State revisit hone par trace value increase",
+        "Dataset delete hona",
+        "Sorting reverse hona",
+        "Compression double hona"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Replacing traces ka matlab kya hai?",
+      "options": [
+        "Trace ko reset karke new value dena",
+        "Dataset replace karna",
+        "Sorting replace karna",
+        "Compression replace karna"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Eligibility traces reward propagation me kya help karte hain?",
+      "options": [
+        "Backward direction me reward distribute",
+        "Forward compression",
+        "Dataset sorting",
+        "State removal"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "TD(lambda) learning me eligibility traces ka role kya hai?",
+      "options": [
+        "Multiple past states ko update karna",
+        "Datasets remove karna",
+        "Rewards sort karna",
+        "States compress karna"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Lambda parameter kya ensure karta hai?",
+      "options": [
+        "TD aur Monte Carlo ke beech interpolation",
+        "Dataset interpolation",
+        "Sorting interpolation",
+        "Compression interpolation"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Eligibility traces ka advantage kya hai?",
+      "options": [
+        "Faster learning signal propagation",
+        "Rewards removal",
+        "State sorting",
+        "Dataset compression"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Eligibility traces + function approximation ka challenge kya ho sakta hai?",
+      "options": [
+        "Learning instability",
+        "Dataset duplication",
+        "Sorting failure",
+        "Compression failure"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Trace memory property ka matlab kya hai?",
+      "options": [
+        "Recently visited states ka memory maintain karna",
+        "Dataset memory",
+        "Sorting memory",
+        "Compression memory"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Gradient-based methods me eligibility traces kya allow karte hain?",
+      "options": [
+        "Parameter updates for past states",
+        "Dataset updates",
+        "Sorting updates",
+        "Compression updates"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Eligibility traces decay kis se influenced hoti hai?",
+      "options": [
+        "Gamma aur Lambda",
+        "Alpha aur Dataset",
+        "Sorting aur Beta",
+        "Compression aur State"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Large state spaces me eligibility traces kaise represent hoti hain?",
+      "options": [
+        "Parameter-based representation",
+        "Dataset representation",
+        "Sorting representation",
+        "Compression representation"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Eligibility traces ka multi-step effect kya hota hai?",
+      "options": [
+        "Multiple states par update distribute",
+        "Dataset removal",
+        "Sorting reduction",
+        "Compression increase"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Eligibility traces ka overall role kya hai?",
+      "options": [
+        "Decaying traces ke through learning updates distribute karna",
+        "Datasets sort karna",
+        "Rewards compress karna",
+        "States remove karna"
+      ],
+      "answer": 0
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+{
+  "topic_key": "control_with_function_approximation",
+  "questions": [
+    {
+      "question": "Control with function approximation ka main objective kya hai?",
+      "options": [
+        "Large state spaces me optimal policy learn karna",
+        "Datasets sort karna",
+        "Rewards compress karna",
+        "States remove karna"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Function approximation control methods ka use kab hota hai?",
+      "options": [
+        "Continuous ya large state spaces me",
+        "Small datasets me",
+        "Sorting problems me",
+        "Compression problems me"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Control tasks me kaunsi value function commonly approximate hoti hai?",
+      "options": [
+        "Action-value function",
+        "Dataset function",
+        "Sorting function",
+        "Compression function"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Neural networks ke sath Q-values approximate karne wala algorithm kaunsa hai?",
+      "options": [
+        "Deep Q-Network",
+        "Binary search",
+        "Merge sort",
+        "Linear search"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Approximate Q-values se action selection kis concept se hota hai?",
+      "options": [
+        "Derived policy",
+        "Dataset selection",
+        "Sorting selection",
+        "Compression selection"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Function approximator parameters update karne ke liye kaunsi technique use hoti hai?",
+      "options": [
+        "Gradient descent",
+        "Binary search",
+        "Merge sort",
+        "Linear search"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Policy improvement function approximation me kaise hoti hai?",
+      "options": [
+        "Higher estimated value wale actions choose karke",
+        "Dataset remove karke",
+        "States sort karke",
+        "Rewards compress karke"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Exploration aur exploitation balance karne ke liye kaunsi strategy use hoti hai?",
+      "options": [
+        "Epsilon-greedy",
+        "Sorting policy",
+        "Compression policy",
+        "Dataset policy"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Function approximation ka major advantage kya hai?",
+      "options": [
+        "Generalization across similar states",
+        "Rewards removal",
+        "State sorting",
+        "Dataset compression"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Function approximation control ka challenge kya ho sakta hai?",
+      "options": [
+        "Learning instability",
+        "Dataset duplication",
+        "Sorting failure",
+        "Compression failure"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Neural networks ke use se control kaunsa field represent karta hai?",
+      "options": [
+        "Deep reinforcement learning",
+        "Dataset learning",
+        "Sorting learning",
+        "Compression learning"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Prediction errors ke through parameter updates kaunsa concept hai?",
+      "options": [
+        "Gradient-based learning",
+        "Dataset-based learning",
+        "Sorting-based learning",
+        "Compression-based learning"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Approximated value functions kis cheez ko guide karti hain?",
+      "options": [
+        "Optimal action selection",
+        "Dataset sorting",
+        "State removal",
+        "Reward compression"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "TD learning + function approximation combine karne wala control method kaunsa hai?",
+      "options": [
+        "Deep Q-Learning",
+        "Binary search learning",
+        "Sorting learning",
+        "Compression learning"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Policy improvement iterative kaunsi principle par based hai?",
+      "options": [
+        "Policy improvement principle",
+        "Dataset principle",
+        "Sorting principle",
+        "Compression principle"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Environment model ke bina learning kaunsi category me aata hai?",
+      "options": [
+        "Model-free control",
+        "Dataset control",
+        "Sorting control",
+        "Compression control"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Predicted aur target Q-value ke difference ko kya kehte hain?",
+      "options": [
+        "Loss function",
+        "Dataset function",
+        "Sorting function",
+        "Compression function"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Continuous environments me learning ka major benefit kya hai?",
+      "options": [
+        "Generalization capability",
+        "Dataset capability",
+        "Sorting capability",
+        "Compression capability"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Real-world scalability ka main reason kya hai?",
+      "options": [
+        "Parameterized value function learning",
+        "Dataset scaling",
+        "Sorting scaling",
+        "Compression scaling"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Control with function approximation ka overall role kya hai?",
+      "options": [
+        "Large state spaces me optimal policy learn karna",
+        "States sort karna",
+        "Datasets compress karna",
+        "Rewards remove karna"
+      ],
+      "answer": 0
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+
+{
+  "topic_key": "least_squares_methods",
+  "questions": [
+    {
+      "question": "Least squares method ka main objective kya hai?",
+      "options": [
+        "Squared prediction error minimize karna",
+        "Datasets sort karna",
+        "Rewards compress karna",
+        "States remove karna"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Least squares method kis quantity ko minimize karta hai?",
+      "options": [
+        "Sum of squared errors",
+        "Dataset size",
+        "Sorting order",
+        "Compression ratio"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Value function estimation me least squares use karne wala RL method kaunsa hai?",
+      "options": [
+        "Least Squares Temporal Difference",
+        "Binary search learning",
+        "Sorting learning",
+        "Compression learning"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Least squares methods ka use RL me kab hota hai?",
+      "options": [
+        "Large state spaces me efficient parameter estimation ke liye",
+        "Small datasets me",
+        "Sorting problems me",
+        "Compression problems me"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Least squares commonly kis type ke function approximation me use hota hai?",
+      "options": [
+        "Linear function approximation",
+        "Binary approximation",
+        "Sorting approximation",
+        "Compression approximation"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Least squares ka analytical solution kis concept ko represent karta hai?",
+      "options": [
+        "Closed-form solution",
+        "Dataset solution",
+        "Sorting solution",
+        "Compression solution"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Least squares parameter estimation kis data se hota hai?",
+      "options": [
+        "Collected experience samples",
+        "Dataset removal",
+        "Sorting samples",
+        "Compression samples"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Least squares ka advantage gradient descent par kya hai?",
+      "options": [
+        "Faster convergence",
+        "Rewards removal",
+        "State sorting",
+        "Dataset compression"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Least squares ka limitation large datasets me kya ho sakta hai?",
+      "options": [
+        "High computational cost",
+        "Dataset removal",
+        "Sorting failure",
+        "Compression failure"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Regression fitting ka matlab kya hai?",
+      "options": [
+        "Observed data ko best fit karna",
+        "Datasets remove karna",
+        "States sort karna",
+        "Rewards compress karna"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Least Squares Temporal Difference kis learning concept ko combine karta hai?",
+      "options": [
+        "Least squares + TD learning",
+        "Sorting + TD",
+        "Compression + TD",
+        "Dataset + TD"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Global error minimization ka matlab kya hai?",
+      "options": [
+        "Sabhi samples par error minimize karna",
+        "Dataset removal",
+        "Sorting reduction",
+        "Compression increase"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Least squares me matrix inversion kis purpose se hota hai?",
+      "options": [
+        "Parameter estimation solve karne ke liye",
+        "Dataset sorting",
+        "Reward compression",
+        "State removal"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Analytical optimization ka benefit kya hai?",
+      "options": [
+        "Stable parameter estimates",
+        "Rewards removal",
+        "State sorting",
+        "Dataset compression"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Sample-based estimation ka matlab kya hai?",
+      "options": [
+        "Collected experiences se value estimate karna",
+        "Datasets remove karna",
+        "States sort karna",
+        "Rewards compress karna"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Least squares methods kis value functions ko approximate kar sakte hain?",
+      "options": [
+        "State-value ya action-value",
+        "Dataset value",
+        "Sorting value",
+        "Compression value"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Feature representation poor hone par kya problem ho sakti hai?",
+      "options": [
+        "Poor generalization",
+        "Dataset duplication",
+        "Sorting failure",
+        "Compression failure"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Least squares RL algorithms kis family me aate hain?",
+      "options": [
+        "Least squares RL methods",
+        "Sorting algorithms",
+        "Clustering algorithms",
+        "Encryption algorithms"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Linear regression solution least squares me kya provide karta hai?",
+      "options": [
+        "Best parameter estimates",
+        "Dataset removal",
+        "State sorting",
+        "Reward compression"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Least squares methods ka overall role kya hai?",
+      "options": [
+        "Squared prediction error minimize karke parameters estimate karna",
+        "Datasets sort karna",
+        "Rewards compress karna",
+        "States remove karna"
+      ],
+      "answer": 0
+    }
+  ]
+}
+
+
+
+
+
+
+
+{
+  "topic_key": "experience_replay_dqn",
+  "questions": [
+    {
+      "question": "Experience replay ka main purpose kya hai?",
+      "options": [
+        "Past experiences reuse karke learning stability improve karna",
+        "Datasets sort karna",
+        "Rewards compress karna",
+        "States remove karna"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Experience replay commonly kis algorithm me use hota hai?",
+      "options": [
+        "Deep Q Network",
+        "Binary search",
+        "Merge sort",
+        "Linear regression"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Replay buffer me kya store hota hai?",
+      "options": [
+        "State, action, reward, next state, done",
+        "Dataset size",
+        "Sorting order",
+        "Compression ratio"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Experience replay kaunsa problem reduce karta hai?",
+      "options": [
+        "Sequential sample correlation",
+        "Dataset duplication",
+        "Sorting failure",
+        "Compression failure"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Random sampling ka advantage kya hai?",
+      "options": [
+        "Stable aur efficient learning",
+        "Rewards removal",
+        "State sorting",
+        "Dataset compression"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Replay buffer ka role kya hai?",
+      "options": [
+        "Past experiences store karna",
+        "Datasets remove karna",
+        "States sort karna",
+        "Rewards compress karna"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Experience replay data efficiency kaise improve karta hai?",
+      "options": [
+        "Same experience multiple times use karke",
+        "Dataset removal",
+        "Sorting reduction",
+        "Compression increase"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Diverse experiences se training ka benefit kya hai?",
+      "options": [
+        "Better generalization",
+        "Rewards removal",
+        "State sorting",
+        "Dataset compression"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Mini-batch sampling ka purpose kya hai?",
+      "options": [
+        "Random experiences select karna",
+        "Datasets remove karna",
+        "States sort karna",
+        "Rewards compress karna"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Experience replay kis technique ke sath use hota hai training stabilize karne ke liye?",
+      "options": [
+        "Target network",
+        "Binary search",
+        "Merge sort",
+        "Linear search"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Target network ka role kya hai?",
+      "options": [
+        "Stable Q-value targets compute karna",
+        "Datasets remove karna",
+        "States sort karna",
+        "Rewards compress karna"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Prioritized experience replay kya karta hai?",
+      "options": [
+        "Important experiences ko zyada sample karta hai",
+        "Datasets remove karta hai",
+        "States sort karta hai",
+        "Rewards compress karta hai"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Priority-based sampling ka benefit kya hai?",
+      "options": [
+        "High learning potential samples ko select karna",
+        "Dataset removal",
+        "Sorting failure",
+        "Compression failure"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Experience replay neural network training me kya improve karta hai?",
+      "options": [
+        "Convergence aur variance reduction",
+        "Rewards removal",
+        "State sorting",
+        "Dataset compression"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Replay buffer chota hone par kya issue ho sakta hai?",
+      "options": [
+        "Recent experience overfitting",
+        "Dataset duplication",
+        "Sorting failure",
+        "Compression failure"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Replay buffer bahut bada hone par kya problem ho sakti hai?",
+      "options": [
+        "High memory use aur slow sampling",
+        "Dataset removal",
+        "Sorting failure",
+        "Compression failure"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Experience replay off-policy learning kaise enable karta hai?",
+      "options": [
+        "Stored experiences se learning allow karke",
+        "Dataset sorting",
+        "State removal",
+        "Reward compression"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Complex environments me experience replay ka use kis field me hota hai?",
+      "options": [
+        "Deep reinforcement learning",
+        "Dataset learning",
+        "Sorting learning",
+        "Compression learning"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Replay buffer se randomization ka kya effect hota hai?",
+      "options": [
+        "Training stability improve hoti hai",
+        "Dataset removal",
+        "Sorting reduction",
+        "Compression increase"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Experience replay ka overall role kya hai?",
+      "options": [
+        "Past experiences store aur reuse karke learning improve karna",
+        "Datasets sort karna",
+        "Rewards compress karna",
+        "States remove karna"
+      ],
+      "answer": 0
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+{
+  "topic_key": "policy_gradient_basics",
+  "questions": [
+    {
+      "question": "Policy gradient methods ka main objective kya hai?",
+      "options": [
+        "Policy parameters ko directly optimize karna",
+        "Datasets sort karna",
+        "Rewards compress karna",
+        "States remove karna"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Policy gradient methods kis cheez ko learn karte hain?",
+      "options": [
+        "Parameterized policy",
+        "Dataset distribution",
+        "Sorting function",
+        "Compression model"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Policy gradient learning kis type ke RL problems me useful hai?",
+      "options": [
+        "Continuous action spaces",
+        "Sorting problems",
+        "Dataset indexing",
+        "Compression tasks"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Policy gradient methods ka update kis direction me hota hai?",
+      "options": [
+        "Gradient of expected return",
+        "Dataset gradient",
+        "Sorting gradient",
+        "Compression gradient"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Policy gradient theorem kya describe karta hai?",
+      "options": [
+        "Policy parameters ka gradient expected reward ke respect me",
+        "Dataset size formula",
+        "Sorting complexity",
+        "Compression ratio"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Policy gradient methods ka major advantage kya hai?",
+      "options": [
+        "Stochastic policies learn kar sakte hain",
+        "Rewards remove karte hain",
+        "States sort karte hain",
+        "Datasets compress karte hain"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "REINFORCE algorithm kis category me aata hai?",
+      "options": [
+        "Monte Carlo policy gradient",
+        "Sorting algorithm",
+        "Compression algorithm",
+        "Binary search"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "REINFORCE update kis cheez par based hota hai?",
+      "options": [
+        "Full return from episode",
+        "Dataset size",
+        "Sorting order",
+        "Compression ratio"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Policy gradient me variance reduce karne ke liye kya use hota hai?",
+      "options": [
+        "Baseline function",
+        "Dataset filter",
+        "Sorting tree",
+        "Compression block"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Baseline ka common example kya hai?",
+      "options": [
+        "State value function",
+        "Dataset function",
+        "Sorting function",
+        "Compression function"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Policy gradient methods ka limitation kya hai?",
+      "options": [
+        "High variance updates",
+        "Dataset duplication",
+        "Sorting failure",
+        "Compression failure"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Expected return maximize karne ka matlab kya hai?",
+      "options": [
+        "Long-term reward maximize karna",
+        "Dataset minimize karna",
+        "Sorting reduce karna",
+        "Compression remove karna"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Stochastic policy ka matlab kya hai?",
+      "options": [
+        "Action probability distribution se choose hota hai",
+        "Dataset se choose hota hai",
+        "Sorting order se choose hota hai",
+        "Compression level se choose hota hai"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Deterministic policy gradient ka use kab hota hai?",
+      "options": [
+        "Continuous action spaces me",
+        "Sorting problems me",
+        "Dataset loading me",
+        "Compression tasks me"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Policy gradient me loss function kya represent karta hai?",
+      "options": [
+        "Negative expected reward",
+        "Dataset loss",
+        "Sorting loss",
+        "Compression loss"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Policy gradient training kis technique se hoti hai?",
+      "options": [
+        "Gradient ascent",
+        "Binary search",
+        "Merge sort",
+        "Linear regression"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Policy gradient ka relation kis RL family se hai?",
+      "options": [
+        "Model-free RL",
+        "Model-based RL",
+        "Supervised learning",
+        "Rule-based learning"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Policy gradient ka update signal kya hota hai?",
+      "options": [
+        "Reward signal",
+        "Dataset signal",
+        "Sorting signal",
+        "Compression signal"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Policy gradient methods kis cheez ko directly optimize karte hain?",
+      "options": [
+        "Policy performance",
+        "Dataset structure",
+        "Sorting complexity",
+        "Compression size"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Policy gradient methods ka overall role kya hai?",
+      "options": [
+        "Policy parameters ko optimize karke optimal behavior learn karna",
+        "Datasets sort karna",
+        "Rewards compress karna",
+        "States remove karna"
+      ],
+      "answer": 0
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+{
+  "topic_key": "actor_critic_methods",
+  "questions": [
+    {
+      "question": "Actor-Critic methods ka main objective kya hai?",
+      "options": [
+        "Policy aur value function dono ko saath me learn karna",
+        "Datasets sort karna",
+        "Rewards compress karna",
+        "States remove karna"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Actor component ka role kya hota hai?",
+      "options": [
+        "Action select karna",
+        "Dataset store karna",
+        "Sorting perform karna",
+        "Compression karna"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Critic component kya estimate karta hai?",
+      "options": [
+        "Value function",
+        "Dataset size",
+        "Sorting order",
+        "Compression ratio"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Actor-Critic ka benefit policy gradient par kya hai?",
+      "options": [
+        "Variance reduction",
+        "Dataset removal",
+        "Sorting failure",
+        "Compression failure"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Critic kis signal ka use karta hai learning ke liye?",
+      "options": [
+        "Temporal difference error",
+        "Dataset signal",
+        "Sorting signal",
+        "Compression signal"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Actor update kis direction me hota hai?",
+      "options": [
+        "Policy gradient direction",
+        "Dataset gradient",
+        "Sorting gradient",
+        "Compression gradient"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Actor-Critic kis RL category me aata hai?",
+      "options": [
+        "Model-free reinforcement learning",
+        "Model-based RL",
+        "Supervised learning",
+        "Unsupervised learning"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Critic ka main purpose kya hai?",
+      "options": [
+        "Actor ko feedback dena",
+        "Datasets remove karna",
+        "States sort karna",
+        "Rewards compress karna"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Advantage function ka role kya hai?",
+      "options": [
+        "Better policy updates provide karna",
+        "Dataset indexing",
+        "Sorting optimization",
+        "Compression tuning"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Actor-Critic me bootstrapping kis component me hoti hai?",
+      "options": [
+        "Critic",
+        "Actor",
+        "Dataset module",
+        "Sorting module"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Policy gradient estimate improve karne ke liye kya use hota hai?",
+      "options": [
+        "Value baseline",
+        "Dataset baseline",
+        "Sorting baseline",
+        "Compression baseline"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Actor-Critic methods ka limitation kya ho sakta hai?",
+      "options": [
+        "Learning instability",
+        "Dataset duplication",
+        "Sorting failure",
+        "Compression failure"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Continuous control tasks me kaunsa variant popular hai?",
+      "options": [
+        "Deterministic Actor-Critic",
+        "Binary Actor",
+        "Sorting Critic",
+        "Compression Critic"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Policy improvement Actor-Critic me kaise hoti hai?",
+      "options": [
+        "Critic feedback ke basis par",
+        "Dataset sorting se",
+        "State removal se",
+        "Reward compression se"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Actor-Critic training kis approach ka example hai?",
+      "options": [
+        "Online incremental learning",
+        "Dataset batch sorting",
+        "Compression scheduling",
+        "Static learning"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Actor-Critic algorithms ka use real world me kaha hota hai?",
+      "options": [
+        "Robotics control",
+        "Dataset indexing",
+        "Sorting tasks",
+        "Compression utilities"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Policy aur value update simultaneously hone ka benefit kya hai?",
+      "options": [
+        "Faster convergence",
+        "Dataset removal",
+        "Sorting slowdown",
+        "Compression loss"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Actor-Critic me gradient kis cheez se influence hota hai?",
+      "options": [
+        "TD error signal",
+        "Dataset error",
+        "Sorting error",
+        "Compression error"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Actor-Critic ka scalable nature kis wajah se hai?",
+      "options": [
+        "Function approximation use karne ki wajah se",
+        "Dataset shrinking",
+        "Sorting trees",
+        "Compression tables"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Actor-Critic methods ka overall role kya hai?",
+      "options": [
+        "Policy aur value learning combine karke optimal behavior learn karna",
+        "Datasets sort karna",
+        "Rewards compress karna",
+        "States remove karna"
+      ],
+      "answer": 0
+    }
+  ]
+}
+
+
+
+
+
+
+
+
+
+
+{
+  "topic_key": "advanced_deep_rl_methods",
+  "questions": [
+    {
+      "question": "Proximal Policy Optimization ka main goal kya hai?",
+      "options": [
+        "Stable policy updates ensure karna",
+        "Datasets sort karna",
+        "Rewards compress karna",
+        "States remove karna"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "PPO kis RL family me aata hai?",
+      "options": [
+        "Policy gradient methods",
+        "Sorting algorithms",
+        "Compression algorithms",
+        "Binary search"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "PPO update me clipping ka purpose kya hai?",
+      "options": [
+        "Policy change ko limit karna",
+        "Dataset clipping",
+        "Sorting clipping",
+        "Compression clipping"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "A3C algorithm ka full form kya hai?",
+      "options": [
+        "Asynchronous Advantage Actor Critic",
+        "Advanced Algorithmic Compression Control",
+        "Automatic Action Sorting Component",
+        "Analytical Actor Compression"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "A3C ka main advantage kya hai?",
+      "options": [
+        "Parallel training se faster learning",
+        "Dataset removal",
+        "Sorting slowdown",
+        "Compression loss"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Advantage estimation ka role kya hai?",
+      "options": [
+        "Better policy gradient provide karna",
+        "Dataset indexing",
+        "Sorting optimization",
+        "Compression tuning"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Generalized Advantage Estimation kis problem ko reduce karta hai?",
+      "options": [
+        "Variance in policy gradient",
+        "Dataset duplication",
+        "Sorting failure",
+        "Compression failure"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Modern deep RL me neural networks ka role kya hai?",
+      "options": [
+        "Complex policies aur value functions approximate karna",
+        "Datasets sort karna",
+        "Rewards compress karna",
+        "States remove karna"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Entropy regularization ka purpose kya hai?",
+      "options": [
+        "Exploration encourage karna",
+        "Dataset removal",
+        "Sorting reduction",
+        "Compression increase"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Trust Region Policy Optimization ka main idea kya hai?",
+      "options": [
+        "Policy updates ko constrained rakhna",
+        "Dataset sorting",
+        "State removal",
+        "Reward compression"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Modern RL me replay buffer ka extended use kaha hota hai?",
+      "options": [
+        "Off-policy deep RL",
+        "Dataset indexing",
+        "Sorting utilities",
+        "Compression modules"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Distributed RL ka benefit kya hai?",
+      "options": [
+        "Large scale training faster karna",
+        "Dataset removal",
+        "Sorting failure",
+        "Compression failure"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Policy optimization me surrogate objective ka role kya hai?",
+      "options": [
+        "Approximate performance improvement measure",
+        "Dataset metric",
+        "Sorting metric",
+        "Compression metric"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Actor-Critic variants me asynchronous updates ka benefit kya hai?",
+      "options": [
+        "Training speed improve hoti hai",
+        "Dataset loss",
+        "Sorting delay",
+        "Compression error"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Deep RL me reward normalization ka use kyun hota hai?",
+      "options": [
+        "Stable learning ensure karne ke liye",
+        "Dataset sorting",
+        "State removal",
+        "Compression tuning"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Multi-agent RL ka main focus kya hai?",
+      "options": [
+        "Multiple agents ka coordinated learning",
+        "Dataset indexing",
+        "Sorting tasks",
+        "Compression tasks"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Curriculum learning RL me kya karta hai?",
+      "options": [
+        "Easy se hard tasks gradually train karna",
+        "Dataset removal",
+        "Sorting reduction",
+        "Compression increase"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Reward shaping ka purpose kya hai?",
+      "options": [
+        "Learning speed improve karna",
+        "Dataset sorting",
+        "State removal",
+        "Compression tuning"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Hierarchical RL ka main idea kya hai?",
+      "options": [
+        "Sub-policies ya skills learn karna",
+        "Dataset indexing",
+        "Sorting optimization",
+        "Compression scheduling"
+      ],
+      "answer": 0
+    },
+    {
+      "question": "Modern deep RL ka overall goal kya hai?",
+      "options": [
+        "Complex environments me optimal decision making learn karna",
+        "Datasets sort karna",
+        "Rewards compress karna",
+        "States remove karna"
+      ],
+      "answer": 0
+    }
+  ]
+}

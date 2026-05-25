@@ -14,7 +14,7 @@ export default function Profile() {
     name: 'Student',
     completedQuizzes: 0,
     totalScore: 0,
-    appVersion: '1.0.0',
+    appVersion: '1.0.1',
   });
 
   const [loading,setLoading] = useState(false);
