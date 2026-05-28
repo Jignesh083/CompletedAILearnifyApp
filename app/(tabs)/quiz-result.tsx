@@ -1,4 +1,5 @@
 import { useLocalSearchParams, useRouter } from "expo-router";
+import LottieView from 'lottie-react-native';
 import { useEffect, useState } from "react";
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { API } from "../../config/api";
@@ -65,6 +66,12 @@ export default function QuizResult(){
    <View style={styles.card}>
     <Text style={styles.title}>Quiz Result</Text>
     <Text style={styles.score}>{scoreParam} / {total}</Text>
+    <LottieView
+  source={require('../../assets/animations/Fireworks.json')}
+  autoPlay
+  loop={true}
+  style={styles.celebrationAnimation}
+/>
    </View>
 
    {/* Review */}
@@ -134,7 +141,11 @@ title:{
   fontSize:20,
   fontWeight:"600"
 },
-
+celebrationAnimation:{
+  width:180,
+  height:180,
+  marginTop:10
+},
 score:{
   color:"#fff",
   fontSize:42,

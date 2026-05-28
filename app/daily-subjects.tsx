@@ -1,35 +1,187 @@
-import { useRouter } from 'expo-router';
-import { Pressable, StyleSheet, Text, View } from 'react-native';
+// import { useRouter } from 'expo-router';
+// import { Pressable, StyleSheet, Text, View } from 'react-native';
 
-const SUBJECTS = [
-  { id: 'dsa', title: 'DSA' },
-  { id: 'rl', title: 'Reinforcement Learning' },
-  { id: 'java', title: 'Java' },
-];
+// const SUBJECTS = [
+//   { id: 'dsa', title: 'DSA' },
+//   { id: 'rl', title: 'Reinforcement Learning' },
+//   { id: 'java', title: 'Java' },
+// ];
+
+// export default function DailySubjects() {
+//   const router = useRouter();
+
+//   return (
+//     <View style={styles.container}>
+//       <Text style={styles.title}>Select Subject</Text>
+
+//       {SUBJECTS.map((subject) => (
+//         <Pressable
+//           key={subject.id}
+//           style={styles.card}
+//           onPress={() =>
+//             router.push({
+//               pathname: '/daily-quiz',
+//               params: {
+//                 subject: subject.id,   // ⭐ VERY IMPORTANT
+//               },
+//             })
+//           }
+//         >
+//           <Text style={styles.cardText}>{subject.title}</Text>
+//         </Pressable>
+//       ))}
+//     </View>
+//   );
+// }
+
+// const styles = StyleSheet.create({
+
+//   container: {
+//     flex: 1,
+//     padding: 20,
+//     backgroundColor: '#F5F7FB',
+//   },
+
+//   title: {
+//     marginTop: 30,
+//     fontSize: 24,
+//     fontWeight: '800',
+//     marginBottom: 20,
+//     color: '#123C7B',
+//     letterSpacing: 0.5,
+//   },
+
+//   card: {
+//     padding: 18,
+//     backgroundColor: '#ffffff',
+//     borderRadius: 16,
+//     marginBottom: 14,
+
+//     shadowColor: '#000',
+//     shadowOpacity: 0.05,
+//     shadowRadius: 6,
+//     elevation: 3,
+
+//     borderLeftWidth: 4,
+//     borderLeftColor: '#123C7B',
+//   },
+
+//   cardText: {
+//     fontSize: 16,
+//     fontWeight: '600',
+//     color: '#222',
+//   },
+
+// });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+import { useRouter } from 'expo-router';
+import { useEffect, useState } from 'react';
+
+import {
+  ActivityIndicator,
+  FlatList,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
+
+const BASE_URL = "https://ailearnifyapp-tbrt.onrender.com";
+
+
 
 export default function DailySubjects() {
+
   const router = useRouter();
+
+  const [subjects, setSubjects] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    fetchSubjects();
+  }, []);
+
+  const fetchSubjects = async () => {
+
+    try {
+
+      const response = await fetch(
+        `${BASE_URL}/subjects`
+      );
+
+      const data = await response.json();
+
+      setSubjects(data);
+
+    } catch (error) {
+
+      console.log('subjects error:', error);
+
+    } finally {
+
+      setLoading(false);
+
+    }
+  };
+
+  const renderItem = ({ item }) => {
+
+    return (
+      <Pressable
+        style={styles.card}
+        onPress={() =>
+          router.push({
+            pathname: '/daily-quiz',
+            params: {
+              subject: item.subject_key,
+              subjectId: item.id,
+            },
+          })
+        }
+      >
+        <Text style={styles.cardText}>
+          {item.subject_name}
+        </Text>
+      </Pressable>
+    );
+  };
+
+  if (loading) {
+
+    return (
+      <View style={styles.loaderContainer}>
+        <ActivityIndicator size="large" color="#123C7B" />
+      </View>
+    );
+  }
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Select Subject</Text>
 
-      {SUBJECTS.map((subject) => (
-        <Pressable
-          key={subject.id}
-          style={styles.card}
-          onPress={() =>
-            router.push({
-              pathname: '/daily-quiz',
-              params: {
-                subject: subject.id,   // ⭐ VERY IMPORTANT
-              },
-            })
-          }
-        >
-          <Text style={styles.cardText}>{subject.title}</Text>
-        </Pressable>
-      ))}
+      <Text style={styles.title}>
+        Select Subject
+      </Text>
+
+      <FlatList
+        data={subjects}
+        keyExtractor={(item) => item.id.toString()}
+        renderItem={renderItem}
+        showsVerticalScrollIndicator={false}
+      />
+
     </View>
   );
 }
@@ -40,6 +192,12 @@ const styles = StyleSheet.create({
     flex: 1,
     padding: 20,
     backgroundColor: '#F5F7FB',
+  },
+
+  loaderContainer: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
 
   title: {

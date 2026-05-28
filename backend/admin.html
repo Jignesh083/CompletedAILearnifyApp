@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Admin Dashboard</title>
+<title>AI Learnify Admin Dashboard</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
@@ -15,39 +15,33 @@ body {
   color: white;
 }
 
-/* MAIN CONTAINER */
 .container {
   max-width: 1200px;
   margin: auto;
   padding: 20px;
 }
 
-/* HEADER */
 h1 {
   text-align: center;
   margin-bottom: 30px;
 }
 
-/* SECTION */
 .section {
   margin-top: 30px;
 }
 
-/* STATS GRID */
 #stats {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
 }
 
-/* GRID */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 20px;
 }
 
-/* CARD */
 .card {
   background: rgba(255,255,255,0.05);
   backdrop-filter: blur(12px);
@@ -61,12 +55,10 @@ h1 {
   transform: translateY(-5px);
 }
 
-/* FULL WIDTH CARD */
 .full {
   grid-column: 1 / -1;
 }
 
-/* UPLOAD BOX */
 .upload-box {
   background: rgba(255,255,255,0.05);
   backdrop-filter: blur(12px);
@@ -74,17 +66,16 @@ h1 {
   border-radius: 16px;
 }
 
-/* INPUT */
 input {
-  padding: 10px;
-  margin-top: 10px;
+  padding: 12px;
+  margin-top: 12px;
   width: 100%;
-  border-radius: 8px;
+  border-radius: 10px;
   border: none;
   outline: none;
+  box-sizing: border-box;
 }
 
-/* BUTTON */
 button {
   padding: 12px;
   width: 100%;
@@ -99,10 +90,9 @@ button {
 }
 
 button:hover {
-  transform: scale(1.05);
+  transform: scale(1.03);
 }
 
-/* TABLE */
 table {
   width: 100%;
   margin-top: 10px;
@@ -121,23 +111,24 @@ tr:hover {
   background: rgba(255,255,255,0.08);
 }
 
-/* TOPICS */
 #topics p {
   background: rgba(255,255,255,0.05);
   padding: 10px;
   border-radius: 8px;
   margin: 5px 0;
-  transition: 0.3s;
 }
 
-#topics p:hover {
-  transform: translateX(5px);
-}
-
-/* CANVAS */
 canvas {
   width: 100% !important;
   max-height: 300px;
+}
+
+.success {
+  color: #4ade80;
+}
+
+.error {
+  color: #f87171;
 }
 </style>
 </head>
@@ -146,44 +137,60 @@ canvas {
 
 <div class="container">
 
-<h1>🚀 Admin Dashboard</h1>
+<h1>🚀 AI Learnify Admin Dashboard</h1>
 
 <!-- STATS -->
 <div id="stats" class="section"></div>
 
-<!-- UPLOAD -->
+<!-- UPLOAD SECTION -->
 <div class="upload-box section">
-  <h2>📤 Upload Quiz</h2>
 
-  <input type="text" id="subjectName" placeholder="Enter Subject (e.g. DSA)"/>
-  <input type="text" id="topicName" placeholder="Enter Topic (e.g. Recursion)"/>
-  <input type="text" id="bundleKey" placeholder="Enter bundle_key"/>
+  <h2>📤 Upload Quiz DOCX</h2>
 
-  <input type="file" id="fileInput" accept=".docx"/>
+  <input
+    type="text"
+    id="subjectName"
+    placeholder="Enter Subject Name (Example: Big Data)"
+  />
 
-  <button onclick="uploadFile()">Upload Quiz</button>
+  <input
+    type="text"
+    id="bundleKey"
+    placeholder="Enter bundle_key (Example: big-data)"
+  />
+
+  <input
+    type="file"
+    id="fileInput"
+    accept=".docx"
+  />
+
+  <button onclick="uploadFile()">
+    Upload Quiz
+  </button>
 
   <p id="uploadStatus"></p>
+
 </div>
 
-<!-- GRID SECTION -->
+<!-- GRID -->
 <div class="grid section">
 
   <!-- GRAPH -->
   <div class="card full">
-    <h2>Daily Active Users</h2>
+    <h2>📈 Daily Active Users</h2>
     <canvas id="usersChart"></canvas>
   </div>
 
   <!-- LEADERBOARD -->
   <div class="card">
-    <h2>Leaderboard</h2>
+    <h2>🏆 Leaderboard</h2>
     <div id="leaderboard"></div>
   </div>
 
-  <!-- TOPICS -->
+  <!-- WEAK TOPICS -->
   <div class="card">
-    <h2>Weak Topics</h2>
+    <h2>📚 Weak Topics</h2>
     <div id="topics"></div>
   </div>
 
@@ -193,116 +200,213 @@ canvas {
 
 <script>
 
-const BASE="https://ailearnifyapp.onrender.com";
+const BASE = "http://localhost:3000";
+/* ============================
+   QUIZ UPLOAD
+============================ */
 
-/* ===== UPLOAD ===== */
 async function uploadFile(){
 
   const file = document.getElementById("fileInput").files[0];
-  const bundleKey = document.getElementById("bundleKey").value;
-  const subjectName = document.getElementById("subjectName").value;
-  const topicName = document.getElementById("topicName").value;
 
-  if(!file || !subjectName || !topicName){
-    alert("All fields required");
+  const bundleKey = document
+    .getElementById("bundleKey")
+    .value
+    .trim();
+
+  const subjectName = document
+    .getElementById("subjectName")
+    .value
+    .trim();
+
+  const status = document.getElementById("uploadStatus");
+
+  if(!file){
+    status.innerHTML = "❌ Please select DOCX file";
+    status.className = "error";
     return;
   }
 
-  document.getElementById("uploadStatus").innerHTML="Uploading... ⏳";
+  if(!subjectName){
+    status.innerHTML = "❌ Subject name required";
+    status.className = "error";
+    return;
+  }
+
+  if(!bundleKey){
+    status.innerHTML = "❌ bundle_key required";
+    status.className = "error";
+    return;
+  }
+
+  status.innerHTML = "Uploading... ⏳";
+  status.className = "";
 
   const formData = new FormData();
+
   formData.append("file", file);
   formData.append("bundleKey", bundleKey);
   formData.append("subjectName", subjectName);
-  formData.append("topicName", topicName);
 
-  try{
-    const res = await fetch(BASE + "/admin/upload-quiz",{
-      method:"POST",
+  try {
+
+    const res = await fetch(BASE + "/admin/upload-quiz", {
+      method: "POST",
       body: formData
     });
 
     const data = await res.json();
-    document.getElementById("uploadStatus").innerText=data.message;
 
-  }catch(e){
-    document.getElementById("uploadStatus").innerText="Upload failed ❌";
+    status.innerHTML = data.message || "Upload Complete ✅";
+    status.className = "success";
+
+  } catch (e) {
+
+    console.log(e);
+
+    status.innerHTML = "Upload failed ❌";
+    status.className = "error";
+
   }
 }
 
-/* ===== STATS ===== */
+/* ============================
+   LOAD STATS
+============================ */
+
 async function loadStats(){
 
- const res=await fetch(BASE+"/admin/stats");
- const d=await res.json();
+  try {
 
- document.getElementById("stats").innerHTML=`
-   <div class="card">Users<br><b>${d.total_users}</b></div>
-   <div class="card">Attempts<br><b>${d.total_attempts}</b></div>
-   <div class="card">Avg Score<br><b>${d.avg_score}</b></div>
- `;
+    const res = await fetch(BASE + "/admin/stats");
+    const d = await res.json();
+
+    document.getElementById("stats").innerHTML = `
+      <div class="card">
+        Users<br>
+        <b>${d.total_users || 0}</b>
+      </div>
+
+      <div class="card">
+        Attempts<br>
+        <b>${d.total_attempts || 0}</b>
+      </div>
+
+      <div class="card">
+        Avg Score<br>
+        <b>${d.avg_score || 0}</b>
+      </div>
+    `;
+
+  } catch(e){
+    console.log(e);
+  }
 }
+
 loadStats();
 
-/* ===== GRAPH ===== */
+/* ============================
+   LOAD GRAPH
+============================ */
+
 async function loadGraph(){
 
- const res=await fetch(BASE+"/admin/daily-users");
- const data=await res.json();
+  try {
 
- const labels=data.map(x=>x.day);
- const values=data.map(x=>x.users);
+    const res = await fetch(BASE + "/admin/daily-users");
+    const data = await res.json();
 
- new Chart(document.getElementById("usersChart"),{
-   type:"line",
-   data:{
-     labels:labels,
-     datasets:[{
-       label:"Active Users",
-       data:values,
-       borderColor:"#6366f1"
-     }]
-   },
-   options:{
-     animation:{ duration: 1500 }
-   }
- });
+    const labels = data.map(x => x.day);
+    const values = data.map(x => x.users);
+
+    new Chart(document.getElementById("usersChart"), {
+
+      type: "line",
+
+      data: {
+        labels,
+        datasets: [{
+          label: "Active Users",
+          data: values,
+          borderColor: "#6366f1",
+          tension: 0.4
+        }]
+      }
+
+    });
+
+  } catch(e){
+    console.log(e);
+  }
 }
+
 loadGraph();
 
-/* ===== TOPICS ===== */
+/* ============================
+   WEAK TOPICS
+============================ */
+
 async function loadTopics(){
 
- const res=await fetch(BASE+"/admin/topic-accuracy");
- const data=await res.json();
+  try {
 
- let html="";
- data.forEach(t=>{
-   html += `<p>${t.topic_key} → ${t.accuracy}%</p>`;
- });
+    const res = await fetch(BASE + "/admin/topic-accuracy");
+    const data = await res.json();
 
- document.getElementById("topics").innerHTML=html;
+    let html = "";
+
+    data.forEach(t => {
+
+      html += `
+        <p>
+          ${t.topic_key} → ${t.accuracy}%
+        </p>
+      `;
+
+    });
+
+    document.getElementById("topics").innerHTML = html;
+
+  } catch(e){
+    console.log(e);
+  }
 }
+
 loadTopics();
 
-/* ===== SOCKET ===== */
+/* ============================
+   SOCKET LEADERBOARD
+============================ */
+
 const socket = io(BASE);
 
-socket.on("leaderboard",(data)=>{
+socket.on("leaderboard", (data) => {
 
- let html="<table><tr><th>Rank</th><th>Name</th><th>Score</th></tr>";
+  let html = `
+    <table>
+      <tr>
+        <th>Rank</th>
+        <th>Name</th>
+        <th>Score</th>
+      </tr>
+  `;
 
- data.forEach((u,i)=>{
-   html += `<tr>
-     <td>${i+1}</td>
-     <td>${u.name}</td>
-     <td>${u.score}</td>
-   </tr>`;
- });
+  data.forEach((u, i) => {
 
- html+="</table>";
+    html += `
+      <tr>
+        <td>${i + 1}</td>
+        <td>${u.name}</td>
+        <td>${u.score}</td>
+      </tr>
+    `;
 
- document.getElementById("leaderboard").innerHTML=html;
+  });
+
+  html += `</table>`;
+
+  document.getElementById("leaderboard").innerHTML = html;
+
 });
 
 </script>

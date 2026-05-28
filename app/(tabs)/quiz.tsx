@@ -1,14 +1,16 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useLocalSearchParams, useRouter } from 'expo-router';
+import LottieView from 'lottie-react-native';
 import { useEffect, useReducer, useState } from 'react';
 import {
   ActivityIndicator,
   Alert,
   BackHandler,
   Pressable,
+  ScrollView,
   StyleSheet,
   Text,
-  View,
+  View
 } from 'react-native';
 import { getQuizByTopic } from '../../services/questionRepository';
 
@@ -74,8 +76,8 @@ export default function QuizScreen(){
   const params = useLocalSearchParams();
 
 const topicKey = params.topicKey as string;
-console.log("FINAL topicKey:", topicKey);
-  const title = params.title as string;
+
+const title = params.title as string;
   const safeTitle = title || "Quiz";
 
   const [state,dispatch] = useReducer(reducer,initialState);
@@ -89,10 +91,14 @@ console.log("FINAL topicKey:", topicKey);
   const [attemptId,setAttemptId] = useState<number | null>(null);
 
   const [showAnswer,setShowAnswer] = useState(false);
-
+const [animationType,setAnimationType] = useState<'thinking' | 'happy' | 'sad'>('thinking');
 
 
 const loadQuiz = async ()=>{
+  dispatch({type:'RESET'});
+  setAnswers([]);
+  setShowAnswer(false);
+  setAnimationType('thinking');
   const userId = await AsyncStorage.getItem("user_id");
 
   setLoading(true);
@@ -150,12 +156,29 @@ const loadQuiz = async ()=>{
   },[]);
 
   if(loading){
-    return (
-      <View style={[styles.container,{justifyContent:'center'}]}>
+  return (
+    <View style={[styles.container,{justifyContent:'center'}]}>
+
+      <View style={{ alignItems:'center' }}>
+
         <ActivityIndicator size="large" color="#123C7B"/>
+
+        <Text
+          style={{
+            marginTop:15,
+            fontSize:16,
+            color:'#555',
+            fontWeight:'600'
+          }}
+        >
+          Preparing Your Quiz...
+        </Text>
+
       </View>
-    );
-  }
+
+    </View>
+  );
+}
 
 
   if(error){
@@ -176,14 +199,24 @@ const loadQuiz = async ()=>{
     );
   }
 
-  if(finished){
-    return (
-      <View style={styles.container}>
-        <Text style={styles.title}>Submitting...</Text>
-      </View>
-    );
-  }
+if (finished) {
+  return (
+    <View style={styles.loadingContainer}>
 
+      <LottieView
+        source={require('../../assets/animations/Loading.json')}
+        autoPlay
+        loop
+        style={styles.loadingAnimation}
+      />
+
+      <Text style={styles.loadingText}>
+        Submitting Quiz...
+      </Text>
+
+    </View>
+  );
+}
   const question = quiz[current];
 
   const correctIndex = question.options.findIndex(
@@ -209,6 +242,7 @@ const loadQuiz = async ()=>{
 
     setAnswers(updatedAnswers);
     setShowAnswer(false);
+    setAnimationType('thinking');
 
     if(current + 1 < quiz.length){
       dispatch({type:'NEXT'});
@@ -255,7 +289,12 @@ router.replace({
 
   return (
     <View style={styles.container}>
-
+      
+<ScrollView
+  style={styles.content}
+  showsVerticalScrollIndicator={false}
+  contentContainerStyle={{ paddingBottom: 140 }}
+>
       <Text style={styles.title}>📝 {safeTitle}</Text>
 
       <Text style={styles.progress}>
@@ -263,6 +302,36 @@ router.replace({
       </Text>
 
       <Text style={styles.question}>{question.question}</Text>
+<View style={styles.animationWrapper}>
+
+  {animationType === 'thinking' && (
+    <LottieView
+      source={require('../../assets/animations/thinking.json')}
+      autoPlay
+      loop
+      style={styles.animation}
+    />
+  )}
+
+  {animationType === 'happy' && (
+    <LottieView
+      source={require('../../assets/animations/happy.json')}
+      autoPlay
+      loop
+      style={styles.animation}
+    />
+  )}
+
+  {animationType === 'sad' && (
+    <LottieView
+      source={require('../../assets/animations/sad.json')}
+      autoPlay
+      loop
+      style={styles.animation}
+    />
+  )}
+
+</View>
 
       {question.options.map((opt:any,index:number)=>{
 
@@ -286,11 +355,27 @@ router.replace({
           <Pressable
             key={`${question.id}_${opt.id}`}
             style={[styles.option,{backgroundColor:bgColor}]}
-            onPress={()=>{
-              if(showAnswer) return;
-              dispatch({type:'SELECT',payload:index});
-              setShowAnswer(true);
-            }}
+            onPress={() => {
+
+  if(showAnswer) return;
+
+  dispatch({ type:'SELECT', payload:index });
+
+  setShowAnswer(true);
+
+  const isCorrect = index === correctIndex;
+
+if(isCorrect){
+
+  setAnimationType('happy');
+
+}else{
+
+  setAnimationType('sad');
+
+}
+
+}}
           >
             <Text style={styles.optionText}>
               {String(opt.option_text)}
@@ -299,7 +384,7 @@ router.replace({
         );
 
       })}
-
+</ScrollView>
       <Pressable style={styles.nextBtn} onPress={handleNext}>
         <Text style={styles.nextText}>
           {current+1===quiz.length ? "Submit Quiz" : "Next"}
@@ -317,6 +402,9 @@ container:{
   backgroundColor:'#F5F7FB',
   padding:20,
   paddingTop:40
+},
+content:{
+  flex:1
 },
 
 title:{
@@ -341,6 +429,33 @@ question:{
   lineHeight:24
 },
 
+animationWrapper:{
+  alignItems:'center',
+  marginBottom:15
+},
+loadingContainer:{
+  flex:1,
+  justifyContent:'center',
+  alignItems:'center',
+  backgroundColor:'#F5F7FB'
+},
+
+loadingAnimation:{
+  width:220,
+  height:220
+},
+
+loadingText:{
+  marginTop:10,
+  fontSize:18,
+  fontWeight:'700',
+  color:'#123C7B'
+},
+
+animation:{
+  width:180,
+  height:180
+},
 option:{
   padding:16,
   borderRadius:12,
@@ -366,7 +481,10 @@ nextBtn:{
   padding:16,
   borderRadius:12,
   alignItems:'center',
-
+position:'absolute',
+  bottom:5,
+  left:20,
+  right:20,
   shadowColor:"#123C7B",
   shadowOpacity:0.25,
   shadowRadius:6,

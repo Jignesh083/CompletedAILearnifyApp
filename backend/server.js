@@ -417,19 +417,55 @@ app.post("/payment/verify", async (req, res) => {
     const server = http.createServer(app);
     const io = socketIo(server,{cors:{origin:"*"}});
 
+    // io.on("connection",(socket)=>{
+    // setInterval(async ()=>{
+    //   const d = await pool.query(`
+    //   SELECT u.name,SUM(a.score) as score
+    //   FROM attempts a
+    //   JOIN users u ON u.id=a.user_id
+    //   GROUP BY u.name
+    //   ORDER BY score DESC
+    //   LIMIT 10
+    //   `);
+    //   socket.emit("leaderboard",d.rows);
+    // },5000);
+    // });
+
+
     io.on("connection",(socket)=>{
-    setInterval(async ()=>{
-      const d = await pool.query(`
-      SELECT u.name,SUM(a.score) as score
-      FROM attempts a
-      JOIN users u ON u.id=a.user_id
-      GROUP BY u.name
-      ORDER BY score DESC
-      LIMIT 10
-      `);
-      socket.emit("leaderboard",d.rows);
-    },5000);
-    });
+
+setInterval(async ()=>{
+
+try{
+
+  const d = await pool.query(`
+    SELECT 
+      u.name,
+      SUM(a.score) as score
+
+    FROM attempts a
+
+    JOIN users u
+    ON u.id = a.user_id::integer
+
+    GROUP BY u.name
+
+    ORDER BY score DESC
+
+    LIMIT 10
+  `);
+
+  socket.emit("leaderboard", d.rows);
+
+}catch(e){
+
+  console.log("SOCKET ERROR:", e.message);
+
+}
+
+},5000);
+
+});
 
 const PORT = process.env.PORT || 3000;
 
@@ -508,7 +544,24 @@ app.post("/admin/upload-quiz", upload.single("file"), async (req, res) => {
     const text = result.value;
 
     const { splitTopics, parseQuestions, generateTopicKey } = require("./scripts/parser");
+const subject = await pool.query(
+  `
+  SELECT id
+  FROM subjects
+  WHERE subject_key=$1
+  `,
+  [bundleKey]
+);
 
+if(!subject.rows.length){
+
+  return res.json({
+    message:"Subject not found ❌"
+  });
+
+}
+
+const subjectId = subject.rows[0].id;
     const topics = splitTopics(text);
 
     for (const t of topics) {
@@ -524,9 +577,17 @@ app.post("/admin/upload-quiz", upload.single("file"), async (req, res) => {
 
       if (!topic.rows.length) {
         const newTopic = await pool.query(
-          "INSERT INTO topics (topic_key, bundle_key) VALUES ($1,$2) RETURNING id",
-          [topicKey, bundleKey]
-        );
+  `
+  INSERT INTO topics (
+    topic_key,
+    bundle_key,
+    subject_id
+  )
+  VALUES ($1,$2,$3)
+  RETURNING id
+  `,
+  [topicKey, bundleKey, subjectId]
+);
         topicId = newTopic.rows[0].id;
       } else {
         topicId = topic.rows[0].id;
@@ -560,6 +621,146 @@ app.post("/admin/upload-quiz", upload.single("file"), async (req, res) => {
   }
 });
 
+/* ================= ADMIN STATS ================= */
+
+app.get("/admin/stats", async(req,res)=>{
+
+  try{
+
+    const users = await pool.query(
+      "SELECT COUNT(*) FROM users"
+    );
+
+    const attempts = await pool.query(
+      "SELECT COUNT(*) FROM attempts"
+    );
+
+    const avg = await pool.query(
+      "SELECT AVG(score) FROM attempts"
+    );
+
+    res.json({
+      total_users: users.rows[0].count,
+      total_attempts: attempts.rows[0].count,
+      avg_score: avg.rows[0].avg || 0
+    });
+
+  }catch(e){
+
+    console.log(e);
+
+    res.status(500).json({
+      error:"server error"
+    });
+
+  }
+
+});
+
+
+/* ================= DAILY USERS ================= */
+
+app.get("/admin/daily-users", async(req,res)=>{
+
+  try{
+
+    const data = await pool.query(`
+      SELECT
+      DATE(created_at) as day,
+      COUNT(*) as users
+      FROM users
+      GROUP BY day
+      ORDER BY day ASC
+    `);
+
+    res.json(data.rows);
+
+  }catch(e){
+
+    console.log(e);
+
+    res.status(500).json({
+      error:"server error"
+    });
+
+  }
+
+});
+
+
+/* ================= TOPIC ACCURACY ================= */
+
+app.get("/admin/topic-accuracy", async(req,res)=>{
+
+  try{
+
+    const data = await pool.query(`
+      SELECT
+      t.topic_key,
+
+      ROUND(
+        AVG(
+          CASE
+          WHEN ar.is_correct=true THEN 100
+          ELSE 0
+          END
+        ),2
+      ) as accuracy
+
+      FROM attempt_responses ar
+
+      JOIN questions q
+      ON q.id=ar.question_id
+
+      JOIN topics t
+      ON t.id=q.topic_id
+
+      GROUP BY t.topic_key
+
+      ORDER BY accuracy ASC
+
+      LIMIT 10
+    `);
+
+    res.json(data.rows);
+
+  }catch(e){
+
+    console.log(e);
+
+    res.status(500).json({
+      error:"server error"
+    });
+
+  }
+
+});
+
+
+
+app.get("/subjects", async (req, res) => {
+
+  try {
+
+    const result = await pool.query(`
+      SELECT *
+      FROM subjects
+      ORDER BY id ASC
+    `);
+
+    res.json(result.rows);
+
+  } catch (e) {
+
+    console.log(e);
+
+    res.status(500).json({
+      error: "server error"
+    });
+
+  }
+
+});
 
 app.get("/ping", (req, res) => {
   res.status(200).json({
