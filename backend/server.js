@@ -826,8 +826,9 @@ app.get("/admin/topics", async (req, res) => {
 
 app.post("/admin/topic-access", async (req, res) => {
 
-  try {
+  console.log("TOPIC ACCESS HIT:", req.body);
 
+  try {
     const { topicId, isFree } = req.body;
 
     await pool.query(`
@@ -841,15 +842,12 @@ app.post("/admin/topic-access", async (req, res) => {
     });
 
   } catch (e) {
-
     console.log(e);
 
     res.status(500).json({
       success: false
     });
-
   }
-
 });
 
 
