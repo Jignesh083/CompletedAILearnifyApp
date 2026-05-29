@@ -908,6 +908,69 @@ app.get("/admin/options/:questionId", async (req,res)=>{
   }
 });
 
+
+app.get("/admin/topics", async (req,res)=>{
+
+  try{
+
+    const data = await pool.query(`
+      SELECT
+        t.id,
+        t.topic_key,
+        t.is_free,
+        s.subject_name,
+        s.subject_key
+      FROM topics t
+      LEFT JOIN subjects s
+      ON s.id = t.subject_id
+      ORDER BY s.subject_name,t.id
+    `);
+
+    res.json(data.rows);
+
+  }catch(e){
+
+    console.log(e);
+
+    res.status(500).json([]);
+
+  }
+
+});
+
+
+app.post("/admin/topic-access", async (req,res)=>{
+
+  try{
+
+    const { topicId, isFree } = req.body;
+
+    await pool.query(
+      `
+      UPDATE topics
+      SET is_free = $1
+      WHERE id = $2
+      `,
+      [isFree, topicId]
+    );
+
+    res.json({
+      success:true
+    });
+
+  }catch(e){
+
+    console.log(e);
+
+    res.status(500).json({
+      success:false
+    });
+
+  }
+
+});
+
+
 app.get("/ping", (req, res) => {
   res.status(200).json({
     success: true,

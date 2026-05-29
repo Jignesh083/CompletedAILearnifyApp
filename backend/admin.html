@@ -200,8 +200,7 @@ canvas {
 
 <script>
 
-const BASE = "http://localhost:3000";
-/* ============================
+const BASE = "https://ailearnifyapp-tbrt.onrender.com";/* ============================
    QUIZ UPLOAD
 ============================ */
 
@@ -348,28 +347,68 @@ loadGraph();
 
 async function loadTopics(){
 
-  try {
+  try{
 
-    const res = await fetch(BASE + "/admin/topic-accuracy");
+    const res = await fetch(BASE + "/admin/topics");
+
     const data = await res.json();
 
     let html = "";
 
-    data.forEach(t => {
+    let currentSubject = "";
+
+    data.forEach(topic=>{
+
+      if(currentSubject !== topic.subject_name){
+
+        currentSubject = topic.subject_name;
+
+        html += `
+          <h3 style="
+            margin-top:20px;
+            color:#4ade80;
+          ">
+            ${currentSubject}
+          </h3>
+        `;
+      }
 
       html += `
-        <p>
-          ${t.topic_key} → ${t.accuracy}%
-        </p>
+        <div style="
+          display:flex;
+          justify-content:space-between;
+          align-items:center;
+          padding:10px;
+          margin-bottom:6px;
+          background:rgba(255,255,255,0.05);
+          border-radius:8px;
+        ">
+
+          <span>${topic.topic_key}</span>
+
+          <button
+            onclick="toggleFree(${topic.id}, ${topic.is_free})"
+            style="
+              width:120px;
+              margin:0;
+            "
+          >
+            ${topic.is_free ? "FREE" : "PAID"}
+          </button>
+
+        </div>
       `;
 
     });
 
     document.getElementById("topics").innerHTML = html;
 
-  } catch(e){
+  }catch(e){
+
     console.log(e);
+
   }
+
 }
 
 loadTopics();
@@ -408,6 +447,37 @@ socket.on("leaderboard", (data) => {
   document.getElementById("leaderboard").innerHTML = html;
 
 });
+
+
+
+
+async function toggleFree(topicId,currentValue){
+
+  try{
+
+    await fetch(
+      BASE + "/admin/topic-access",
+      {
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json"
+        },
+        body:JSON.stringify({
+          topicId,
+          isFree: !currentValue
+        })
+      }
+    );
+
+    loadTopics();
+
+  }catch(e){
+
+    console.log(e);
+
+  }
+
+}
 
 </script>
 
