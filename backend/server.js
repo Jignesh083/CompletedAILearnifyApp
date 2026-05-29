@@ -737,7 +737,37 @@ app.get("/admin/topic-accuracy", async(req,res)=>{
 });
 
 
+app.get("/topics/:subjectKey", async (req, res) => {
+  try {
 
+    const { subjectKey } = req.params;
+
+    const result = await pool.query(
+      `
+      SELECT
+        t.id,
+        t.topic_key
+      FROM topics t
+      JOIN subjects s
+      ON s.id = t.subject_id
+      WHERE s.subject_key = $1
+      ORDER BY t.id ASC
+      `,
+      [subjectKey]
+    );
+
+    res.json(result.rows);
+
+  } catch (e) {
+
+    console.log(e);
+
+    res.status(500).json({
+      error: "server error"
+    });
+
+  }
+});
 app.get("/subjects", async (req, res) => {
 
   try {
@@ -760,6 +790,122 @@ app.get("/subjects", async (req, res) => {
 
   }
 
+});
+
+
+app.get("/admin/topics", async (req, res) => {
+  try {
+
+    const result = await pool.query(`
+      SELECT
+        t.id,
+        t.topic_key,
+        t.is_free,
+        s.subject_name,
+        s.subject_key
+      FROM topics t
+      JOIN subjects s
+      ON s.id = t.subject_id
+      ORDER BY t.id ASC
+    `);
+
+    res.json(result.rows);
+
+  } catch (e) {
+
+    console.log(e);
+
+    res.status(500).json({
+      error: "server error"
+    });
+
+  }
+});
+
+
+
+app.post("/admin/topic-access", async (req, res) => {
+
+  try {
+
+    const { topicId, isFree } = req.body;
+
+    await pool.query(`
+      UPDATE topics
+      SET is_free = $1
+      WHERE id = $2
+    `, [isFree, topicId]);
+
+    res.json({
+      success: true
+    });
+
+  } catch (e) {
+
+    console.log(e);
+
+    res.status(500).json({
+      success: false
+    });
+
+  }
+
+});
+
+
+
+app.get("/admin/questions/:topicId", async (req,res)=>{
+  try{
+
+    const { topicId } = req.params;
+
+    const result = await pool.query(`
+      SELECT
+        id,
+        question
+      FROM questions
+      WHERE topic_id = $1
+      ORDER BY id ASC
+    `,[topicId]);
+
+    res.json(result.rows);
+
+  }catch(e){
+
+    console.log(e);
+
+    res.status(500).json([]);
+
+  }
+});
+
+
+
+app.get("/admin/options/:questionId", async (req,res)=>{
+  try{
+
+    const { questionId } = req.params;
+
+    const result = await pool.query(`
+      SELECT
+        id,
+        option_text,
+        is_correct,
+        explanation
+      FROM options
+      WHERE question_id = $1
+      ORDER BY id ASC
+    `,[questionId]);
+
+    res.json(result.rows);
+
+  }catch(e){
+
+    console.log(e);
+
+    res.status(500).json([]);
+
+  }
 });
 
 app.get("/ping", (req, res) => {
