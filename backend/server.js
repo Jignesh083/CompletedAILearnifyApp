@@ -971,6 +971,38 @@ app.post("/admin/topic-access", async (req,res)=>{
 });
 
 
+app.post("/admin/topic-access", async (req,res)=>{
+
+  try{
+
+    const { topicId, isFree } = req.body;
+
+    await pool.query(
+      `
+      UPDATE topics
+      SET is_free = $1
+      WHERE id = $2
+      `,
+      [isFree, topicId]
+    );
+
+    res.json({
+      success:true
+    });
+
+  }catch(e){
+
+    console.log(e);
+
+    res.status(500).json({
+      success:false
+    });
+
+  }
+
+});
+
+
 app.get("/ping", (req, res) => {
   res.status(200).json({
     success: true,
@@ -988,6 +1020,8 @@ app.use((err, req, res, next) => {
     error: "Internal server error"
   });
 });
+
+
 
 
 
