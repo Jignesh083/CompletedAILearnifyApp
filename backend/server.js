@@ -988,3 +988,9 @@ app.use((err, req, res, next) => {
     error: "Internal server error"
   });
 });
+
+
+
+const path = require("path");
+
+app.use(express.static(__dirname));
