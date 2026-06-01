@@ -737,24 +737,57 @@ app.get("/admin/topic-accuracy", async(req,res)=>{
 });
 
 
+// app.get("/topics/:subjectKey", async (req, res) => {
+//   try {
+
+//     const { subjectKey } = req.params;
+
+//     const result = await pool.query(
+//       `
+//       SELECT
+//         t.id,
+//         t.topic_key
+//       FROM topics t
+//       JOIN subjects s
+//       ON s.id = t.subject_id
+//       WHERE s.subject_key = $1
+//       ORDER BY t.id ASC
+//       `,
+//       [subjectKey]
+//     );
+
+//     res.json(result.rows);
+
+//   } catch (e) {
+
+//     console.log(e);
+
+//     res.status(500).json({
+//       error: "server error"
+//     });
+
+//   }
+// });
+
+
 app.get("/topics/:subjectKey", async (req, res) => {
   try {
 
     const { subjectKey } = req.params;
 
-    const result = await pool.query(
-      `
+    const result = await pool.query(`
       SELECT
         t.id,
-        t.topic_key
+        t.topic_key,
+        t.is_free,
+        s.subject_name,
+        s.subject_key
       FROM topics t
       JOIN subjects s
       ON s.id = t.subject_id
       WHERE s.subject_key = $1
       ORDER BY t.id ASC
-      `,
-      [subjectKey]
-    );
+    `,[subjectKey]);
 
     res.json(result.rows);
 
@@ -762,12 +795,11 @@ app.get("/topics/:subjectKey", async (req, res) => {
 
     console.log(e);
 
-    res.status(500).json({
-      error: "server error"
-    });
+    res.status(500).json([]);
 
   }
 });
+
 app.get("/subjects", async (req, res) => {
 
   try {
