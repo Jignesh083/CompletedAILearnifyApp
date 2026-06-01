@@ -825,6 +825,58 @@ app.get("/subjects", async (req, res) => {
 });
 
 
+app.get("/subjects/free", async (req, res) => {
+  try {
+
+    const data = await pool.query(`
+      SELECT
+        s.id,
+        s.subject_name,
+        s.subject_key
+      FROM subjects s
+      WHERE EXISTS (
+        SELECT 1
+        FROM topics t
+        WHERE t.subject_id = s.id
+        AND t.is_free = true
+      )
+      ORDER BY s.id
+    `);
+
+    res.json(data.rows);
+
+  } catch (e) {
+    console.log(e);
+    res.status(500).json([]);
+  }
+});
+
+app.get("/subjects/paid", async (req, res) => {
+  try {
+
+    const data = await pool.query(`
+      SELECT
+        s.id,
+        s.subject_name,
+        s.subject_key
+      FROM subjects s
+      WHERE EXISTS (
+        SELECT 1
+        FROM topics t
+        WHERE t.subject_id = s.id
+        AND t.is_free = false
+      )
+      ORDER BY s.id
+    `);
+
+    res.json(data.rows);
+
+  } catch (e) {
+    console.log(e);
+    res.status(500).json([]);
+  }
+});
+
 app.get("/admin/topics", async (req, res) => {
   try {
 

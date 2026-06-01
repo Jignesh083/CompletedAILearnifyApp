@@ -1,8 +1,9 @@
 import { Ionicons } from '@expo/vector-icons';
+
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useFocusEffect } from "@react-navigation/native";
 import { useLocalSearchParams, useRouter } from 'expo-router';
-import { useCallback, useState } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { ActivityIndicator, FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
 import { API } from "../../config/api"; // ✅ ADDED
 
@@ -15,58 +16,12 @@ const COURSE_KEYS: Record<string,string> = {
 };
 
 type Topic = {
-  id: string;
-  title: string;
-  type: 'quiz';
-  isFree?: boolean;
+  id: number;
+  topic_key: string;
+  is_free: boolean;
 };
 
-const COURSE_TOPICS: Record<string, Topic[]> = {
 
-  DSA: [
-    { id: 'dsa_intro', title: 'DSA Introduction', type: 'quiz' },
-    { id: 'time_space', title: 'Time & Space Complexity', type: 'quiz' },
-    { id: 'arrays', title: 'Arrays Basics', type: 'quiz' },
-    { id: 'strings', title: 'Strings Basics', type: 'quiz' },
-    { id: 'searching', title: 'Searching Algorithms', type: 'quiz' },
-    { id: 'sorting', title: 'Sorting Algorithms', type: 'quiz' },
-    { id: 'maths', title: 'Basic Mathematics', type: 'quiz' },
-    { id: 'stack', title: 'Stack (Introduction)', type: 'quiz' },
-    { id: 'queue', title: 'Queue (Introduction)', type: 'quiz' },
-    { id: 'practice', title: 'Practice Problems (Easy)', type: 'quiz' },
-  ],
-
- Reinforcement_Learning: [
-  { id: 'rl_intro', title: 'RL Introduction & Basics', type: 'quiz'},
-  { id: 'rl_agent_environment', title: 'RL Agent & Environment', type: 'quiz'},
-  // { id: 'rl_states_actions_rewards', title: 'RL States, Actions & Rewards', type: 'quiz'},
-  // { id: 'rl_policy', title: 'RL Policy', type: 'quiz' },
-  // { id:'rl_episode',title:'Episodes & Returns', type:'quiz'},
-  // { id: 'rl_discount_factor', title: 'Discount Factor', type: 'quiz' },
-  // { id:'rl_exploration_vs_exploitation' ,title:'Exploration vs Exploitation', type:'quiz'},
-  { id: 'rl_framework', title: 'RL Framework', type: 'quiz', isFree: true },
-  // { id:'rl_value_function' ,title:'Value Function', type:'quiz', isFree: true},
-  { id:'rl_action_value_function' ,title:'Action-Value Function', type:'quiz', isFree: true},
-  // { id: 'rl_mdp_intro', title: 'Markov Decision Process (MDP) Introduction', type: 'quiz', isFree: true },
-  // { id: 'rl_markov_property', title: 'Markov Property', type: 'quiz', isFree: true },
-// { id: 'rl_state_action_space', title: 'State & Action Space', type: 'quiz', isFree: true },
-// { id: 'rl_transition_function', title: 'Transition Function', type: 'quiz', isFree: true },
-// { id: 'rl_reward_function', title: 'Reward Function', type: 'quiz', isFree: true },
-// { id: 'rl_policy_mdp', title: 'Policy in MDP', type: 'quiz', isFree: true },
-// { id: 'rl_value_function_mdp', title: 'Value Function in MDP', type: 'quiz', isFree: true },
-{ id: 'rl_dynamic_programming', title: 'Dynamic Programming', type: 'quiz', isFree: true },
-// { id: 'rl_policy_evaluation', title: 'Policy Evaluation', type: 'quiz', isFree: true },
-// { id: 'rl_policy_improvement', title: 'Policy Improvement', type: 'quiz', isFree: true },
-{ id: 'rl_policy_iteration', title: 'Policy Iteration', type: 'quiz', isFree: true },
-{ id: 'rl_value_iteration', title: 'Value Iteration', type: 'quiz', isFree: true },
-{ id: 'rl_principle_of_optimality', title: 'Principle of Optimality', type: 'quiz', isFree: true },
-// { id: 'rl_bellman_equation', title: 'Bellman Equation', type: 'quiz', isFree: true },
-],
-
-  JAVA: [
-    { id: 'java_intro', title: 'Java Introduction', type: 'quiz' },
-  ],
-};
 
 export default function CourseListScreen(){
 
@@ -77,8 +32,47 @@ export default function CourseListScreen(){
   const { course } = useLocalSearchParams<{ course?: string }>();
 
   const safeCourse = course ?? "DSA";
-  const topics: Topic[] = COURSE_TOPICS[safeCourse] ?? [];
+  useEffect(() => {
 
+  const loadTopics = async () => {
+
+    try {
+
+      let subjectKey = "dsa";
+
+      if (safeCourse === "PYTHON") {
+        subjectKey = "python";
+      }
+
+      if (
+        safeCourse === "ReinforcementLearning" ||
+        safeCourse === "Reinforcement_Learning"
+      ) {
+        subjectKey = "rl";
+      }
+
+      const res = await fetch(
+        `${API}/topics/${subjectKey}`
+      );
+
+      const data = await res.json();
+
+      console.log("TOPICS:", data);
+
+      setTopics(data);
+
+    } catch (e) {
+
+      console.log(e);
+
+    }
+
+  };
+
+  loadTopics();
+
+}, [safeCourse]);
+  const [topics, setTopics] = useState<Topic[]>([]);
   useFocusEffect(
     useCallback(()=>{
 
@@ -97,11 +91,11 @@ export default function CourseListScreen(){
 
           const key = COURSE_KEYS[safeCourse];
 
-          if(!key || safeCourse === "DSA"){
-            setHasAccess(true);
-            setLoading(false);
-            return;
-          }
+          if(!key){
+    setHasAccess(false);
+    setLoading(false);
+    return;
+}
 
          const res = await fetch(
   `${API}/purchase/check/${key}/${userId}`
@@ -133,13 +127,16 @@ const d = await res.json();
     },[safeCourse])
   );
 
-  const isTopicLocked = (topic: Topic) => {
+const isTopicLocked = (topic: Topic) => {
 
-    if(safeCourse === "DSA") return false;
-    if(topic.isFree) return false;
+  // FREE topic
+  if (topic.is_free) {
+    return false;
+  }
 
-    return !hasAccess;
-  };
+  // PAID topic
+  return true;
+};
 
   if(loading){
     return(
@@ -169,8 +166,8 @@ const d = await res.json();
           router.push({
             pathname:"/quiz",
             params:{
-              topicKey: item.id,
-              title:item.title
+              topicKey: item.topic_key,
+title: item.topic_key
             }
           });
 
@@ -183,7 +180,7 @@ const d = await res.json();
         />
 
         <Text style={[styles.cardText, locked && {color:"#999"}]}>
-          {item.title}
+          {item.topic_key}
         </Text>
 
         <Ionicons name="chevron-forward" size={18} color="#999" />
@@ -196,10 +193,12 @@ const d = await res.json();
       <Text style={styles.heading}>📘 {safeCourse} Topics</Text>
 
       <FlatList
-        data={topics}
-        keyExtractor={(item)=>item.id}
-        renderItem={renderItem}
-      />
+  data={topics}
+  keyExtractor={(item, index) =>
+    String(item.id ?? index)
+  }
+  renderItem={renderItem}
+/>
     </View>
   );
 }
