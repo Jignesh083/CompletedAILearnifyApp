@@ -877,6 +877,29 @@ app.get("/subjects/paid", async (req, res) => {
   }
 });
 
+app.get("/topics/:subjectKey/:type", async (req,res)=>{
+
+  const { subjectKey, type } = req.params;
+
+  const isFree = type === "free";
+
+  const data = await pool.query(`
+    SELECT
+      t.id,
+      t.topic_key,
+      t.is_free
+    FROM topics t
+    JOIN subjects s
+      ON s.id = t.subject_id
+    WHERE
+      s.subject_key = $1
+      AND t.is_free = $2
+    ORDER BY t.id
+  `,[subjectKey,isFree]);
+
+  res.json(data.rows);
+
+});
 app.get("/admin/topics", async (req, res) => {
   try {
 
