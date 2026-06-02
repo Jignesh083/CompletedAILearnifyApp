@@ -19,6 +19,7 @@ const COURSE_KEYS: Record<string,string> = {
   ReinforcementLearning: "rl_full_course",
   JAVA: "java_full_course",
 };
+
 type Topic = {
   id: number;
   topic_key: string;

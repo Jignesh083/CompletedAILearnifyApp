@@ -6,7 +6,7 @@ const COURSES = [
   { id: 'ReinforcementLearning', title: 'Reinforcement Learning' },
   { id: 'JAVA', title: 'Java' },
 ];
-
+//hello
 export default function Syllabus() {
   const router = useRouter();
 
