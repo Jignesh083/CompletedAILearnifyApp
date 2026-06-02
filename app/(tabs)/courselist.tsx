@@ -9,12 +9,16 @@ import { API } from "../../config/api"; // ✅ ADDED
 
 
 
-const COURSE_KEYS: Record<string,string> = {
-  ReinforcementLearning: "rl_full_course",
-  DSA: "dsa_full_course",
-  JAVA: "java_full_course"
+const COURSE_IDS: Record<string, number> = {
+  DSA: 1,
+  ReinforcementLearning: 81,
+  JAVA: 200,
 };
-
+const COURSE_KEYS: Record<string,string> = {
+  DSA: "dsa_full_course",
+  ReinforcementLearning: "rl_full_course",
+  JAVA: "java_full_course",
+};
 type Topic = {
   id: number;
   topic_key: string;
@@ -89,16 +93,20 @@ export default function CourseListScreen(){
             return;
           }
 
-          const key = COURSE_KEYS[safeCourse];
+  const topicId = COURSE_IDS[safeCourse];
 
-          if(!key){
-    setHasAccess(false);
-    setLoading(false);
-    return;
+console.log("SAFE COURSE:", safeCourse);
+console.log("TOPIC ID:", topicId);
+console.log("USER ID:", userId);
+
+if(!topicId){
+  setHasAccess(false);
+  setLoading(false);
+  return;
 }
 
-         const res = await fetch(
-  `${API}/purchase/check/${key}/${userId}`
+const res = await fetch(
+  `${API}/purchase/check/${topicId}/${userId}`
 );
 
 if(!res.ok){
