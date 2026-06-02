@@ -320,7 +320,7 @@ const razorpay = new Razorpay({
     app.post("/payment/create-order", async (req,res)=>{
       try{
         const order = await razorpay.orders.create({
-          amount: 49900,     // ₹999
+          amount: 100,     // ₹999
           currency: "INR",
           receipt: "rcpt_"+Date.now()
         });

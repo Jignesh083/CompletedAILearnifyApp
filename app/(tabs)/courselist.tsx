@@ -129,13 +129,13 @@ const d = await res.json();
 
 const isTopicLocked = (topic: Topic) => {
 
-  // FREE topic
+  // Free topic
   if (topic.is_free) {
     return false;
   }
 
-  // PAID topic
-  return true;
+  // Paid topic
+  return !hasAccess;
 };
 
   if(loading){

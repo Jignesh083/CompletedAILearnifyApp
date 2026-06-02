@@ -4,7 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "android": "expo run:android",
+    "ios": "expo run:ios"
   },
   "keywords": [],
   "author": "",
@@ -22,6 +24,9 @@
     "razorpay": "^2.9.6",
     "react-native-razorpay": "^2.3.1",
     "socket.io": "^4.8.3",
-    "type-is": "^2.0.1"
+    "type-is": "^2.0.1",
+    "expo": "~54.0.34",
+    "react": "19.1.0",
+    "react-native": "0.81.5"
   }
 }

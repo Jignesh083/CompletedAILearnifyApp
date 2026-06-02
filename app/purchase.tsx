@@ -1,7 +1,7 @@
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { Pressable, StyleSheet, Text, View } from "react-native";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import RazorpayCheckout from "react-native-razorpay";
-import { supabase } from "../supabase";
 
 // 🔥 CHANGE AFTER DEPLOY
 const API = "https://ailearnifyapp-tbrt.onrender.com";
@@ -46,16 +46,12 @@ export default function Purchase(){
 
   try{
 
-    const {
-      data: { user },
-    } = await supabase.auth.getUser();
+    const userId = await AsyncStorage.getItem("user_id");
 
-    if (!user) {
-      alert("Login expired");
-      return;
-    }
-
-    const userId = user.id;
+if (!userId) {
+  alert("Please login first");
+  return;
+}
 
     if(!course){
       alert("Course missing");
