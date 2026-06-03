@@ -55,63 +55,45 @@ const generateTopicKey = (name) => {
 
 const parseQuestions = (text) => {
 
-  const blocks = text.split(/\n\d+\./);
+  const blocks = text.match(
+    /\d+\.\s[\s\S]*?(?=\n\d+\.|\Z)/g
+  ) || [];
 
   const questions = [];
 
-  for (let b of blocks) {
+  for (const block of blocks) {
 
-    b = b.trim();
+    const questionMatch = block.match(
+      /^\d+\.\s(.+?)(?=A\)|A\.)/s
+    );
 
-    if (!b) continue;
+    if (!questionMatch) continue;
 
-    const lines = b
-      .split("\n")
-      .map(x => x.trim())
-      .filter(Boolean);
+    const question = questionMatch[1].trim();
 
-    console.log(lines);
-
-    if (lines.length < 5) continue;
-
-    // QUESTION
-    const question = lines[0].trim();
+    const optionRegex =
+      /([A-D])[\.\)]\s*(.*?)(?=[A-D][\.\)]|Answer:)/gs;
 
     const options = [];
 
-    let answer = "";
+    let m;
 
-    for (let line of lines.slice(1)) {
+    while ((m = optionRegex.exec(block)) !== null) {
 
-      // OPTIONS
-      if (
-        line.startsWith("A.") || line.startsWith("A)") ||
-        line.startsWith("B.") || line.startsWith("B)") ||
-        line.startsWith("C.") || line.startsWith("C)") ||
-        line.startsWith("D.") || line.startsWith("D)")
-      ) {
-
-        options.push({
-          text: line.substring(2).trim(),
-          key: line[0]
-        });
-
-      }
-
-      // ANSWER
-      if (
-        line.toUpperCase().startsWith("ANSWER")
-      ) {
-
-        answer = line
-          .split(":")[1]
-          ?.trim()
-          ?.charAt(0)
-          ?.toUpperCase();
-
-      }
+      options.push({
+        key: m[1],
+        text: m[2].trim()
+      });
 
     }
+
+    const answerMatch =
+      block.match(/Answer:\s*([A-D])/i);
+
+    const answer =
+      answerMatch?.[1]?.toUpperCase();
+
+    if (options.length !== 4) continue;
 
     questions.push({
       question,
