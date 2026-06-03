@@ -3,11 +3,36 @@
 =========================== */
 
 const splitTopics = (text) => {
-  return [{
-    topicName: req.body.subjectName,
-    content: text
-  }];
-}
+
+  const topics = [];
+
+  const sections = text.split(
+    /\n(?=[A-Za-z].*—\s*\d+\s*Tricky.*MCQs)/g
+  );
+
+  for (const section of sections) {
+
+    const lines = section
+      .split("\n")
+      .map(x => x.trim())
+      .filter(Boolean);
+
+    if (!lines.length) continue;
+
+    const topicName = lines[0]
+      .replace(/—\s*\d+\s*Tricky.*MCQs/i, "")
+      .trim();
+
+    topics.push({
+      topicName,
+      content: lines.slice(1).join("\n")
+    });
+
+  }
+
+  return topics;
+
+};
 
 
 /* ===========================
