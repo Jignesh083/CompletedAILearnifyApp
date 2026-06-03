@@ -7,8 +7,8 @@ const splitTopics = (text) => {
   const topics = [];
 
   const sections = text.split(
-    /\n(?=[A-Za-z].*—\s*\d+\s*Tricky.*MCQs)/g
-  );
+  /\n(?=[A-Za-z].*—\s*\d+\s*Tricky.*MCQs)/g
+);
 
   for (const section of sections) {
 

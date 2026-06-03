@@ -565,10 +565,12 @@ if(!subject.rows.length){
 
 const subjectId = subject.rows[0].id;
     const topics = splitTopics(text);
-
+console.log("TOPICS FOUND:", topics.length);
+console.log(JSON.stringify(topics, null, 2));
     for (const t of topics) {
 
       const topicKey = generateTopicKey(t.topicName);
+        console.log("TOPIC:", t.topicName);
 
       let topic = await pool.query(
         "SELECT id FROM topics WHERE topic_key = $1",
@@ -596,6 +598,10 @@ const subjectId = subject.rows[0].id;
       }
 
       const questions = parseQuestions(t.content);
+      console.log(
+    "QUESTIONS FOUND:",
+    questions.length
+  );
 
       for (const q of questions) {
 
