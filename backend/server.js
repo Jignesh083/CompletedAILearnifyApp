@@ -623,10 +623,15 @@ console.log(JSON.stringify(topics, null, 2));
 
     res.json({ message: "Upload success 🚀" });
 
-  } catch (e) {
-    console.log(e);
-    res.json({ message: "Upload failed ❌" });
-  }
+  } catch (err) {
+  console.error("UPLOAD ERROR:", err);
+
+  return res.status(500).json({
+    success: false,
+    error: err.message,
+    stack: err.stack
+  });
+}
 });
 
 /* ================= ADMIN STATS ================= */
