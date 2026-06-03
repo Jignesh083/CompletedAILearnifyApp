@@ -614,9 +614,21 @@ console.log(JSON.stringify(topics, null, 2));
 
         for (const opt of q.options) {
           await pool.query(
-            "INSERT INTO options (question_id, option_text, is_correct, explanation) VALUES ($1,$2,$3,$4)",
-            [qId, opt.text, opt.isCorrect, q.explanation]
-          );
+  `
+  INSERT INTO options
+  (
+    question_id,
+    option_text,
+    is_correct
+  )
+  VALUES ($1,$2,$3)
+  `,
+  [
+    qId,
+    opt.text,
+    opt.isCorrect
+  ]
+);
         }
       }
     }
@@ -974,11 +986,10 @@ app.get("/admin/options/:questionId", async (req,res)=>{
 
     const result = await pool.query(`
       SELECT
-        id,
-        option_text,
-        is_correct,
-        explanation
-      FROM options
+  id,
+  option_text,
+  is_correct
+FROM options
       WHERE question_id = $1
       ORDER BY id ASC
     `,[questionId]);
