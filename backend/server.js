@@ -602,6 +602,9 @@ console.log(JSON.stringify(topics, null, 2));
     "QUESTIONS FOUND:",
     questions.length
   );
+  questions.forEach((q, i) => {
+  console.log("Q", i + 1, q.question);
+});
 
       for (const q of questions) {
 
