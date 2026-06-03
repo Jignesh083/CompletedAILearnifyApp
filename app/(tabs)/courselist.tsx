@@ -36,29 +36,16 @@ export default function CourseListScreen(){
   const router = useRouter();
   const { course } = useLocalSearchParams<{ course?: string }>();
 
-  const safeCourse = course ?? "DSA";
+const safeCourse = course ?? "dsa";
   useEffect(() => {
 
   const loadTopics = async () => {
 
     try {
 
-      let subjectKey = "dsa";
-
-      if (safeCourse === "PYTHON") {
-        subjectKey = "python";
-      }
-
-      if (
-        safeCourse === "ReinforcementLearning" ||
-        safeCourse === "Reinforcement_Learning"
-      ) {
-        subjectKey = "rl";
-      }
-
-      const res = await fetch(
-        `${API}/topics/${subjectKey}`
-      );
+    const res = await fetch(
+  `${API}/topics/${safeCourse}`
+);
 
       const data = await res.json();
 

@@ -105,13 +105,13 @@ export default function Dashboard() {
       color: '#FFD166',
       route: '/all-courses',
     },
-    {
-      key: 'paidCourses',
-      icon: 'book',
-      label: 'Paid Courses',
-      color: '#06D6A0',
-      route: '/paid-courses',
-    },
+    // {
+    //   key: 'paidCourses',
+    //   icon: 'book',
+    //   label: 'Paid Courses',
+    //   color: '#06D6A0',
+    //   route: '/paid-courses',
+    // },
     {
       key: 'syllabus',
       icon: 'book-outline',

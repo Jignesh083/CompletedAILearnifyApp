@@ -148,13 +148,11 @@ export default function AllCourses() {
     try {
       const response = await fetch(`${API}/subjects`);
 
-      const data = await response.json();
+     const data = await response.json();
 
-      const freeCourses = data.filter(
-        (item: Course) => item.course_type === 'free'
-      );
+setCourses(data);
 
-      setCourses(freeCourses);
+
     } catch (error) {
       console.log('FETCH COURSES ERROR:', error);
     } finally {
@@ -168,12 +166,8 @@ export default function AllCourses() {
       onPress={() =>
         router.push({
           pathname: '/courselist',
-          params: {
-  course: item.subject_name === 'DSA'
-    ? 'DSA'
-    : item.subject_name === 'Python'
-    ? 'PYTHON'
-    : item.subject_name,
+params: {
+  course: item.subject_key,
 },
         })
       }
