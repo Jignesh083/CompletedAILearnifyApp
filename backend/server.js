@@ -609,9 +609,24 @@ console.log(JSON.stringify(topics, null, 2));
       for (const q of questions) {
 
         const qRes = await pool.query(
-          "INSERT INTO questions (question, topic_id) VALUES ($1,$2) RETURNING id",
-          [q.question, topicId]
-        );
+`
+INSERT INTO questions
+(
+  question,
+  topic_id
+)
+VALUES ($1,$2)
+ON CONFLICT (topic_id, question)
+DO NOTHING
+RETURNING id
+`,
+[q.question, topicId]
+);
+
+if (!qRes.rows.length) {
+  console.log("SKIPPED DUPLICATE:", q.question);
+  continue;
+}
 
         const qId = qRes.rows[0].id;
 

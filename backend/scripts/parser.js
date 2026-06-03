@@ -101,7 +101,6 @@ const parseQuestions = (text) => {
         text: o.text,
         isCorrect: o.key === answer
       })),
-      explanation: ""
     });
 
   }
