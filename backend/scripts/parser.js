@@ -3,17 +3,11 @@
 =========================== */
 
 const splitTopics = (text) => {
-
-  const topics = [];
-
-  topics.push({
-    topicName: "Uploaded Topic",
+  return [{
+    topicName: req.body.subjectName,
     content: text
-  });
-
-  return topics;
-
-};
+  }];
+}
 
 
 /* ===========================
