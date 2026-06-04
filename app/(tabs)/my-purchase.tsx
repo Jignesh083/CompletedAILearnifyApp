@@ -50,7 +50,7 @@ const data=await AsyncStorage.getItem("purchased_courses")
     style={styles.card}
     onPress={()=>{
       router.push({
-  pathname: "/topics/[course]",
+  pathname: "/(tabs)/paid-rl",
   params: {
     course: routeMap[item]
   }
