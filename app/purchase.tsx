@@ -14,7 +14,8 @@ export default function Purchase(){
  const COURSE_TOPIC_ID: Record<string, number> = {
   rl_full_course: 81,
   dsa_full_course: 1,
-  java_full_course: 200
+  java_full_course: 200,
+  "big-data": 3
  };
 
  // 🔥 NEW: VERIFY RETRY FUNCTION
