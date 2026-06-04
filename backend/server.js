@@ -268,13 +268,16 @@ app.get("/purchase/check/:topicId/:userId", async (req,res)=>{
     const { topicId, userId } = req.params;
 
     const q = await pool.query(
-      `SELECT 1 FROM purchases
+      `SELECT 1
+       FROM purchases
        WHERE user_id = $1
        AND topic_id = $2
        AND (expiry_date IS NULL OR expiry_date > NOW())
        LIMIT 1`,
       [String(userId), Number(topicId)]
     );
+
+    console.log("PURCHASE CHECK:", q.rows);
 
     res.json({
       unlocked: q.rows.length > 0
