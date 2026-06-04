@@ -10,10 +10,9 @@ import { API } from "../../config/api"; // ✅ ADDED
 
 
 const COURSE_IDS: Record<string, number> = {
-  DSA: 1,
-  ReinforcementLearning: 81,
-  JAVA: 200,
-  "big-data": 3
+  dsa: 1,
+  "big-data": 3,
+  rl: 5
 };
 
 const COURSE_KEYS: Record<string,string> = {
