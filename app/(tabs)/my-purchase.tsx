@@ -2,10 +2,17 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from "expo-router";
 import { useEffect, useState } from 'react';
 import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
-const courseMap: Record<string, string> = {
-  "81": "ReinforcementLearning",
-  "82": "MachineLearning",
-  "83": "DeepLearning"
+const courseNameMap: Record<string,string> = {
+  "1":"DSA",
+  "3":"Big Data",
+  "81":"Reinforcement Learning",
+  "200":"JAVA"
+};
+const routeMap: Record<string,string> = {
+  "1": "dsa",
+  "3": "big-data",
+  "81": "reinforcement-learning",
+  "200": "java"
 };
 export default function MyPurchase() {
 const router = useRouter();
@@ -43,13 +50,15 @@ const data=await AsyncStorage.getItem("purchased_courses")
     style={styles.card}
     onPress={()=>{
       router.push({
-        pathname:"/(tabs)/paid-rl",
-params:{ course: courseMap[item] }
-      });
+  pathname: "/topics/[course]",
+  params: {
+    course: routeMap[item]
+  }
+});
     }}
   >
 <Text style={styles.course}>
-  {courseMap[item] || item}
+  {courseNameMap[item] || item}
 </Text>
     <Text style={{color:"green"}}>Unlocked</Text>
   </Pressable>
