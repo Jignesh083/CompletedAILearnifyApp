@@ -62,6 +62,8 @@ if (!userId) {
     const courseKey = course as string;
     const topicId = COURSE_TOPIC_ID[courseKey];
 
+    console.log("COURSE PARAM:", course);
+console.log("TOPIC ID:", topicId);
     if(!topicId){
       alert("Invalid course mapping");
       return;
