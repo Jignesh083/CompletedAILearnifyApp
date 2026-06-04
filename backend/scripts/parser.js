@@ -4,11 +4,11 @@
 
 const splitTopics = (text) => {
 
-  const topics = [];
-
   const sections = text.split(
-  /\n(?=[A-Za-z].*—\s*\d+\s*Tricky.*MCQs)/g
-);
+    /\n\s*\n(?=[A-Z][A-Za-z\s]{3,80}\s*\n_{5,})/g
+  );
+
+  const topics = [];
 
   for (const section of sections) {
 
@@ -19,19 +19,19 @@ const splitTopics = (text) => {
 
     if (!lines.length) continue;
 
-    const topicName = lines[0]
-      .replace(/—\s*\d+\s*Tricky.*MCQs/i, "")
-      .trim();
-
     topics.push({
-      topicName,
+      topicName: lines[0],
       content: lines.slice(1).join("\n")
     });
-
   }
 
-  return topics;
+  console.log("TOPICS FOUND:", topics.length);
 
+  topics.forEach((t, i) => {
+    console.log(`TOPIC ${i + 1}: ${t.topicName}`);
+  });
+
+  return topics;
 };
 
 
