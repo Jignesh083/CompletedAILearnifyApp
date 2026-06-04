@@ -11,12 +11,11 @@ export default function Purchase(){
  const router = useRouter();
  const { course } = useLocalSearchParams();
 
-const COURSE_TOPIC_ID: Record<string, number> = {
+ const COURSE_TOPIC_ID: Record<string, number> = {
   rl_full_course: 81,
   dsa_full_course: 1,
-  java_full_course: 200,
-  "big-data": 3
-};
+  java_full_course: 200
+ };
 
  // 🔥 NEW: VERIFY RETRY FUNCTION
  async function verifyWithRetry(body:any, retries = 3) {

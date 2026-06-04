@@ -12,12 +12,11 @@ export default function PaidCourseDetailScreen() {
   const [unlocked, setUnlocked] = useState(false);
 
   // ⭐ SAME mapping use karo jo purchase me use kiya tha
- const COURSE_TOPIC_ID: Record<string, number> = {
-  rl_full_course: 81,
-  dsa_full_course: 1,
-  java_full_course: 200,
-  "big-data": 3
-};
+  const COURSE_TOPIC_ID: Record<string, number> = {
+    rl_full_course: 81,
+    dsa_full_course: 1,
+    java_full_course: 200
+  };
 
   useEffect(() => {
     checkAccess();

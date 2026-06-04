@@ -18,6 +18,7 @@ const COURSE_KEYS: Record<string,string> = {
   DSA: "dsa_full_course",
   ReinforcementLearning: "rl_full_course",
   JAVA: "java_full_course",
+  "big-data": "big-data",
 };
 
 type Topic = {
@@ -154,7 +155,7 @@ const isTopicLocked = (topic: Topic) => {
           if(locked){
             router.push({
               pathname:"/purchase",
-              params:{ course: COURSE_KEYS[safeCourse] } // ✅ FIXED ONLY THIS
+  params:{ course: COURSE_KEYS[safeCourse] || safeCourse }
             });
             return;
           }
