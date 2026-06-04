@@ -4,9 +4,10 @@
 
 const splitTopics = (text) => {
 
-  const sections = text.split(
-    /\n\s*\n(?=[A-Z][A-Za-z\s]{3,80}\s*\n_{5,})/g
-  );
+  const sections = text
+    .split(/Topic Name:/i)
+    .map(s => s.trim())
+    .filter(Boolean);
 
   const topics = [];
 
@@ -24,12 +25,6 @@ const splitTopics = (text) => {
       content: lines.slice(1).join("\n")
     });
   }
-
-  console.log("TOPICS FOUND:", topics.length);
-
-  topics.forEach((t, i) => {
-    console.log(`TOPIC ${i + 1}: ${t.topicName}`);
-  });
 
   return topics;
 };
