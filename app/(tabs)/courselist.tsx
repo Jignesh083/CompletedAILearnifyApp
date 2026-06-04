@@ -13,7 +13,9 @@ const COURSE_IDS: Record<string, number> = {
   DSA: 1,
   ReinforcementLearning: 81,
   JAVA: 200,
+  "big-data": 3
 };
+
 const COURSE_KEYS: Record<string,string> = {
   DSA: "dsa_full_course",
   ReinforcementLearning: "rl_full_course",
