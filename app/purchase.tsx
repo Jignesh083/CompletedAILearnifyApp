@@ -1,6 +1,6 @@
+import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import { Pressable, StyleSheet, Text, View } from "react-native";
-import AsyncStorage from "@react-native-async-storage/async-storage";
 import RazorpayCheckout from "react-native-razorpay";
 
 // 🔥 CHANGE AFTER DEPLOY
@@ -11,11 +11,12 @@ export default function Purchase(){
  const router = useRouter();
  const { course } = useLocalSearchParams();
 
- const COURSE_TOPIC_ID: Record<string, number> = {
+const COURSE_TOPIC_ID: Record<string, number> = {
   rl_full_course: 81,
   dsa_full_course: 1,
-  java_full_course: 200
- };
+  java_full_course: 200,
+  "big-data": 3
+};
 
  // 🔥 NEW: VERIFY RETRY FUNCTION
  async function verifyWithRetry(body:any, retries = 3) {
