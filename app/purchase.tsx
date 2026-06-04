@@ -11,12 +11,7 @@ export default function Purchase(){
  const router = useRouter();
  const { course } = useLocalSearchParams();
 
- const COURSE_TOPIC_ID: Record<string, number> = {
-  rl_full_course: 81,
-  dsa_full_course: 1,
-  java_full_course: 200,
-  "big-data": 3
- };
+
 
  // 🔥 NEW: VERIFY RETRY FUNCTION
  async function verifyWithRetry(body:any, retries = 3) {
@@ -60,7 +55,22 @@ if (!userId) {
     }
 
     const courseKey = course as string;
-    const topicId = COURSE_TOPIC_ID[courseKey];
+
+const subjectRes = await fetch(
+  `${API}/subject/${courseKey}`
+);
+
+const subjectData = await subjectRes.json();
+
+if(!subjectData.success){
+  alert("Subject not found");
+  return;
+}
+
+const topicId = subjectData.subject.id;
+
+console.log("SUBJECT:", subjectData.subject);
+console.log("SUBJECT ID:", topicId);
 
     console.log("COURSE PARAM:", course);
 console.log("TOPIC ID:", topicId);

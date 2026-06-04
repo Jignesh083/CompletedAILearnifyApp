@@ -260,7 +260,42 @@ console.log("❌ START ATTEMPT ERROR FULL:", e.message, e.stack);
     }
     });
 
+app.get("/subject/:subjectKey", async (req,res)=>{
+  try{
 
+    const { subjectKey } = req.params;
+
+    const result = await pool.query(
+      `
+      SELECT *
+      FROM subjects
+      WHERE subject_key = $1
+      LIMIT 1
+      `,
+      [subjectKey]
+    );
+
+    if(!result.rows.length){
+      return res.status(404).json({
+        success:false
+      });
+    }
+
+    res.json({
+      success:true,
+      subject: result.rows[0]
+    });
+
+  }catch(e){
+
+    console.log(e);
+
+    res.status(500).json({
+      success:false
+    });
+
+  }
+});
     /* ================= PURCHASE ================= */
 app.get("/purchase/check/:topicId/:userId", async (req,res)=>{
   try{
@@ -514,10 +549,19 @@ app.get("/purchase/my/:userId", async (req, res) => {
   try {
     const { userId } = req.params;
 
-    const data = await pool.query(
-      `SELECT topic_id FROM purchases WHERE user_id = $1`,
-      [userId]
-    );
+   const data = await pool.query(
+`
+SELECT
+  p.topic_id,
+  s.subject_name,
+  s.subject_key
+FROM purchases p
+JOIN subjects s
+  ON s.id = p.topic_id
+WHERE p.user_id = $1
+`,
+[userId]
+);
 
     res.json({
       success: true,

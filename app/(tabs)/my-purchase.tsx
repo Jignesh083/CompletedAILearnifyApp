@@ -2,6 +2,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { useRouter } from "expo-router";
 import { useEffect, useState } from 'react';
 import { FlatList, Pressable, StyleSheet, Text, View } from 'react-native';
+import { API } from '../../config/api';
 const courseNameMap: Record<string,string> = {
   "1":"DSA",
   "3":"Big Data",
@@ -17,15 +18,21 @@ const routeMap: Record<string,string> = {
 export default function MyPurchase() {
 const router = useRouter();
 
-  const [courses,setCourses]=useState<string[]>([])
-
+const [courses,setCourses]=useState<any[]>([])
   useEffect(()=>{
 
     async function load(){
-const data=await AsyncStorage.getItem("purchased_courses")
-      if(data){
-        setCourses(JSON.parse(data))
-      }
+const userId = await AsyncStorage.getItem("user_id");
+
+const res = await fetch(
+  `${API}/purchase/my/${userId}`
+);
+
+const data = await res.json();
+
+if(data.success){
+  setCourses(data.courses);
+}
     }
 
     load()
@@ -44,7 +51,9 @@ const data=await AsyncStorage.getItem("purchased_courses")
 
       <FlatList
         data={courses}
-        keyExtractor={(item)=>item}
+        keyExtractor={(item)=>
+  String(item.topic_id)
+}
      renderItem={({item})=>(
   <Pressable
     style={styles.card}
@@ -52,13 +61,12 @@ const data=await AsyncStorage.getItem("purchased_courses")
       router.push({
   pathname: "/(tabs)/courselist",
   params: {
-    course: routeMap[item]
-  }
+course: item.subject_key  }
 });
     }}
   >
 <Text style={styles.course}>
-  {courseNameMap[item] || item}
+  {item.subject_name}
 </Text>
     <Text style={{color:"green"}}>Unlocked</Text>
   </Pressable>
