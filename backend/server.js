@@ -584,8 +584,8 @@ const upload = multer({ dest: "uploads/" });
 // 🔥 ADD THIS ROUTE
 app.post("/admin/upload-quiz", upload.single("file"), async (req, res) => {
   try {
-    const bundleKey = req.body.bundleKey;
-
+const bundleKey = req.body.bundleKey;
+const subjectName = req.body.subjectName;
     const result = await mammoth.extractRawText({
       path: req.file.path
     });
@@ -594,12 +594,14 @@ app.post("/admin/upload-quiz", upload.single("file"), async (req, res) => {
 
     const { splitTopics, parseQuestions, generateTopicKey } = require("./scripts/parser");
 const subject = await pool.query(
-  `
-  SELECT id
-  FROM subjects
-  WHERE subject_key=$1
-  `,
-  [bundleKey]
+`
+SELECT id
+FROM subjects
+WHERE subject_key = $1
+OR subject_name = $2
+LIMIT 1
+`,
+[bundleKey, subjectName]
 );
 
 if(!subject.rows.length){
