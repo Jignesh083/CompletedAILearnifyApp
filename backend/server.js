@@ -614,6 +614,7 @@ if(!subject.rows.length){
 
 const subjectId = subject.rows[0].id;
     const topics = splitTopics(text);
+    
     console.log("TOPICS FOUND:", topics.length);
 
 topics.forEach((t, i) => {
