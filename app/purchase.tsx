@@ -63,7 +63,7 @@ const subjectRes = await fetch(
 const subjectData = await subjectRes.json();
 
 if(!subjectData.success){
-  alert("Subject not found");
+  console.log("Subject not found");
   return;
 }
 

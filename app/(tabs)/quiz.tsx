@@ -1,7 +1,8 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
+import { Audio } from "expo-av";
 import { useLocalSearchParams, useRouter } from 'expo-router';
 import LottieView from 'lottie-react-native';
-import { useEffect, useReducer, useState } from 'react';
+import { useEffect, useReducer, useRef, useState } from 'react';
 import {
   ActivityIndicator,
   Alert,
@@ -92,8 +93,35 @@ const title = params.title as string;
 
   const [showAnswer,setShowAnswer] = useState(false);
 const [animationType,setAnimationType] = useState<'thinking' | 'happy' | 'sad'>('thinking');
+const soundRef = useRef<Audio.Sound | null>(null);
 
+const playSound = async (type: "happy" | "sad") => {
 
+  try {
+
+    if (soundRef.current) {
+      await soundRef.current.unloadAsync();
+    }
+
+    const file =
+      type === "happy"
+        ? require("../../assets/sounds/happy.mp3")
+        : require("../../assets/sounds/sad.mp3");
+
+    const { sound } =
+      await Audio.Sound.createAsync(file);
+
+    soundRef.current = sound;
+
+    await sound.playAsync();
+
+  } catch (e) {
+
+    console.log("SOUND ERROR:", e);
+
+  }
+
+};
 const loadQuiz = async ()=>{
   dispatch({type:'RESET'});
   setAnswers([]);
@@ -146,7 +174,17 @@ const loadQuiz = async ()=>{
   useEffect(()=>{
     loadQuiz();
   },[topicKey]);
+useEffect(() => {
 
+  return () => {
+
+    if (soundRef.current) {
+      soundRef.current.unloadAsync();
+    }
+
+  };
+
+}, []);
   useEffect(()=>{
     const sub = BackHandler.addEventListener('hardwareBackPress',()=>{
       router.back();
@@ -368,10 +406,12 @@ router.replace({
 if(isCorrect){
 
   setAnimationType('happy');
+  playSound("happy");
 
 }else{
 
   setAnimationType('sad');
+  playSound("sad");
 
 }
 

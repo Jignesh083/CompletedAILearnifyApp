@@ -50,17 +50,17 @@ const generateTopicKey = (name) => {
 
 const parseQuestions = (text) => {
 
-  const blocks = text.match(
-    /\d+\.\s[\s\S]*?(?=\n\d+\.|\Z)/g
-  ) || [];
+const blocks = text.match(
+  /Q?\d+\.\s*[\s\S]*?(?=\nQ?\d+\.|\Z)/g
+) || [];
 
   const questions = [];
 
   for (const block of blocks) {
 
-    const questionMatch = block.match(
-      /^\d+\.\s(.+?)(?=A\)|A\.)/s
-    );
+  const questionMatch = block.match(
+  /^Q?\d+\.\s*(.+?)(?=A\)|A\.)/s
+);
 
     if (!questionMatch) continue;
 

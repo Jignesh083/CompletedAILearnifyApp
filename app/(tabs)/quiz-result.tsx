@@ -1,6 +1,7 @@
+import { Audio } from "expo-av";
 import { useLocalSearchParams, useRouter } from "expo-router";
 import LottieView from 'lottie-react-native';
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ActivityIndicator, Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { API } from "../../config/api";
 
@@ -16,7 +17,7 @@ export default function QuizResult(){
 
  const [review,setReview] = useState<any[]>([]);
  const [loading,setLoading] = useState(true);
-
+const soundRef = useRef<Audio.Sound | null>(null);
  useEffect(()=>{
 
   const load = async ()=>{
@@ -48,6 +49,59 @@ export default function QuizResult(){
   }
 
  },[attemptId]);
+
+
+ useEffect(() => {
+
+  const playResultSound = async () => {
+
+    try {
+
+      const percentage =
+        totalParam > 0
+          ? (scoreParam / totalParam) * 100
+          : 0;
+
+      let soundFile;
+
+      if (percentage >= 80) {
+
+        soundFile = require("../../assets/sounds/victory.mp3");
+
+      } else if (percentage >= 50) {
+
+        soundFile = require("../../assets/sounds/success.mp3");
+
+      } else {
+
+        soundFile = require("../../assets/sounds/try-again.mp3");
+
+      }
+
+      const { sound } =
+        await Audio.Sound.createAsync(soundFile);
+
+      soundRef.current = sound;
+
+      await sound.playAsync();
+
+    } catch (e) {
+
+      console.log("SOUND ERROR:", e);
+
+    }
+
+  };
+
+  playResultSound();
+
+  return () => {
+    if (soundRef.current) {
+      soundRef.current.unloadAsync();
+    }
+  };
+
+}, []);
 
  const total = totalParam;
 
