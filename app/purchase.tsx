@@ -112,7 +112,9 @@ console.log("TOPIC ID:", topicId);
     const options = {
       description:"Course Purchase",
       currency:"INR",
-      key:"rzp_live_SSgm493FHbxcNw",
+      // key:"rzp_live_SSgm493FHbxcNw",
+      //  key:"rzp_test_SSdNmerR0S9IsJ",
+      key: process.env.EXPO_PUBLIC_RAZORPAY_KEY,
       amount:data.amount,
       name:"AILearnify",
       order_id:data.id,
