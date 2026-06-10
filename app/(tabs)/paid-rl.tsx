@@ -115,7 +115,7 @@ const d = await res.json();
       const options = {
         description: 'Reinforcement Learning Full Course',
         currency: 'INR',
-        key: process.env.EXPO_PUBLIC_RAZORPAY_KEY,
+        key: 'rzp_test_SSdNmerR0S9IsJ', // 🔥 USE TEST KEY FOR TESTING
         amount: order.amount,
         order_id: order.id,
         name: 'AI Core Learning',
