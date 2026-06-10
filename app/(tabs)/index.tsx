@@ -101,7 +101,7 @@ export default function Dashboard() {
     {
       key: 'freeCourses',
       icon: 'book',
-      label: 'Free Courses',
+      label: 'Courses',
       color: '#FFD166',
       route: '/all-courses',
     },

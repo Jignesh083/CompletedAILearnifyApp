@@ -94,7 +94,7 @@ console.log("TOPIC ID:", topicId);
 
     if(checkData.unlocked){
       alert("Already purchased");
-      router.replace("/course-detail");
+      router.replace("/courselist");
       return;
     }
 
@@ -176,7 +176,7 @@ console.log("TOPIC ID:", topicId);
         alert("Payment done but verification failed (retry later)");
 
         router.replace({
-          pathname: "/course-detail",
+          pathname: "/courselist",
           params: { title: courseKey }
         });
 

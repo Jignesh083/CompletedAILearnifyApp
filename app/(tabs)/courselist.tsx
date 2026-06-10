@@ -11,8 +11,8 @@ import { API } from "../../config/api"; // ✅ ADDED
 
 const COURSE_IDS: Record<string, number> = {
   dsa: 1,
-  "big-data": 3,
-  rl: 5
+  "big-data": 6,
+  rl: 7
 };
 
 const COURSE_KEYS: Record<string,string> = {
