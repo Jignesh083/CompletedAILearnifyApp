@@ -9,11 +9,7 @@ import { API } from "../../config/api"; // ✅ ADDED
 
 
 
-const COURSE_IDS: Record<string, number> = {
-  dsa: 1,
-  "big-data": 6,
-  rl: 7
-};
+
 
 const COURSE_KEYS: Record<string,string> = {
   DSA: "dsa_full_course",
@@ -89,22 +85,31 @@ console.log(
             return;
           }
 
-  const topicId = COURSE_IDS[safeCourse];
+ const topicsRes = await fetch(
+  `${API}/topics/${safeCourse}`
+);
 
-console.log("SAFE COURSE:", safeCourse);
-console.log("TOPIC ID:", topicId);
-console.log("USER ID:", userId);
+const topicsData = await topicsRes.json();
 
-if(!topicId){
+const paidTopic = topicsData.find(
+  (t: any) => !t.is_free
+);
+
+if (!paidTopic) {
   setHasAccess(false);
   setLoading(false);
   return;
 }
 
+const topicId = paidTopic.id;
+
+console.log("SAFE COURSE:", safeCourse);
+console.log("CHECK TOPIC ID:", topicId);
+console.log("USER ID:", userId);
+
 const res = await fetch(
   `${API}/purchase/check/${topicId}/${userId}`
 );
-
 if(!res.ok){
   console.log("API ERROR:", res.status);
   setHasAccess(false);
