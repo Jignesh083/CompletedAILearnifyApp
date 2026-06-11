@@ -551,19 +551,20 @@ app.get("/purchase/my/:userId", async (req, res) => {
   try {
     const { userId } = req.params;
 
-   const data = await pool.query(
-`
-SELECT
-  p.topic_id,
-  s.subject_name,
-  s.subject_key
-FROM purchases p
-JOIN subjects s
-  ON s.id = p.topic_id
-WHERE p.user_id = $1
-`,
-[userId]
-);
+    const data = await pool.query(`
+      SELECT
+        p.topic_id,
+        s.subject_name,
+        s.subject_key
+      FROM purchases p
+      JOIN topics t
+        ON t.id = p.topic_id
+      JOIN subjects s
+        ON s.id = t.subject_id
+      WHERE p.user_id = $1
+    `,[userId]);
+
+    console.log("PURCHASES FOUND:", data.rows);
 
     res.json({
       success: true,

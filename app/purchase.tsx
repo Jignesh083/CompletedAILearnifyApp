@@ -56,20 +56,40 @@ if (!userId) {
 
     const courseKey = course as string;
 
-const subjectRes = await fetch(
-  `${API}/subject/${courseKey}`
+
+const topicsRes = await fetch(
+  `${API}/topics/${courseKey}`
 );
 
-const subjectData = await subjectRes.json();
+const topicsData = await topicsRes.json();
 
-if(!subjectData.success){
-  console.log("Subject not found");
+if (!topicsData.length) {
+  alert("No topics found");
   return;
 }
 
-const topicId = subjectData.subject.id;
+// First paid topic
+const paidTopic = topicsData.find(t => !t.is_free);
 
-console.log("SUBJECT:", subjectData.subject);
+if (!paidTopic) {
+  alert("No paid topic found");
+  return;
+}
+
+const topicId = paidTopic.id;
+
+console.log("PAID TOPIC:", paidTopic);
+console.log("TOPIC ID:", topicId);
+
+
+// if(!subjectData.success){
+//   console.log("Subject not found");
+//   return;
+// }
+
+
+
+// console.log("SUBJECT:", subjectData.subject);
 console.log("SUBJECT ID:", topicId);
 
     console.log("COURSE PARAM:", course);
