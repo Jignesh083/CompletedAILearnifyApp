@@ -845,16 +845,17 @@ app.get("/topics/:subjectKey", async (req, res) => {
 
     const result = await pool.query(`
       SELECT
-        t.id,
-        t.topic_key,
-        t.is_free,
-        s.subject_name,
-        s.subject_key
-      FROM topics t
-      JOIN subjects s
-      ON s.id = t.subject_id
-      WHERE s.subject_key = $1
-      ORDER BY t.id ASC
+  t.id,
+  t.topic_key,
+  t.is_free,
+  s.subject_name,
+  s.subject_key
+FROM topics t
+JOIN subjects s
+ON s.id = t.subject_id
+WHERE s.subject_key = $1
+AND t.id >= 205
+ORDER BY t.id ASC
     `,[subjectKey]);
 
     res.json(result.rows);
