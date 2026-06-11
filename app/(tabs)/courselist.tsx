@@ -39,6 +39,8 @@ export default function CourseListScreen(){
   const { course } = useLocalSearchParams<{ course?: string }>();
 
 const safeCourse = course ?? "dsa";
+console.log("PARAM COURSE =", course);
+console.log("SAFE COURSE =", safeCourse);
   useEffect(() => {
 
   const loadTopics = async () => {

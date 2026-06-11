@@ -94,7 +94,7 @@ console.log("TOPIC ID:", topicId);
 
     if(checkData.unlocked){
       alert("Already purchased");
-      router.replace("/courselist");
+      router.replace("/course-detail");
       return;
     }
 
@@ -163,11 +163,12 @@ console.log("TOPIC ID:", topicId);
         console.log("✅ PURCHASE INSERTED SUCCESSFULLY");
 
         alert("Payment Successful ✅");
-
-        router.replace({
-          pathname: "/course-detail",
-          params: { title: courseKey }
-        });
+console.log("AFTER PAYMENT COURSE KEY =", courseKey);
+console.log("REDIRECT COURSE =", courseKey);
+       router.replace({
+  pathname: "/(tabs)/courselist",
+  params: { course: courseKey }
+});
 
       } catch (err) {
 
@@ -175,10 +176,10 @@ console.log("TOPIC ID:", topicId);
 
         alert("Payment done but verification failed (retry later)");
 
-        router.replace({
-          pathname: "/courselist",
-          params: { title: courseKey }
-        });
+       router.replace({
+  pathname: "/(tabs)/courselist",
+  params: { course: courseKey }
+});
 
       }
 

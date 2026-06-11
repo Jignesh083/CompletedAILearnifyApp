@@ -80,6 +80,8 @@ const pool = require("./db");
     }
 
     const topicId = topicRes.rows[0].id;
+    console.log("TOPIC KEY =", topicKey);
+console.log("TOPIC ID =", topicId);
 
     // 🔥 STEP 2: questions fetch karo (NO JOIN WITH topics)
     const data = await pool.query(`
@@ -101,7 +103,7 @@ const pool = require("./db");
       ORDER BY q.id
       LIMIT $2 OFFSET $3
     `,[topicId, limit, offset]);
-
+console.log("ROWS FOUND =", data.rows.length);
 res.json({
   success: true,
   data: data.rows,
