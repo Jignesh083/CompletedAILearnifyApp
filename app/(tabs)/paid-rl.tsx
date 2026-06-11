@@ -7,7 +7,7 @@ import RazorpayCheckout from 'react-native-razorpay';
 import { API } from "../../config/api";
 
 // ⭐ FULL COURSE ID (IMPORTANT)
-const COURSE_TOPIC_ID = 81;
+const COURSE_TOPIC_ID = 175;
 
 const RL_TOPICS = [
   { id:"rl_td0", title:"TD(0)" },
@@ -115,7 +115,7 @@ const d = await res.json();
       const options = {
         description: 'Reinforcement Learning Full Course',
         currency: 'INR',
-        key: 'rzp_test_SSdNmerR0S9IsJ', // 🔥 USE TEST KEY FOR TESTING
+          key: 'rzp_live_SSgm493FHbxcNw', // 🔥 LIVE KEY FOR PRODUCTION
         amount: order.amount,
         order_id: order.id,
         name: 'AI Core Learning',
