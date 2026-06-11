@@ -41,6 +41,10 @@ export default function CourseListScreen(){
 const safeCourse = course ?? "dsa";
 console.log("PARAM COURSE =", course);
 console.log("SAFE COURSE =", safeCourse);
+console.log(
+  "FETCH URL:",
+  `${API}/topics/${safeCourse}`
+);
   useEffect(() => {
 
   const loadTopics = async () => {
