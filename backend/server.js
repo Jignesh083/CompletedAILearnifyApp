@@ -10,16 +10,27 @@ const bcrypt = require('bcryptjs');
     app.use(cors());
     app.use(express.json());
 const pool = require("./db");
+// const transporter = nodemailer.createTransport({
+//   host: "smtp-relay.brevo.com",
+//   port: 587,
+//   secure: false,
+//   auth: {
+//     user: process.env.BREVO_USER,
+//     pass: process.env.BREVO_PASS,
+//   },
+// });
+
+
 const transporter = nodemailer.createTransport({
   host: "smtp-relay.brevo.com",
-  port: 587,
-  secure: false,
+  port: 465,
+  secure: true,
   auth: {
     user: process.env.BREVO_USER,
     pass: process.env.BREVO_PASS,
   },
+  connectionTimeout: 10000,
 });
-
 
 
 transporter.verify(function (error, success) {
