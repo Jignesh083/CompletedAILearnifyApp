@@ -1,10 +1,10 @@
 import { Stack } from "expo-router";
-import { useEffect } from 'react';
-import { playBackgroundMusic } from '../services/musicService';
+// import { useEffect } from 'react';
+// import { playBackgroundMusic } from '../services/musicService';
 export default function RootLayout() {
-  useEffect(() => {
-  playBackgroundMusic();
-}, []);
+//   useEffect(() => {
+//   playBackgroundMusic();
+// }, []);
   return (
     <Stack
       initialRouteName="splash"

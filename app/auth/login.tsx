@@ -1,3 +1,4 @@
+import { Ionicons } from "@expo/vector-icons";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useRouter } from "expo-router";
 import { useEffect, useRef, useState } from "react";
@@ -10,6 +11,7 @@ import {
   View
 } from "react-native";
 import { API } from "../../config/api";
+import { playBackgroundMusic } from "../../services/musicService";
 // import { supabase } from "../../supabase";
 export default function Login(){
 
@@ -90,11 +92,15 @@ async function login() {
       return;
     }
 
-    await AsyncStorage.setItem("token", "logged_in");
-    await AsyncStorage.setItem("user_id", String(data.user_id));
-    await AsyncStorage.setItem("user_email", email);
+    
+await AsyncStorage.setItem("token", "logged_in");
+await AsyncStorage.setItem("user_id", String(data.user_id));
+await AsyncStorage.setItem("user_email", email);
 
-    router.replace("/(tabs)");
+// Login successful → Start background music
+await playBackgroundMusic();
+
+router.replace("/(tabs)");
 
   } catch (e) {
 
@@ -147,9 +153,11 @@ async function login() {
   />
 
   <Pressable onPress={() => setShowPassword(!showPassword)}>
-    <Text style={styles.showText}>
-      {showPassword ? "Hide" : "Show"}
-    </Text>
+    <Ionicons
+      name={showPassword ? "eye-off" : "eye"}
+      size={22}
+      color="#777"
+    />
   </Pressable>
 </View>
 
@@ -159,13 +167,23 @@ async function login() {
     </Text>
    </Pressable>
 
-   <Pressable onPress={() => router.push("/auth/forgot-password")}>
-  <Text style={styles.link}>Forgot Password?</Text>
-</Pressable>
+<View style={styles.footerLinks}>
 
-<Pressable onPress={() => router.push("/auth/register")}>
-  <Text style={styles.link}>Create Account</Text>
-</Pressable>
+  <Pressable onPress={() => router.push("/auth/forgot-password")}>
+    <Text style={styles.footerLink}>
+      Forgot Password?
+    </Text>
+  </Pressable>
+
+  <Text style={styles.separator}>|</Text>
+
+  <Pressable onPress={() => router.push("/auth/register")}>
+    <Text style={styles.footerLink}>
+      Create Account
+    </Text>
+  </Pressable>
+
+</View>
 
   </Animated.View>
 
@@ -237,7 +255,7 @@ link:{
  color:"#123C7B",
  fontWeight:"500",
  fontSize:14
-}
+},
 passwordContainer: {
   flexDirection: "row",
   alignItems: "center",
@@ -245,7 +263,7 @@ passwordContainer: {
   borderColor: "#E5E7EB",
   borderRadius: 12,
   backgroundColor: "#fff",
-  paddingHorizontal: 14,
+  paddingHorizontal: 15,
   marginBottom: 10,
   shadowColor: "#000",
   shadowOpacity: 0.03,
@@ -255,14 +273,27 @@ passwordContainer: {
 
 passwordInput: {
   flex: 1,
-  paddingVertical: 14,
-  fontSize: 15,
+  height: 56,
+  fontSize: 16,
+},
+footerLinks: {
+  flexDirection: "row",
+  justifyContent: "center",
+  alignItems: "center",
+  marginTop: 15,
 },
 
-showText: {
+footerLink: {
   color: "#123C7B",
+  fontSize: 15,
   fontWeight: "600",
-  fontSize: 14,
+  paddingHorizontal: 8,
+},
+
+separator: {
+  color: "#999",
+  fontSize: 16,
+  fontWeight: "600",
 },
 }); 
 
