@@ -128,7 +128,7 @@ router.replace("/(tabs)");
   >
 
    <Text style={styles.title}>Login</Text>
-
+<Text style={styles.label}>Email</Text>
    {/* EMAIL */}
    <TextInput
     placeholder="Email"
@@ -144,6 +144,8 @@ router.replace("/(tabs)");
      <Text style={styles.errorText}>{emailError}</Text>
    ) : null}
 
+
+  <Text style={styles.label}>Password</Text>
 <View style={styles.passwordContainer}>
   <TextInput
     placeholder="Password"
@@ -201,11 +203,11 @@ container:{
 },
 
 title:{
- fontSize:28,
- fontWeight:"700",
- marginBottom:6,
- color:"#111",
- letterSpacing:0.5
+  fontSize:28,
+  fontWeight:"bold",
+  marginBottom:25,
+  textAlign:"center",
+  color:"#123C7B"
 },
 
 input:{
@@ -220,6 +222,13 @@ input:{
  shadowOpacity:0.03,
  shadowRadius:4,
  elevation:2
+},
+label: {
+  fontSize: 16,
+  fontWeight: "600",
+  color: "#333",
+  marginBottom: 6,
+  marginTop: -5,
 },
 
 // ✅ NEW STYLE (only addition)
