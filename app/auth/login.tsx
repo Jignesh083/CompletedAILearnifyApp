@@ -1,7 +1,14 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useRouter } from "expo-router";
 import { useEffect, useRef, useState } from "react";
-import { Animated, Pressable, StyleSheet, Text, TextInput } from "react-native";
+import {
+  Animated,
+  Pressable,
+  StyleSheet,
+  Text,
+  TextInput,
+  View
+} from "react-native";
 import { API } from "../../config/api";
 // import { supabase } from "../../supabase";
 export default function Login(){
@@ -10,6 +17,7 @@ export default function Login(){
 
  const [email,setEmail] = useState("");
  const [password,setPassword] = useState("");
+ const [showPassword, setShowPassword] = useState(false);
  const [loading,setLoading] = useState(false);
 
  // ✅ EMAIL ERROR STATE
@@ -34,78 +42,7 @@ export default function Login(){
   ]).start();
  },[]);
 
-// async function login() {
 
-//   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-//   // RESET
-//   setEmailError("");
-
-//   if (!email || !password) {
-//     setEmailError("Email is required");
-//     alert("Please enter email and password");
-//     return;
-//   }
-
-//   if (!emailRegex.test(email)) {
-//     setEmailError("Enter valid email");
-//     alert("Please enter a valid email address");
-//     return;
-//   }
-
-//   if (password.length < 4) {
-//     alert("Password must be at least 4 characters");
-//     return;
-//   }
-
-//   try {
-
-//     setLoading(true);
-
-//     const { data, error } = await supabase
-//       .from('users')
-//       .select('*')
-//       .eq('email', email)
-//       .eq('password', password)
-//       .single();
-
-//     if (error || !data) {
-//       alert("Invalid credentials");
-//       return;
-//     }
-
-//     await AsyncStorage.setItem("token", "logged_in");
-//     await AsyncStorage.setItem("user_id", data.id.toString());
-//     await AsyncStorage.setItem("user_email", email);
-
-//     try {
-//       const { data: purchases } = await supabase
-//         .from('purchases')
-//         .select('*')
-//         .eq('user_id', data.id);
-
-//       await AsyncStorage.setItem(
-//         "purchased_courses",
-//         JSON.stringify(purchases || [])
-//       );
-
-//     } catch (e) {
-//       console.log("Purchase sync error", e);
-//     }
-
-//     router.replace("/(tabs)");
-
-//   } catch (err) {
-
-//     console.log("Login error:", err);
-//     alert("Something went wrong");
-
-//   } finally {
-
-//     setLoading(false);
-
-//   }
-// }
 
 
 
@@ -201,12 +138,20 @@ async function login() {
      <Text style={styles.errorText}>{emailError}</Text>
    ) : null}
 
-   <TextInput
+<View style={styles.passwordContainer}>
+  <TextInput
     placeholder="Password"
-    style={styles.input}
-    secureTextEntry
+    style={styles.passwordInput}
+    secureTextEntry={!showPassword}
     onChangeText={setPassword}
-   />
+  />
+
+  <Pressable onPress={() => setShowPassword(!showPassword)}>
+    <Text style={styles.showText}>
+      {showPassword ? "Hide" : "Show"}
+    </Text>
+  </Pressable>
+</View>
 
    <Pressable style={styles.btn} onPress={login}>
     <Text style={styles.btnText}>
@@ -293,5 +238,32 @@ link:{
  fontWeight:"500",
  fontSize:14
 }
+passwordContainer: {
+  flexDirection: "row",
+  alignItems: "center",
+  borderWidth: 1,
+  borderColor: "#E5E7EB",
+  borderRadius: 12,
+  backgroundColor: "#fff",
+  paddingHorizontal: 14,
+  marginBottom: 10,
+  shadowColor: "#000",
+  shadowOpacity: 0.03,
+  shadowRadius: 4,
+  elevation: 2,
+},
 
+passwordInput: {
+  flex: 1,
+  paddingVertical: 14,
+  fontSize: 15,
+},
+
+showText: {
+  color: "#123C7B",
+  fontWeight: "600",
+  fontSize: 14,
+},
 }); 
+
+
