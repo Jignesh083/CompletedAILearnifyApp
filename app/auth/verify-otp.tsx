@@ -1,5 +1,5 @@
 import { useLocalSearchParams, useRouter } from "expo-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Pressable,
   StyleSheet,
@@ -17,7 +17,32 @@ export default function VerifyOTP() {
 
   const [otp, setOtp] = useState("");
   const [loading, setLoading] = useState(false);
+  const OTP_TIME = 300; // 5 minutes
 
+const [timeLeft, setTimeLeft] = useState(OTP_TIME);
+
+useEffect(() => {
+
+  if (timeLeft <= 0) return;
+
+  const timer = setInterval(() => {
+
+    setTimeLeft((prev) => prev - 1);
+
+  }, 1000);
+
+  return () => clearInterval(timer);
+
+}, [timeLeft]);
+function formatTime(seconds) {
+
+  const mins = Math.floor(seconds / 60);
+
+  const secs = seconds % 60;
+
+  return `${String(mins).padStart(2, "0")}:${String(secs).padStart(2, "0")}`;
+
+}
   async function verifyOTP() {
 
     if (!otp) {
@@ -92,18 +117,29 @@ export default function VerifyOTP() {
         style={styles.input}
       />
 
-      <Pressable
-        style={styles.button}
-        onPress={verifyOTP}
-      >
+    <Pressable
+  style={[
+    styles.button,
+    timeLeft <= 0 && { backgroundColor: "#999" },
+  ]}
+  disabled={timeLeft <= 0}
+  onPress={verifyOTP}
+>
+  <Text style={styles.buttonText}>
+    {loading ? "Verifying..." : "Verify OTP"}
+  </Text>
+</Pressable>
 
-        <Text style={styles.buttonText}>
-
-          {loading ? "Verifying..." : "Verify OTP"}
-
-        </Text>
-
-      </Pressable>
+<Text
+  style={[
+    styles.timer,
+    timeLeft <= 0 && { color: "red" },
+  ]}
+>
+  {timeLeft > 0
+    ? `OTP expires in ${formatTime(timeLeft)}`
+    : "OTP Expired"}
+</Text>
 
     </View>
 
@@ -124,7 +160,13 @@ fontSize:30,
 fontWeight:"700",
 marginBottom:25
 },
-
+timer: {
+  marginTop: 18,
+  textAlign: "center",
+  fontSize: 15,
+  color: "#123C7B",
+  fontWeight: "600",
+},
 input:{
 borderWidth:1,
 borderColor:"#ddd",
