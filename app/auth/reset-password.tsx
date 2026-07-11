@@ -85,21 +85,27 @@ export default function ResetPassword() {
 
       <Text style={styles.title}>Reset Password</Text>
 
-      <TextInput
-        placeholder="New Password"
-        secureTextEntry
-        value={password}
-        onChangeText={setPassword}
-        style={styles.input}
-      />
+      <Text style={styles.label}>New Password</Text>
 
-      <TextInput
-        placeholder="Confirm Password"
-        secureTextEntry
-        value={confirmPassword}
-        onChangeText={setConfirmPassword}
-        style={styles.input}
-      />
+<TextInput
+  placeholder="New Password"
+  placeholderTextColor="#888"
+  secureTextEntry
+  value={password}
+  onChangeText={setPassword}
+  style={styles.input}
+/>
+
+<Text style={styles.label}>Confirm Password</Text>
+
+<TextInput
+  placeholder="Confirm Password"
+  placeholderTextColor="#888"
+  secureTextEntry
+  value={confirmPassword}
+  onChangeText={setConfirmPassword}
+  style={styles.input}
+/>
 
       <Pressable
         style={styles.button}
@@ -120,25 +126,37 @@ export default function ResetPassword() {
 
 const styles = StyleSheet.create({
 
-container:{
-flex:1,
-justifyContent:"center",
-padding:25,
-backgroundColor:"#fff"
+container: {
+  flex: 1,
+  justifyContent: "center",
+  padding: 25,
+  backgroundColor: "#F5F7FB",
 },
 
-title:{
-fontSize:28,
-fontWeight:"700",
-marginBottom:25
+title: {
+  fontSize: 28,
+  fontWeight: "700",
+  marginBottom: 25,
+  textAlign: "center",
+  color: "#123C7B",
 },
 
-input:{
-borderWidth:1,
-borderColor:"#ddd",
-padding:15,
-borderRadius:10,
-marginBottom:15
+input: {
+  borderWidth: 1,
+  borderColor: "#ddd",
+  padding: 15,
+  borderRadius: 10,
+  marginBottom: 15,
+  backgroundColor: "#fff",
+  color: "#000",
+  fontSize: 15,
+},
+
+label: {
+  fontSize: 16,
+  fontWeight: "600",
+  color: "#333",
+  marginBottom: 6,
 },
 
 button:{

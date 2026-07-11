@@ -94,29 +94,34 @@ async function register() {
     >
 
       <Text style={styles.title}>Create Account</Text>
+<Text style={styles.label}>Full Name</Text>
+ <TextInput
+  placeholder="Full Name"
+  placeholderTextColor="#888"
+  style={styles.input}
+  value={name}
+  onChangeText={setName}
+/>
+<Text style={styles.label}>Email</Text>
 
-      <TextInput
-        placeholder="Full Name"
-        style={styles.input}
-        value={name}
-        onChangeText={setName}
-      />
+<TextInput
+  placeholder="Email"
+  placeholderTextColor="#888"
+  style={styles.input}
+  value={email}
+  onChangeText={setEmail}
+  autoCapitalize="none"
+/>
+<Text style={styles.label}>Password</Text>
 
-      <TextInput
-        placeholder="Email"
-        style={styles.input}
-        value={email}
-        onChangeText={setEmail}
-        autoCapitalize="none"
-      />
-
-      <TextInput
-        placeholder="Password"
-        style={styles.input}
-        secureTextEntry
-        value={password}
-        onChangeText={setPassword}
-      />
+<TextInput
+  placeholder="Password"
+  placeholderTextColor="#888"
+  style={styles.input}
+  secureTextEntry
+  value={password}
+  onChangeText={setPassword}
+/>
 
       <Pressable
         style={styles.btn}
@@ -159,14 +164,21 @@ title:{
   textAlign:"center",
   color:"#123C7B"
 },
-
-input:{
-  borderWidth:1,
-  borderColor:"#ddd",
-  padding:14,
-  marginBottom:12,
-  borderRadius:10,
-  fontSize:15
+label: {
+  fontSize: 16,
+  fontWeight: "600",
+  color: "#333",
+  marginBottom: 6,
+},
+input: {
+  borderWidth: 1,
+  borderColor: "#ddd",
+  padding: 14,
+  marginBottom: 12,
+  borderRadius: 10,
+  fontSize: 15,
+  backgroundColor: "#fff",
+  color: "#000", // 👈 Add this
 },
 
 btn:{

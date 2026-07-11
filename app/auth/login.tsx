@@ -131,13 +131,15 @@ router.replace("/(tabs)");
 <Text style={styles.label}>Email</Text>
    {/* EMAIL */}
    <TextInput
-    placeholder="Email"
-    style={styles.input}
-    onChangeText={(text)=>{
-      setEmail(text);
-      setEmailError(""); // clear on typing
-    }}
-   />
+  placeholder="Email"
+  placeholderTextColor="#888"
+  style={styles.input}
+  value={email}
+  onChangeText={(text) => {
+    setEmail(text);
+    setEmailError("");
+  }}
+/>
 
    {/* 🔴 ERROR TEXT */}
    {emailError ? (
@@ -148,11 +150,13 @@ router.replace("/(tabs)");
   <Text style={styles.label}>Password</Text>
 <View style={styles.passwordContainer}>
   <TextInput
-    placeholder="Password"
-    style={styles.passwordInput}
-    secureTextEntry={!showPassword}
-    onChangeText={setPassword}
-  />
+  placeholder="Password"
+  placeholderTextColor="#888"
+  style={styles.passwordInput}
+  secureTextEntry={!showPassword}
+  value={password}
+  onChangeText={setPassword}
+/>
 
   <Pressable onPress={() => setShowPassword(!showPassword)}>
     <Ionicons
@@ -210,18 +214,19 @@ title:{
   color:"#123C7B"
 },
 
-input:{
- borderWidth:1,
- borderColor:"#E5E7EB",
- padding:14,
- marginBottom:10,
- borderRadius:12,
- backgroundColor:"#fff",
- fontSize:15,
- shadowColor:"#000",
- shadowOpacity:0.03,
- shadowRadius:4,
- elevation:2
+input: {
+  borderWidth: 1,
+  borderColor: "#E5E7EB",
+  padding: 14,
+  marginBottom: 10,
+  borderRadius: 12,
+  backgroundColor: "#fff",
+  fontSize: 15,
+  color: "#000",   // 👈 ye add karo
+  shadowColor: "#000",
+  shadowOpacity: 0.03,
+  shadowRadius: 4,
+  elevation: 2
 },
 label: {
   fontSize: 16,
@@ -284,6 +289,7 @@ passwordInput: {
   flex: 1,
   height: 56,
   fontSize: 16,
+  color: "#000", // 👈 ye add karo
 },
 footerLinks: {
   flexDirection: "row",

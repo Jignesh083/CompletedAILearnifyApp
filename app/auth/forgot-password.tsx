@@ -65,12 +65,15 @@ export default function ForgotPassword() {
 
       <Text style={styles.title}>Forgot Password</Text>
 
-      <TextInput
-        placeholder="Enter Email"
-        style={styles.input}
-        value={email}
-        onChangeText={setEmail}
-      />
+      <Text style={styles.label}>Email</Text>
+
+<TextInput
+  placeholder="Enter Email"
+  placeholderTextColor="#888"
+  style={styles.input}
+  value={email}
+  onChangeText={setEmail}
+/>
 
       <Pressable
   style={styles.btn}
@@ -104,14 +107,22 @@ fontSize:28,
 fontWeight:"700",
 marginBottom:20
 },
-
+label: {
+  fontSize: 16,
+  fontWeight: "600",
+  color: "#333",
+  marginBottom: 6,
+},
 input:{
 borderWidth:1,
 borderColor:"#ddd",
 padding:15,
 borderRadius:10,
 marginBottom:20,
-backgroundColor:"#fff"
+backgroundColor:"#fff",
+  color: "#000",
+    fontSize: 15,
+
 },
 
 btn:{

@@ -106,16 +106,17 @@ function formatTime(seconds) {
   return (
 
     <View style={styles.container}>
+<Text style={styles.title}>Verify OTP</Text>
+      <Text style={styles.label}>OTP</Text>
 
-      <Text style={styles.title}>Verify OTP</Text>
-
-      <TextInput
-        placeholder="Enter OTP"
-        keyboardType="number-pad"
-        value={otp}
-        onChangeText={setOtp}
-        style={styles.input}
-      />
+<TextInput
+  placeholder="Enter OTP"
+  placeholderTextColor="#888"
+  keyboardType="number-pad"
+  value={otp}
+  onChangeText={setOtp}
+  style={styles.input}
+/>
 
     <Pressable
   style={[
@@ -149,16 +150,25 @@ function formatTime(seconds) {
 
 const styles = StyleSheet.create({
 
-container:{
-flex:1,
-justifyContent:"center",
-padding:25
+container: {
+  flex: 1,
+  justifyContent: "center",
+  padding: 25,
+  backgroundColor: "#F5F7FB",
 },
 
-title:{
-fontSize:30,
-fontWeight:"700",
-marginBottom:25
+title: {
+  fontSize: 30,
+  fontWeight: "700",
+  marginBottom: 25,
+  textAlign: "center",
+  color: "#123C7B",
+},
+label: {
+  fontSize: 16,
+  fontWeight: "600",
+  color: "#333",
+  marginBottom: 6,
 },
 timer: {
   marginTop: 18,
@@ -167,12 +177,15 @@ timer: {
   color: "#123C7B",
   fontWeight: "600",
 },
-input:{
-borderWidth:1,
-borderColor:"#ddd",
-padding:15,
-borderRadius:10,
-marginBottom:20
+input: {
+  borderWidth: 1,
+  borderColor: "#ddd",
+  padding: 15,
+  borderRadius: 10,
+  marginBottom: 20,
+  backgroundColor: "#fff",
+  color: "#000",
+  fontSize: 15,
 },
 
 button:{

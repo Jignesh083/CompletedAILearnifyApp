@@ -443,35 +443,43 @@ console.log("❌ START ATTEMPT ERROR FULL:", e.message, e.stack);
 
     /* ================= DAILY QUIZ ================= */
 
-    app.get("/daily-quiz/:subject", async (req,res)=>{
-    try{
-      const prefix = req.params.subject+"%";
+  app.get("/daily-quiz/:subject", async (req, res) => {
 
-      const data = await pool.query(`
-      SELECT 
+  try {
+
+    const bundleKey = req.params.subject;
+
+    const data = await pool.query(`
+      SELECT
         q.id,
         q.question,
+        t.topic_key,
         json_agg(
-        json_build_object(
-          'id',o.id,
-          'text',o.option_text
-        )
-        ) as options
+          json_build_object(
+            'id', o.id,
+            'text', o.option_text
+          )
+        ) AS options
       FROM questions q
-      JOIN options o ON o.question_id=q.id
-      JOIN topics t ON t.id=q.topic_id
-      WHERE t.topic_key LIKE $1
-      GROUP BY q.id
+      JOIN options o ON o.question_id = q.id
+      JOIN topics t ON t.id = q.topic_id
+      WHERE t.bundle_key = $1
+      GROUP BY q.id, t.topic_key
       ORDER BY RANDOM()
       LIMIT 20
-      `,[prefix]);
+    `, [bundleKey]);
 
-      res.json(data.rows);
+    res.json(data.rows);
 
-    }catch(e){
-      res.status(500).json([]);
-    }
-    });
+  } catch (e) {
+
+    console.log(e);
+
+    res.status(500).json([]);
+
+  }
+
+});
 
 app.get("/subject/:subjectKey", async (req,res)=>{
   try{

@@ -114,6 +114,8 @@ let finalTopic = subject;
 if (subject === "dsa") {
   finalTopic = "dsa_intro"; // ya koi bhi valid topic
 }    
+console.log("SUBJECT =", subject);
+console.log("FINAL TOPIC =", finalTopic);
 console.log("FINAL TOPIC KEY:", finalTopic);
 
     const startRes = await fetch(`${API}/quiz/start`, {
