@@ -443,8 +443,7 @@ console.log("❌ START ATTEMPT ERROR FULL:", e.message, e.stack);
 
     /* ================= DAILY QUIZ ================= */
 
-  app.get("/daily-quiz/:subject", async (req, res) => {
-
+app.get("/daily-quiz/:subject", async (req, res) => {
   try {
 
     const bundleKey = req.params.subject;
@@ -473,12 +472,10 @@ console.log("❌ START ATTEMPT ERROR FULL:", e.message, e.stack);
 
   } catch (e) {
 
-    console.log(e);
-
+    console.log("DAILY QUIZ ERROR:", e);
     res.status(500).json([]);
 
   }
-
 });
 
 app.get("/subject/:subjectKey", async (req,res)=>{

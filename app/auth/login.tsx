@@ -11,7 +11,6 @@ import {
   View
 } from "react-native";
 import { API } from "../../config/api";
-import { playBackgroundMusic } from "../../services/musicService";
 // import { supabase } from "../../supabase";
 export default function Login(){
 
@@ -98,7 +97,7 @@ await AsyncStorage.setItem("user_id", String(data.user_id));
 await AsyncStorage.setItem("user_email", email);
 
 // Login successful → Start background music
-await playBackgroundMusic();
+// await playBackgroundMusic();
 
 router.replace("/(tabs)");
 

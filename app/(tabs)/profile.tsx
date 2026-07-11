@@ -4,6 +4,7 @@ import { useRouter } from 'expo-router';
 import { useEffect, useState } from 'react';
 import { Pressable, StyleSheet, Text, View } from 'react-native';
 import { API } from '../../config/api';
+import { stopBackgroundMusic } from "../../services/musicService";
 
 
 export default function Profile() {
@@ -46,9 +47,12 @@ const loadUser = async () => {
 
 const logout = async () => {
 
-  try{
+  try {
 
     setLoading(true);
+
+    // 🔥 Music stop karo
+    await stopBackgroundMusic();
 
     await AsyncStorage.multiRemove([
       'token',
@@ -59,11 +63,11 @@ const logout = async () => {
 
     router.replace('/auth/login');
 
-  }catch(error){
+  } catch (error) {
 
     console.log("Logout error", error);
 
-  }finally{
+  } finally {
 
     setLoading(false);
 

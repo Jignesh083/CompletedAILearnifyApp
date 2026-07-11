@@ -1,6 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import { useEffect, useReducer } from "react";
+import { useEffect, useReducer, useState } from "react";
 import {
   ActivityIndicator,
   Alert,
@@ -55,6 +55,7 @@ export default function DailyQuiz(){
   const params = useLocalSearchParams();
 const subject = String(params.subject || params.course || "");
   const [state, dispatch] = useReducer(reducer, initialState);
+  const [submitting, setSubmitting] = useState(false);
 
   const {loading,questions,current,answers} = state;
 
@@ -96,31 +97,34 @@ const subject = String(params.subject || params.course || "");
 
   /* ================= SUBMIT ================= */
 
-const submitQuiz = async (finalAnswers = answers)=>{
+const submitQuiz = async (finalAnswers = answers) => {
 
-  try{
+  setSubmitting(true);
+
+  try {
 
     const storedId = await AsyncStorage.getItem("user_id");
 
     if (!storedId) {
-      Alert.alert("Error","User not logged in");
+      Alert.alert("Error", "User not logged in");
       return;
     }
 
-    // 🔥 1. START ATTEMPT
-let finalTopic = subject;
+    const finalTopic = questions[0]?.topic_key;
 
-// 🔥 FIX for DSA
-if (subject === "dsa") {
-  finalTopic = "dsa_intro"; // ya koi bhi valid topic
-}    
-console.log("SUBJECT =", subject);
-console.log("FINAL TOPIC =", finalTopic);
-console.log("FINAL TOPIC KEY:", finalTopic);
+    console.log("SUBJECT =", subject);
+    console.log("FINAL TOPIC =", finalTopic);
+
+    if (!finalTopic) {
+      Alert.alert("Error", "Topic not found");
+      return;
+    }
 
     const startRes = await fetch(`${API}/quiz/start`, {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify({
         user_id: storedId,
         topic_key: finalTopic
@@ -136,20 +140,22 @@ console.log("FINAL TOPIC KEY:", finalTopic);
       return;
     }
 
-    const attemptIdLocal = startData.attempt_id; // ✅ IMPORTANT
+    const attemptIdLocal = startData.attempt_id;
 
-    // 🔥 2. FORMAT ANSWERS
-    const formatted = finalAnswers.map((optId:number, index:number)=>({
-      question_id: questions[index].id,
-      option_id: optId
-    }));
+    const formatted = finalAnswers.map(
+      (optId: number, index: number) => ({
+        question_id: questions[index].id,
+        option_id: optId
+      })
+    );
 
-    // 🔥 3. SUBMIT
     const res = await fetch(`${API}/quiz/submit-attempt`, {
-      method:"POST",
-      headers:{ "Content-Type":"application/json" },
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
       body: JSON.stringify({
-        attempt_id: attemptIdLocal,   // ✅ FIXED
+        attempt_id: attemptIdLocal,
         answers: formatted
       })
     });
@@ -158,19 +164,24 @@ console.log("FINAL TOPIC KEY:", finalTopic);
 
     console.log("SUBMIT RESPONSE:", data);
 
-    // 🔥 4. NAVIGATE
     router.replace({
-      pathname:"/quiz-result",
-      params:{
-        attempt_id:String(attemptIdLocal),
+      pathname: "/quiz-result",
+      params: {
+        attempt_id: String(attemptIdLocal),
         score: data.score || 0,
         total: questions.length
       }
     });
 
-  }catch(e){
+  } catch (e) {
+
     console.log("SUBMIT ERROR:", e);
-    Alert.alert("Error","Submit failed");
+    Alert.alert("Error", "Submit failed");
+
+  } finally {
+
+    setSubmitting(false);
+
   }
 
 };
@@ -184,6 +195,25 @@ console.log("FINAL TOPIC KEY:", finalTopic);
       </View>
     );
   }
+
+  if (submitting) {
+  return (
+    <View style={styles.center}>
+      <ActivityIndicator size="large" color="#123C7B" />
+
+      <Text
+        style={{
+          marginTop: 15,
+          fontSize: 16,
+          fontWeight: "600",
+          color: "#123C7B"
+        }}
+      >
+        Submitting quiz...
+      </Text>
+    </View>
+  );
+}
 
   if(!questions.length){
     return (

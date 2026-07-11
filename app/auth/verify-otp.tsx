@@ -34,7 +34,7 @@ useEffect(() => {
   return () => clearInterval(timer);
 
 }, [timeLeft]);
-function formatTime(seconds) {
+function formatTime(seconds: number) {
 
   const mins = Math.floor(seconds / 60);
 

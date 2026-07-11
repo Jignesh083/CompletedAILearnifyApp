@@ -3,6 +3,7 @@ import AsyncStorage from '@react-native-async-storage/async-storage';
 import { Tabs } from 'expo-router';
 import { useEffect, useRef } from 'react';
 import { API } from "../../config/api"; // ✅ GLOBAL API
+import { playBackgroundMusic } from "../../services/musicService";
 
 export default function TabLayout() {
 
@@ -55,6 +56,7 @@ useEffect(() => {
   };
 
   syncPurchases();
+  playBackgroundMusic();
 
 }, []);
 
