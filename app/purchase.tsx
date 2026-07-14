@@ -69,7 +69,7 @@ if (!topicsData.length) {
 }
 
 // First paid topic
-const paidTopic = topicsData.find(t => !t.is_free);
+const paidTopic = topicsData.find((t: { is_free: any; }) => !t.is_free);
 
 if (!paidTopic) {
   alert("No paid topic found");
@@ -132,7 +132,7 @@ console.log("TOPIC ID:", topicId);
     const options = {
       description:"Course Purchase",
       currency:"INR",
-      key:"rzp_live_SSgm493FHbxcNw",
+      key:"rzp_test_SSdNmerR0S9IsJ",
       amount:data.amount,
       name:"AILearnify",
       order_id:data.id,
