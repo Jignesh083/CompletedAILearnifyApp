@@ -14,7 +14,7 @@
     },
     "android": {
       "package": "com.jignesh83.aicoresystem",
-      "versionCode": 42,
+      "versionCode": 43,
       "adaptiveIcon": {
         "foregroundImage": "./assets/AppIcon.png",
         "backgroundColor": "#ffffff"
