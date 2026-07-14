@@ -8,7 +8,6 @@ import {
   Text,
   TextInput
 } from "react-native";
-import { supabase } from "../../supabase";
 
 export default function Register() {
 
@@ -38,6 +37,51 @@ export default function Register() {
     ]).start();
   },[]);
 
+// async function register() {
+
+//   if (!name || !email || !password) {
+//     Alert.alert("Error", "Please fill all fields");
+//     return;
+//   }
+
+//   try {
+
+//     setLoading(true);
+
+//     const { data, error } = await supabase
+//       .from('users')
+//       .insert([
+//         {
+//           name: name,
+//           email: email,
+//           password: password
+//         }
+//       ]);
+
+//     if (error) {
+//       console.log("Supabase Error:", error);
+//       Alert.alert("Error", error.message);
+//       return;
+//     }
+
+//     Alert.alert("Success", "Account created successfully");
+
+//     router.replace("/auth/login");
+
+//   } catch (err) {
+
+//     console.log("Register error:", err);
+//     Alert.alert("Server Error", "Something went wrong");
+
+//   } finally {
+
+//     setLoading(false);
+
+//   }
+// }
+
+
+
 async function register() {
 
   if (!name || !email || !password) {
@@ -49,36 +93,55 @@ async function register() {
 
     setLoading(true);
 
-    const { data, error } = await supabase
-      .from('users')
-      .insert([
-        {
-          name: name,
-          email: email,
-          password: password
-        }
-      ]);
+    const response = await fetch(
+      "https://ailearnifyapp-tbrt.onrender.com/auth/register",
+      {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+          name,
+          email,
+          password
+        })
+      }
+    );
 
-    if (error) {
-      console.log("Supabase Error:", error);
-      Alert.alert("Error", error.message);
+    const data = await response.json();
+
+    if (!response.ok || !data.success) {
+
+      Alert.alert(
+        "Error",
+        data.message || "Registration failed"
+      );
+
       return;
     }
 
-    Alert.alert("Success", "Account created successfully");
+    Alert.alert(
+      "Success",
+      "Account created successfully"
+    );
 
     router.replace("/auth/login");
 
   } catch (err) {
 
     console.log("Register error:", err);
-    Alert.alert("Server Error", "Something went wrong");
+
+    Alert.alert(
+      "Server Error",
+      "Something went wrong"
+    );
 
   } finally {
 
     setLoading(false);
 
   }
+
 }
 
   return(
