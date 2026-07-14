@@ -115,7 +115,7 @@ const d = await res.json();
       const options = {
         description: 'Reinforcement Learning Full Course',
         currency: 'INR',
-          key: 'rzp_test_SSdNmerR0S9IsJ', // 🔥 LIVE KEY FOR PRODUCTION
+          key: 'rzp_test_TDHIt45B1s20Hy', // 🔥 LIVE KEY FOR PRODUCTION
         amount: order.amount,
         order_id: order.id,
         name: 'AI Core Learning',
