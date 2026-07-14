@@ -132,7 +132,7 @@ console.log("TOPIC ID:", topicId);
     const options = {
       description:"Course Purchase",
       currency:"INR",
-      key:"rzp_test_TDHIt45B1s20Hy",
+      key:"rzp_live_SSgm493FHbxcNw",
       amount:data.amount,
       name:"AILearnify",
       order_id:data.id,
