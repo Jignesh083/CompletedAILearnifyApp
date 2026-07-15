@@ -138,6 +138,23 @@ canvas {
 <div class="container">
 
 <h1>🚀 AI Learnify Admin Dashboard</h1>
+<div style="
+  display:flex;
+  justify-content:flex-end;
+  margin-bottom:20px;
+">
+
+  <button
+    onclick="logout()"
+    style="
+      width:150px;
+      background:#ef4444;
+    "
+  >
+    Logout
+  </button>
+
+</div>
 
 <!-- STATS -->
 <div id="stats" class="section"></div>
@@ -209,6 +226,93 @@ if (!token) {
     "login.html";
 
 }
+
+const SESSION_TIMEOUT =
+  5 * 60 * 1000;
+
+function logout() {
+
+  localStorage.removeItem(
+    "adminToken"
+  );
+
+  localStorage.removeItem(
+    "lastActivity"
+  );
+
+  window.location.href =
+    "login.html";
+
+}
+
+function updateActivity() {
+
+  localStorage.setItem(
+    "lastActivity",
+    Date.now()
+  );
+
+}
+
+function checkSession() {
+
+  const lastActivity =
+    localStorage.getItem(
+      "lastActivity"
+    );
+
+  if (!lastActivity) {
+
+    logout();
+
+    return;
+
+  }
+
+  const diff =
+    Date.now() -
+    Number(lastActivity);
+
+  if (
+    diff > SESSION_TIMEOUT
+  ) {
+
+    alert(
+      "Session expired"
+    );
+
+    logout();
+
+  }
+
+}
+
+document.addEventListener(
+  "mousemove",
+  updateActivity
+);
+
+document.addEventListener(
+  "click",
+  updateActivity
+);
+
+document.addEventListener(
+  "keydown",
+  updateActivity
+);
+
+document.addEventListener(
+  "scroll",
+  updateActivity
+);
+
+updateActivity();
+
+setInterval(
+  checkSession,
+  10000
+);
 const BASE = "https://ailearnifyapp-tbrt.onrender.com";/* ============================
    QUIZ UPLOAD
 ============================ */
