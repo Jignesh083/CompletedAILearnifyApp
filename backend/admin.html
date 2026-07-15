@@ -199,7 +199,16 @@ canvas {
 </div>
 
 <script>
+const token = localStorage.getItem(
+  "adminToken"
+);
 
+if (!token) {
+
+  window.location.href =
+    "login.html";
+
+}
 const BASE = "https://ailearnifyapp-tbrt.onrender.com";/* ============================
    QUIZ UPLOAD
 ============================ */

@@ -3,6 +3,7 @@ require("dotenv").config();
     const express = require("express");
     const cors = require("cors");
 const bcrypt = require('bcryptjs');
+const jwt = require("jsonwebtoken");
     const Razorpay = require("razorpay");
     const http = require("http");
     const socketIo = require("socket.io");
@@ -15,7 +16,61 @@ const pool = require("./db");
 
 
 
+app.post("/admin/login", async (req, res) => {
 
+  try {
+
+    const { email, password } = req.body;
+
+    const admin = await pool.query(
+      "SELECT * FROM admins WHERE email = $1",
+      [email]
+    );
+
+    if (admin.rows.length === 0) {
+
+      return res.status(401).json({
+        success: false,
+        message: "Admin not found"
+      });
+
+    }
+
+    if (admin.rows[0].password !== password) {
+
+      return res.status(401).json({
+        success: false,
+        message: "Wrong password"
+      });
+
+    }
+
+    const token = jwt.sign(
+      {
+        id: admin.rows[0].id
+      },
+      process.env.JWT_SECRET,
+      {
+        expiresIn: "7d"
+      }
+    );
+
+    res.json({
+      success: true,
+      token
+    });
+
+  } catch (e) {
+
+    console.log(e);
+
+    res.status(500).json({
+      success: false
+    });
+
+  }
+
+});
 
 app.post("/auth/forgot-password", async (req, res) => {
   try {
