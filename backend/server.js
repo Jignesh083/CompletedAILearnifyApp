@@ -36,14 +36,30 @@ app.post("/admin/login", async (req, res) => {
 
     }
 
-    if (admin.rows[0].password !== password) {
+    // if (admin.rows[0].password !== password) {
 
-      return res.status(401).json({
+    //   return res.status(401).json({
+    //     success: false,
+    //     message: "Wrong password"
+    //   });
+
+    // }
+
+
+
+    const valid = await bcrypt.compare(
+    password,
+    admin.rows[0].password
+);
+
+if (!valid) {
+
+    return res.status(401).json({
         success: false,
         message: "Wrong password"
-      });
+    });
 
-    }
+}
 
     const token = jwt.sign(
       {
