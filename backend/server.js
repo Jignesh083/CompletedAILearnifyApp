@@ -871,6 +871,8 @@ const mammoth = require("mammoth");
 
 const upload = multer({ dest: "uploads/" });
 
+
+
 // 🔥 ADD THIS ROUTE
 app.post("/admin/upload-quiz", upload.single("file"), async (req, res) => {
   try {
@@ -883,7 +885,30 @@ const subjectName = req.body.subjectName;
     const text = result.value;
 
     const { splitTopics, parseQuestions, generateTopicKey } = require("./scripts/parser");
-const subject = await pool.query(
+// const subject = await pool.query(
+// `
+// SELECT id
+// FROM subjects
+// WHERE subject_key = $1
+// OR subject_name = $2
+// LIMIT 1
+// `,
+// [bundleKey, subjectName]
+// );
+
+// if(!subject.rows.length){
+
+//   return res.json({
+//     message:"Subject not found ❌"
+//   });
+
+// }
+
+// const subjectId = subject.rows[0].id;
+    
+// ================= SUBJECT =================
+
+let subject = await pool.query(
 `
 SELECT id
 FROM subjects
@@ -894,16 +919,40 @@ LIMIT 1
 [bundleKey, subjectName]
 );
 
-if(!subject.rows.length){
+let subjectId;
 
-  return res.json({
-    message:"Subject not found ❌"
-  });
+if (subject.rows.length > 0) {
+
+    console.log("✅ SUBJECT EXISTS");
+
+    subjectId = subject.rows[0].id;
+
+} else {
+
+    console.log("🆕 CREATING NEW SUBJECT");
+
+    const newSubject = await pool.query(
+`
+INSERT INTO subjects
+(
+subject_name,
+subject_key
+)
+VALUES
+($1,$2)
+RETURNING id
+`,
+[
+subjectName,
+bundleKey
+]
+);
+
+    subjectId = newSubject.rows[0].id;
 
 }
 
-const subjectId = subject.rows[0].id;
-    const topics = splitTopics(text);
+const topics = splitTopics(text);
     
     console.log("TOPICS FOUND:", topics.length);
 
@@ -917,10 +966,19 @@ console.log(JSON.stringify(topics, null, 2));
       const topicKey = generateTopicKey(t.topicName);
         console.log("TOPIC:", t.topicName);
 
-      let topic = await pool.query(
-        "SELECT id FROM topics WHERE topic_key = $1",
-        [topicKey]
-      );
+     let topic = await pool.query(
+`
+SELECT id
+FROM topics
+WHERE topic_key = $1
+AND subject_id = $2
+LIMIT 1
+`,
+[
+topicKey,
+subjectId
+]
+);
 
       let topicId;
 
